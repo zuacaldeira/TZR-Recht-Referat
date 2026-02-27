@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geschichte der Kinderrechte — Timeline</title>
+  <meta name="description" content="Interaktive Timeline der Kinderrechte von 1924 bis heute.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/pages/timeline.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Hauptnavigation">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="10" stroke="#03A9F4" stroke-width="2"/>
+          <path d="M12 6v6l4 2" stroke="#03A9F4" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Kinder<span>rechte</span>
+      </a>
+      <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-menu" role="menubar">
+        <a href="index.html" class="nav-link" role="menuitem">Start</a>
+        <a href="timeline.html" class="nav-link" role="menuitem">Geschichte</a>
+        <a href="articles.html" class="nav-link" role="menuitem">Artikel</a>
+        <a href="games.html" class="nav-link" role="menuitem">Spiele</a>
+        <a href="vermittlung.html" class="nav-link" role="menuitem">Vermittlung</a>
+      </div>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </nav>
+
+  <main class="page-content">
+    <section class="section">
+      <div class="container">
+        <div class="timeline-intro reveal">
+          <h1 class="section-title">Geschichte der Kinderrechte</h1>
+          <p class="section-subtitle">
+            Von der Genfer Erklärung 1924 bis zu den Herausforderungen der Gegenwart —
+            über 100 Jahre Kampf für die Rechte der Kinder.
+          </p>
+        </div>
+
+        <div class="timeline-scroll-hint" aria-hidden="true">
+          <span>&larr;</span> Horizontal scrollen <span>&rarr;</span>
+        </div>
+
+        <div class="timeline" id="timeline" role="list" aria-label="Timeline der Kinderrechte">
+          <!-- Rendered by timeline.js -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-info">
+          <h3>Kinderrechte</h3>
+          <p>Schulreferat zur UN-Kinderrechtskonvention<br>Fach Recht &middot; Lehrer Uwe Otto</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer-Navigation">
+          <a href="index.html">Start</a>
+          <a href="timeline.html">Geschichte</a>
+          <a href="articles.html">Artikel</a>
+          <a href="games.html">Spiele</a>
+          <a href="vermittlung.html">Vermittlung</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Lydia Howe &amp; Alexandre Zua Caldeira. Erstellt für den Unterricht.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data/timeline-data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/timeline.js"></script>
+</body>
+</html>
