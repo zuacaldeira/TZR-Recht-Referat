@@ -1,0 +1,76 @@
+/* ===== VERMITTLUNG PAGE ===== */
+.vermittlung-section {
+  padding: var(--space-2xl) 0;
+}
+
+.vermittlung-section:nth-child(even) {
+  background: var(--color-white);
+}
+
+.vermittlung-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.vermittlung-section:nth-child(even) .vermittlung-card {
+  background: var(--color-bg);
+}
+
+.vermittlung-card h3 {
+  font-size: var(--fs-lg);
+  margin-bottom: var(--space-md);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.vermittlung-card h3 .icon {
+  font-size: var(--fs-xl);
+  flex-shrink: 0;
+}
+
+.vermittlung-card p,
+.vermittlung-card li {
+  font-size: var(--fs-sm);
+  color: var(--color-gray-dark);
+  line-height: 1.8;
+}
+
+.vermittlung-card ul {
+  padding-left: var(--space-lg);
+  list-style: disc;
+}
+
+.vermittlung-card ul li {
+  margin-bottom: var(--space-xs);
+}
+
+/* Section accent bars */
+.vermittlung-accent {
+  width: 60px;
+  height: 4px;
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-lg);
+}
+
+.vermittlung-accent--kinder { background: var(--color-development); }
+.vermittlung-accent--eltern { background: var(--color-survival); }
+.vermittlung-accent--schutz { background: var(--color-protection); }
+.vermittlung-accent--zukunft { background: var(--color-participation); }
+
+/* Discussion questions */
+.discussion-section {
+  padding: var(--space-3xl) 0;
+}
+
+.discussion-intro {
+  max-width: 600px;
+  margin: 0 auto var(--space-xl);
+  text-align: center;
+  font-size: var(--fs-sm);
+  color: var(--color-gray-dark);
+  line-height: 1.7;
+}
