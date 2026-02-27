@@ -14,6 +14,9 @@
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/pages/home.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#03A9F4">
+  <link rel="apple-touch-icon" href="assets/images/icons/icon-192.png">
 </head>
 <body>
   <!-- Navigation -->
@@ -171,5 +174,6 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>if("serviceWorker" in navigator) navigator.serviceWorker.register("/sw.js");</script>
 </body>
 </html>
