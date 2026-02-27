@@ -1,4 +1,4 @@
-const CACHE_NAME = 'kinderrechte-v5';
+const CACHE_NAME = 'kinderrechte-v6';
 const ASSETS = [
   '/',
   '/index.html',
@@ -11,6 +11,7 @@ const ASSETS = [
   '/css/layout.css',
   '/css/components.css',
   '/css/animations.css',
+  '/css/presentation.css',
   '/css/pages/home.css',
   '/css/pages/timeline.css',
   '/css/pages/articles.css',
@@ -20,6 +21,7 @@ const ASSETS = [
   '/js/timeline.js',
   '/js/articles.js',
   '/js/games.js',
+  '/js/presentation.js',
   '/js/data/timeline-data.js',
   '/js/data/articles-data.js',
   '/js/data/quiz-data.js'

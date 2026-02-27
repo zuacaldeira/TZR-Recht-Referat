@@ -36,6 +36,31 @@
   color: var(--color-participation);
 }
 
+/* Play button (presentation) */
+.nav-play {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-participation);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.nav-play:hover {
+  background: #0288D1;
+  transform: scale(1.1);
+}
+
+.nav-play:active {
+  transform: scale(0.95);
+}
+
 .nav-toggle {
   display: flex;
   flex-direction: column;
