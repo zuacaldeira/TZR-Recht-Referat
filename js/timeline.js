@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   renderTimeline();
   initTimelineInteraction();
+  initScrollReveal(); // re-observe dynamically added .reveal elements
 });
 
 function renderTimeline() {
