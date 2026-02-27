@@ -114,6 +114,11 @@
   .timeline {
     display: flex;
     overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .timeline::-webkit-scrollbar {
+    display: none;
     gap: var(--space-lg);
     padding: var(--space-3xl) var(--space-md);
     scroll-snap-type: x mandatory;
