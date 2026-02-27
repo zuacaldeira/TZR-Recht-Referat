@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   renderTimeline();
   initTimelineInteraction();
-  initScrollReveal(); // re-observe dynamically added .reveal elements
+  initScrollReveal();
+  initProgressLine();
 });
 
 function renderTimeline() {
@@ -9,11 +10,11 @@ function renderTimeline() {
   if (!container || typeof TIMELINE_DATA === 'undefined') return;
 
   container.innerHTML = TIMELINE_DATA.map((item, i) => `
-    <div class="timeline-item reveal" data-index="${i}" tabindex="0" role="button"
+    <div class="timeline-item" data-index="${i}" tabindex="0" role="button"
          aria-expanded="false" aria-label="${item.year}: ${item.title}">
       <div class="timeline-dot" style="background: ${item.color}"></div>
       <div class="timeline-year">${item.year}</div>
-      <div class="timeline-card" style="border-color: ${item.color}">
+      <div class="timeline-card" style="border-left-color: ${item.color}">
         <h3>${item.title}</h3>
         <p class="summary">${item.summary}</p>
         <div class="details" aria-hidden="true">
@@ -31,14 +32,12 @@ function initTimelineInteraction() {
   const container = document.getElementById('timeline');
   if (!container) return;
 
-  // Click to expand
   container.addEventListener('click', (e) => {
     const item = e.target.closest('.timeline-item');
     if (!item) return;
     toggleItem(item);
   });
 
-  // Keyboard navigation
   container.addEventListener('keydown', (e) => {
     const item = e.target.closest('.timeline-item');
     if (!item) return;
@@ -52,12 +51,10 @@ function initTimelineInteraction() {
         e.preventDefault();
         toggleItem(item);
         break;
-      case 'ArrowRight':
       case 'ArrowDown':
         e.preventDefault();
         if (index < items.length - 1) items[index + 1].focus();
         break;
-      case 'ArrowLeft':
       case 'ArrowUp':
         e.preventDefault();
         if (index > 0) items[index - 1].focus();
@@ -68,16 +65,28 @@ function initTimelineInteraction() {
 
 function toggleItem(item) {
   const isActive = item.classList.contains('active');
-  // Close all
   item.parentElement.querySelectorAll('.timeline-item.active').forEach(el => {
     el.classList.remove('active');
     el.setAttribute('aria-expanded', 'false');
     el.querySelector('.details').setAttribute('aria-hidden', 'true');
   });
-  // Open clicked (if wasn't open)
   if (!isActive) {
     item.classList.add('active');
     item.setAttribute('aria-expanded', 'true');
     item.querySelector('.details').setAttribute('aria-hidden', 'false');
   }
+}
+
+function initProgressLine() {
+  const container = document.getElementById('timeline');
+  if (!container) return;
+
+  window.addEventListener('scroll', () => {
+    const rect = container.getBoundingClientRect();
+    const containerTop = rect.top + window.scrollY;
+    const containerHeight = rect.height;
+    const scrolled = window.scrollY + window.innerHeight * 0.5 - containerTop;
+    const progress = Math.min(Math.max(scrolled / containerHeight * 100, 0), 100);
+    container.style.setProperty('--progress', progress + '%');
+  }, { passive: true });
 }

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'kinderrechte-v2';
+const CACHE_NAME = 'kinderrechte-v3';
 const ASSETS = [
   '/',
   '/index.html',
