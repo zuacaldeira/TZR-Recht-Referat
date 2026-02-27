@@ -3,29 +3,43 @@
   'use strict';
 
   /* -- Category config -- */
-  const CATEGORIES = {
+  var CATEGORIES = {
     survival: { name: 'Überleben', color: '#FF9800', icon: '❤️' },
     development: { name: 'Entwicklung', color: '#4CAF50', icon: '🎓' },
     protection: { name: 'Schutz', color: '#E91E63', icon: '🛡️' },
     participation: { name: 'Beteiligung', color: '#03A9F4', icon: '👥' }
   };
 
-  const CATEGORY_BG = {
+  var CATEGORY_BG = {
     survival: 'rgba(255, 152, 0, 0.15)',
     development: 'rgba(76, 175, 80, 0.15)',
     protection: 'rgba(233, 30, 99, 0.15)',
     participation: 'rgba(3, 169, 244, 0.15)'
   };
 
+  /* -- Slide type icons for grid view -- */
+  var TYPE_ICONS = {
+    hero: '🎬',
+    title: '📌',
+    overview: '📊',
+    category: '🏷️',
+    timeline: '🕰️',
+    article: '📄',
+    info: '📋',
+    question: '❓',
+    end: '🎉'
+  };
+
   /* -- Build PRESENTATION_SLIDES -- */
   function buildSlides() {
-    const slides = [];
+    var slides = [];
 
-    /* 1 — Title */
+    /* 1 — Hero (was title) */
     slides.push({
-      type: 'title',
+      type: 'hero',
       title: 'Kinderrechte',
-      subtitle: 'Die UN-Kinderrechtskonvention — Geschichte, Artikel & Vermittlung'
+      subtitle: 'Die UN-Kinderrechtskonvention — Geschichte, Artikel & Vermittlung',
+      notes: 'Begrüßung. Thema vorstellen: UN-KRK, 54 Artikel, seit 1989.'
     });
 
     /* 2 — Overview: 4 Grundprinzipien */
@@ -38,52 +52,53 @@
         { label: 'Entwicklung', desc: 'Bildung, Spiel, Freizeit', color: '#4CAF50' },
         { label: 'Schutz', desc: 'Vor Gewalt, Missbrauch, Ausbeutung', color: '#E91E63' },
         { label: 'Beteiligung', desc: 'Meinungsäußerung, Mitbestimmung', color: '#03A9F4' }
-      ]
+      ],
+      notes: 'Vier Grundprinzipien erklären. Jede Kategorie kurz ansprechen.'
     });
 
     /* 3–6 — Each category */
     slides.push({
-      type: 'category',
-      key: 'survival',
+      type: 'category', key: 'survival',
       title: 'Überleben',
       text: 'Recht auf Leben, Gesundheit, Ernährung und angemessenen Lebensstandard',
-      icon: '❤️',
-      color: '#FF9800'
+      icon: '❤️', color: '#FF9800',
+      notes: 'Art. 6 (Leben), Art. 24 (Gesundheit), Art. 27 (Lebensstandard).'
     });
     slides.push({
-      type: 'category',
-      key: 'development',
+      type: 'category', key: 'development',
       title: 'Entwicklung',
       text: 'Recht auf Bildung, Spiel, Freizeit, kulturelle Aktivitäten und Information',
-      icon: '🎓',
-      color: '#4CAF50'
+      icon: '🎓', color: '#4CAF50',
+      notes: 'Art. 28/29 (Bildung), Art. 31 (Spiel/Freizeit), Art. 17 (Information).'
     });
     slides.push({
-      type: 'category',
-      key: 'protection',
+      type: 'category', key: 'protection',
       title: 'Schutz',
       text: 'Schutz vor Gewalt, Missbrauch, Ausbeutung und Diskriminierung',
-      icon: '🛡️',
-      color: '#E91E63'
+      icon: '🛡️', color: '#E91E63',
+      notes: 'Art. 19 (Gewalt), Art. 32 (Kinderarbeit), Art. 2 (Diskriminierung).'
     });
     slides.push({
-      type: 'category',
-      key: 'participation',
+      type: 'category', key: 'participation',
       title: 'Beteiligung',
       text: 'Recht auf Meinungsäußerung, Mitbestimmung und freie Entfaltung',
-      icon: '👥',
-      color: '#03A9F4'
+      icon: '👥', color: '#03A9F4',
+      notes: 'Art. 12 (Meinung), Art. 13 (freie Meinungsäußerung), Art. 15 (Vereinigung).'
     });
 
     /* 7 — Timeline title */
     slides.push({
       type: 'title',
       title: 'Geschichte der Kinderrechte',
-      subtitle: 'Von 1924 bis heute — über 100 Jahre Kampf für die Rechte der Kinder'
+      subtitle: 'Von 1924 bis heute — über 100 Jahre Kampf für die Rechte der Kinder',
+      notes: 'Überleitung: Wie haben sich Kinderrechte historisch entwickelt?'
     });
 
     /* 8–18 — Timeline events */
+    var timelineIndex = 0;
+    var timelineTotal = 0;
     if (typeof TIMELINE_DATA !== 'undefined') {
+      timelineTotal = TIMELINE_DATA.length;
       TIMELINE_DATA.forEach(function (ev) {
         slides.push({
           type: 'timeline',
@@ -91,8 +106,11 @@
           title: ev.title,
           summary: ev.summary,
           details: ev.details,
-          color: ev.color
+          color: ev.color,
+          timelineIndex: timelineIndex,
+          timelineTotal: timelineTotal
         });
+        timelineIndex++;
       });
     }
 
@@ -100,7 +118,8 @@
     slides.push({
       type: 'title',
       title: 'Die 54 Artikel',
-      subtitle: 'Die UN-Kinderrechtskonvention enthält 54 Artikel. Wir schauen uns die 10 wichtigsten Schlüsselartikel an.'
+      subtitle: 'Die UN-Kinderrechtskonvention enthält 54 Artikel. Wir schauen uns die 10 wichtigsten Schlüsselartikel an.',
+      notes: 'Überleitung zu den Schlüsselartikeln.'
     });
 
     /* 20–29 — 10 key articles */
@@ -116,7 +135,8 @@
           full: art.full,
           category: art.category,
           categoryName: cat.name,
-          categoryColor: cat.color
+          categoryColor: cat.color,
+          notes: 'Artikel ' + art.id + ': ' + art.title + ' — Kategorie ' + cat.name + '.'
         });
       });
     }
@@ -132,7 +152,8 @@
         'Sekundarstufe (10–18): Planspiele, Debatten, Fallstudien',
         'UNICEF-Kinderrechte-Schulen: Kinderrechte als gelebte Praxis',
         'Digitale Medien: Interaktive Websites, Apps und Videos'
-      ]
+      ],
+      notes: 'Altersgerechte Vermittlung betonen. UNICEF-Schulen als Best Practice.'
     });
 
     /* 31 — Vermittlung an Eltern */
@@ -146,7 +167,8 @@
         'Beratungsstellen: Erziehungsberatung, Familienberatung, Frühe Hilfen',
         'Seit 2000: Recht auf gewaltfreie Erziehung (§ 1631 Abs. 2 BGB)',
         'Eltern als wichtigste Vermittler im Alltag'
-      ]
+      ],
+      notes: 'Gewaltfreie Erziehung seit 2000 gesetzlich verankert.'
     });
 
     /* 32 — Schutz in Deutschland */
@@ -160,7 +182,8 @@
         'BGB § 1631 Abs. 2: Recht auf gewaltfreie Erziehung',
         'Nummer gegen Kummer: 116 111 (Kinder) / 0800 111 0550 (Eltern)',
         'Kinderschutzbund, Jugendbeauftragte, Online-Beratung'
-      ]
+      ],
+      notes: 'Jugendamt und Grundgesetz als Schutzpfeiler. Beratungsnummern erwähnen.'
     });
 
     /* 33 — Zukunft */
@@ -174,7 +197,8 @@
         'Klimawandel: Bedrohung für Gesundheit, Wasser, Nahrung, Zukunft',
         'Kinder als Akteure: Fridays for Future, Jugendparlamente',
         'EU-Strategie „Digital Rights for Children"'
-      ]
+      ],
+      notes: 'Zukunftsthemen: Digitalisierung, Klima, GG-Verankerung.'
     });
 
     /* 34 — Diskussionsfragen */
@@ -187,7 +211,8 @@
         'Brauchen wir neue Kinderrechte für die digitale Welt?',
         'Was kann jeder Einzelne für Kinderrechte tun?',
         'Welche Kinderrechte werden weltweit am häufigsten verletzt?'
-      ]
+      ],
+      notes: 'Klasse einbeziehen. Jede Frage kurz anmoderieren.'
     });
 
     /* 35 — End */
@@ -196,7 +221,8 @@
       title: 'Vielen Dank!',
       subtitle: 'Fragen & Diskussion',
       authors: 'Lydia Howe & Alexandre Zua Caldeira',
-      meta: 'Fach: Recht · Lehrer: Uwe Otto · 06. März 2026'
+      meta: 'Fach: Recht · Lehrer: Uwe Otto · 06. März 2026',
+      notes: 'Danke sagen. QR-Code zeigen. Für Fragen offen bleiben.'
     });
 
     return slides;
@@ -207,6 +233,15 @@
     var html = '';
 
     switch (slide.type) {
+      case 'hero':
+        html = '<div class="pres-slide pres-slide--hero">' +
+          '<div class="pres-title">' + escHtml(slide.title) + '</div>' +
+          '<div class="pres-subtitle">' + escHtml(slide.subtitle) + '</div>' +
+          '<div class="pres-hero-authors">Lydia Howe & Alexandre Zua Caldeira</div>' +
+          '<div class="pres-hero-meta">Fach: Recht · Lehrer: Uwe Otto · 06. März 2026</div>' +
+          '</div>';
+        break;
+
       case 'title':
         html = '<div class="pres-slide pres-slide--title">' +
           '<div class="pres-title">' + escHtml(slide.title) + '</div>' +
@@ -229,8 +264,9 @@
         break;
 
       case 'category':
-        html = '<div class="pres-slide pres-slide--category">' +
-          '<div class="pres-icon" style="background: ' + slide.color + '">' + slide.icon + '</div>' +
+        var catGradient = 'linear-gradient(135deg, ' + slide.color + '22 0%, #1a1a2e 60%, #16213e 100%)';
+        html = '<div class="pres-slide pres-slide--category" style="background: ' + catGradient + '">' +
+          '<div class="pres-icon" style="background: ' + slide.color + '; box-shadow: 0 0 80px ' + slide.color + '40">' + slide.icon + '</div>' +
           '<div class="pres-title" style="color: ' + slide.color + '">' + escHtml(slide.title) + '</div>' +
           '<div class="pres-text">' + escHtml(slide.text) + '</div>' +
           '</div>';
@@ -241,11 +277,24 @@
           .replace('var(--color-development)', '#4CAF50')
           .replace('var(--color-protection)', '#E91E63')
           .replace('var(--color-participation)', '#03A9F4');
+
+        /* Timeline progress dots */
+        var dotsHtml = '';
+        for (var d = 0; d < slide.timelineTotal; d++) {
+          var dotClass = 'pres-timeline-dot ';
+          if (d < slide.timelineIndex) dotClass += 'pres-timeline-dot--done';
+          else if (d === slide.timelineIndex) dotClass += 'pres-timeline-dot--active';
+          else dotClass += 'pres-timeline-dot--inactive';
+          dotsHtml += '<span class="' + dotClass + '"></span>';
+        }
+        dotsHtml += '<span class="pres-timeline-label">' + (slide.timelineIndex + 1) + ' / ' + slide.timelineTotal + '</span>';
+
         html = '<div class="pres-slide pres-slide--timeline">' +
           '<div class="pres-year" style="color: ' + yearColor + '">' + slide.year + '</div>' +
           '<div class="pres-title">' + escHtml(slide.title) + '</div>' +
           '<div class="pres-summary">' + escHtml(slide.summary) + '</div>' +
           '<div class="pres-details">' + escHtml(slide.details) + '</div>' +
+          '<div class="pres-timeline-progress">' + dotsHtml + '</div>' +
           '</div>';
         break;
 
@@ -306,16 +355,19 @@
   var slideContainer = null;
   var counterEl = null;
   var progressEl = null;
+  var notesEl = null;
   var prevBtn = null;
   var nextBtn = null;
   var slides = [];
   var currentSlide = 0;
   var touchStartX = 0;
   var touchStartY = 0;
+  var gridOpen = false;
 
   function startPresentation() {
     slides = buildSlides();
     currentSlide = 0;
+    gridOpen = false;
 
     /* Create overlay */
     overlay = document.createElement('div');
@@ -325,6 +377,7 @@
       '<button class="pres-nav pres-nav--prev" aria-label="Vorherige Folie">&#9665;</button>' +
       '<button class="pres-nav pres-nav--next" aria-label="Nächste Folie">&#9655;</button>' +
       '<div class="pres-slide-container"></div>' +
+      '<div class="pres-notes"></div>' +
       '<div class="pres-counter"></div>' +
       '<div class="pres-progress"></div>';
 
@@ -335,6 +388,7 @@
     slideContainer.style.cssText = 'flex:1;display:flex;width:100%;';
     counterEl = overlay.querySelector('.pres-counter');
     progressEl = overlay.querySelector('.pres-progress');
+    notesEl = overlay.querySelector('.pres-notes');
     prevBtn = overlay.querySelector('.pres-nav--prev');
     nextBtn = overlay.querySelector('.pres-nav--next');
 
@@ -371,18 +425,96 @@
 
     var oldSlide = slideContainer.querySelector('.pres-slide');
 
-    if (oldSlide) {
-      oldSlide.classList.add('fade-out');
-      setTimeout(function () {
-        slideContainer.innerHTML = renderSlide(slides[n]);
-        currentSlide = n;
-        updateUI();
-      }, 200);
-    } else {
+    function renderAndAnimate() {
       slideContainer.innerHTML = renderSlide(slides[n]);
       currentSlide = n;
       updateUI();
+      applyStaggerAnimation();
+      updateNotes();
     }
+
+    if (oldSlide) {
+      oldSlide.classList.add('fade-out');
+      setTimeout(renderAndAnimate, 200);
+    } else {
+      renderAndAnimate();
+    }
+  }
+
+  /* 1. Staggered entry animations */
+  function applyStaggerAnimation() {
+    var slide = slideContainer.querySelector('.pres-slide');
+    if (!slide) return;
+    var children = slide.children;
+    requestAnimationFrame(function () {
+      for (var i = 0; i < children.length; i++) {
+        children[i].classList.add('pres-animate');
+        children[i].style.animationDelay = (i * 150) + 'ms';
+      }
+    });
+  }
+
+  /* 6. Speaker notes */
+  function updateNotes() {
+    if (!notesEl) return;
+    var slide = slides[currentSlide];
+    if (slide && slide.notes) {
+      notesEl.textContent = slide.notes;
+    } else {
+      notesEl.textContent = '';
+    }
+  }
+
+  function toggleNotes() {
+    if (!overlay) return;
+    overlay.classList.toggle('show-notes');
+  }
+
+  /* 5. Grid overlay */
+  function toggleGrid() {
+    if (gridOpen) {
+      closeGrid();
+    } else {
+      openGrid();
+    }
+  }
+
+  function openGrid() {
+    if (!overlay || gridOpen) return;
+    gridOpen = true;
+
+    var gridEl = document.createElement('div');
+    gridEl.className = 'pres-grid-overlay';
+
+    slides.forEach(function (slide, idx) {
+      var thumb = document.createElement('div');
+      thumb.className = 'pres-grid-thumb';
+      if (idx === currentSlide) thumb.className += ' pres-grid-thumb--active';
+
+      var icon = TYPE_ICONS[slide.type] || '📌';
+      var title = slide.title || slide.year || 'Slide';
+
+      thumb.innerHTML =
+        '<span class="pres-grid-thumb-num">Folie ' + (idx + 1) + '</span>' +
+        '<span class="pres-grid-thumb-icon">' + icon + '</span>' +
+        '<span class="pres-grid-thumb-title">' + escHtml(String(title)) + '</span>';
+
+      thumb.addEventListener('click', function () {
+        closeGrid();
+        showSlide(idx);
+      });
+
+      gridEl.appendChild(thumb);
+    });
+
+    overlay.appendChild(gridEl);
+  }
+
+  function closeGrid() {
+    if (!overlay) return;
+    var gridEl = overlay.querySelector('.pres-grid-overlay');
+    if (gridEl) gridEl.remove();
+    gridOpen = false;
   }
 
   function nextSlide() {
@@ -406,25 +538,39 @@
     if (!overlay) return;
 
     switch (e.key) {
+      case 'Escape':
+        e.preventDefault();
+        if (gridOpen) {
+          closeGrid();
+        } else {
+          stopPresentation();
+        }
+        break;
       case 'ArrowRight':
       case ' ':
       case 'Enter':
         e.preventDefault();
-        nextSlide();
+        if (!gridOpen) nextSlide();
         break;
       case 'ArrowLeft':
       case 'Backspace':
         e.preventDefault();
-        prevSlide();
-        break;
-      case 'Escape':
-        e.preventDefault();
-        stopPresentation();
+        if (!gridOpen) prevSlide();
         break;
       case 'f':
       case 'F':
         e.preventDefault();
         tryFullscreen();
+        break;
+      case 'g':
+      case 'G':
+        e.preventDefault();
+        toggleGrid();
+        break;
+      case 'n':
+      case 'N':
+        e.preventDefault();
+        toggleNotes();
         break;
     }
   }
