@@ -6,10 +6,11 @@
 }
 
 .hero-title {
-  font-size: var(--fs-2xl);
+  font-size: var(--fs-xl);
   margin-bottom: var(--space-md);
   line-height: 1.2;
   word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .hero-title span {
@@ -38,7 +39,7 @@
   }
 
   .hero-title {
-    font-size: var(--fs-4xl);
+    font-size: var(--fs-2xl);
   }
 
   .hero-subtitle {
@@ -47,6 +48,10 @@
 }
 
 @media (min-width: 1024px) {
+  .hero-title {
+    font-size: var(--fs-4xl);
+  }
+
   .section-title {
     font-size: var(--fs-3xl);
   }
