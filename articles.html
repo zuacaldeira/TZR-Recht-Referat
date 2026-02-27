@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>54 Artikel — UN-Kinderrechtskonvention</title>
+  <meta name="description" content="Alle 54 Artikel der UN-Kinderrechtskonvention als interaktive Karten mit Filter und Suche.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/pages/articles.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Hauptnavigation">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="10" stroke="#03A9F4" stroke-width="2"/>
+          <path d="M12 6v6l4 2" stroke="#03A9F4" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Kinder<span>rechte</span>
+      </a>
+      <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-menu" role="menubar">
+        <a href="index.html" class="nav-link" role="menuitem">Start</a>
+        <a href="timeline.html" class="nav-link" role="menuitem">Geschichte</a>
+        <a href="articles.html" class="nav-link" role="menuitem">Artikel</a>
+        <a href="games.html" class="nav-link" role="menuitem">Spiele</a>
+        <a href="vermittlung.html" class="nav-link" role="menuitem">Vermittlung</a>
+      </div>
+    </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+  </nav>
+
+  <main class="page-content">
+    <section class="section">
+      <div class="container">
+        <h1 class="section-title reveal">Die 54 Artikel</h1>
+        <p class="section-subtitle reveal">
+          Alle Artikel der UN-Kinderrechtskonvention. Klicke auf eine Karte, um den vollständigen Text zu lesen.
+        </p>
+
+        <!-- Controls -->
+        <div class="articles-controls reveal">
+          <input type="text" id="articles-search" class="search-input articles-search"
+                 placeholder="Artikel suchen..." aria-label="Artikel durchsuchen">
+
+          <div class="filter-group">
+            <button class="filter-btn active" data-category="all">Alle</button>
+            <button class="filter-btn" data-category="survival" style="--hover-color: var(--color-survival)">Überleben</button>
+            <button class="filter-btn" data-category="development" style="--hover-color: var(--color-development)">Entwicklung</button>
+            <button class="filter-btn" data-category="protection" style="--hover-color: var(--color-protection)">Schutz</button>
+            <button class="filter-btn" data-category="participation" style="--hover-color: var(--color-participation)">Beteiligung</button>
+          </div>
+
+          <label class="key-toggle">
+            <input type="checkbox" id="key-toggle">
+            Nur Schlüsselartikel
+          </label>
+        </div>
+
+        <p id="articles-count" class="articles-count reveal"></p>
+
+        <div id="articles-grid" class="articles-grid">
+          <!-- Rendered by articles.js -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-info">
+          <h3>Kinderrechte</h3>
+          <p>Schulreferat zur UN-Kinderrechtskonvention<br>Fach Recht &middot; Lehrer Uwe Otto</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer-Navigation">
+          <a href="index.html">Start</a>
+          <a href="timeline.html">Geschichte</a>
+          <a href="articles.html">Artikel</a>
+          <a href="games.html">Spiele</a>
+          <a href="vermittlung.html">Vermittlung</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Lydia Howe &amp; Alexandre Zua Caldeira. Erstellt für den Unterricht.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data/articles-data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/articles.js"></script>
+</body>
+</html>
