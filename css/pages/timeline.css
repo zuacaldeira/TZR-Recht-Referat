@@ -115,14 +115,18 @@
     display: flex;
     overflow-x: auto;
     scrollbar-width: none;
-  }
-
-  .timeline::-webkit-scrollbar {
-    display: none;
     gap: var(--space-lg);
     padding: var(--space-3xl) var(--space-md);
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    padding-left: var(--space-xl);
+    padding-right: var(--space-xl);
+  }
+
+  .timeline::-webkit-scrollbar {
+    display: none;
   }
 
   .timeline::before {
@@ -135,8 +139,8 @@
   }
 
   .timeline-item {
-    min-width: 280px;
-    max-width: 320px;
+    min-width: 300px;
+    max-width: 350px;
     flex-shrink: 0;
     padding-left: 0;
     padding-top: 72px;
