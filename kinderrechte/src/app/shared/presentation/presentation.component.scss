@@ -1150,6 +1150,55 @@
   }
 }
 
+/* ===== BACKGROUND IMAGE OVERLAY ===== */
+
+.pres-slide.has-bg-image {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  > * {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.pres-slide--hero.has-bg-image {
+  &::after {
+    background: linear-gradient(135deg, rgba(255, 152, 0, 0.6), rgba(76, 175, 80, 0.6), rgba(233, 30, 99, 0.6), rgba(3, 169, 244, 0.6));
+    background-size: 300% 300%;
+    animation: pres-gradientShift 30s ease infinite;
+  }
+}
+
+.pres-slide--section.has-bg-image {
+  &::after {
+    background: rgba(26, 26, 46, 0.7);
+  }
+
+  &.bg-warm::after { background: rgba(45, 27, 0, 0.7); }
+  &.bg-purple::after { background: rgba(26, 10, 46, 0.7); }
+  &.bg-red::after { background: rgba(46, 10, 10, 0.7); }
+  &.bg-cool::after { background: rgba(10, 30, 46, 0.7); }
+  &.bg-green::after { background: rgba(10, 46, 26, 0.7); }
+}
+
 /* ===== ARTICLE GROUP HEADER ===== */
 
 .pres-ag-header {

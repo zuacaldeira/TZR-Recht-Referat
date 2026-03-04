@@ -60,6 +60,8 @@ export interface PresentationSlide {
   events?: TimelineBrief[];
   // Section background variant
   bgVariant?: 'warm' | 'cool' | 'red' | 'green' | 'purple';
+  // Background image
+  bgImage?: string;
 }
 
 export interface OverviewItem {

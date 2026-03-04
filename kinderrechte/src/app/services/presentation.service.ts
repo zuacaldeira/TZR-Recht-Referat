@@ -75,7 +75,8 @@ export class PresentationService {
       authors: 'Lydia Howe & Alexandre Zua Caldeira',
       meta: 'Fach: Recht · Lehrer: Uwe Otto · 06. März 2026',
       notes: '[~1 min] Begrüßung. Thema vorstellen: UN-KRK, 54 Artikel, seit 1989.',
-      speaker: 'both'
+      speaker: 'both',
+      bgImage: 'assets/images/slides/hero-bg.jpg'
     });
 
     // ===== 2. AGENDA (Both) — ~1 min =====
@@ -103,7 +104,8 @@ export class PresentationService {
       text: 'Von 1870 bis heute — über 150 Jahre Kampf für die Rechte der Kinder',
       notes: '[Überleitung] Lydia beginnt.',
       speaker: 'lydia',
-      bgVariant: 'warm'
+      bgVariant: 'warm',
+      bgImage: 'assets/images/slides/section-geschichte.jpg'
     });
 
     slides.push({
@@ -191,7 +193,8 @@ export class PresentationService {
       title: 'Überblick & Schlüsselartikel',
       text: 'Die vier Grundprinzipien und die wichtigsten Artikel der UN-KRK.',
       notes: '[Überleitung] Zua übernimmt.',
-      speaker: 'zua'
+      speaker: 'zua',
+      bgImage: 'assets/images/slides/section-ueberblick.jpg'
     });
 
     slides.push({
@@ -247,7 +250,8 @@ export class PresentationService {
       text: '2024 war eines der schlimmsten Jahre für Kinder in Konflikten.',
       notes: '[Überleitung] Verletzungen.',
       speaker: 'zua',
-      bgVariant: 'red'
+      bgVariant: 'red',
+      bgImage: 'assets/images/slides/section-verletzungen.jpg'
     });
 
     slides.push({
@@ -304,7 +308,8 @@ export class PresentationService {
       text: 'Wie werden Kinderrechte vermittelt — und wie werden Kinder geschützt?',
       notes: '[Überleitung] Von Problemen zu Lösungen.',
       speaker: 'zua',
-      bgVariant: 'green'
+      bgVariant: 'green',
+      bgImage: 'assets/images/slides/section-vermittlung.jpg'
     });
 
     slides.push({
@@ -363,7 +368,8 @@ export class PresentationService {
       text: 'Ist die UN-KRK an alle soziokulturellen Kontexte angepasst?',
       notes: '[Überleitung] Lydia übernimmt.',
       speaker: 'lydia',
-      bgVariant: 'purple'
+      bgVariant: 'purple',
+      bgImage: 'assets/images/slides/section-kritik.jpg'
     });
 
     slides.push({

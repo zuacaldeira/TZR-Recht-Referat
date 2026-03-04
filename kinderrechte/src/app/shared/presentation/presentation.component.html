@@ -9,7 +9,7 @@
       @if (pres.currentSlideData(); as slide) {
         @switch (slide.type) {
           @case ('hero') {
-            <div class="pres-slide pres-slide--hero" [class.fade-out]="fadeOut()">
+            <div class="pres-slide pres-slide--hero" [class.fade-out]="fadeOut()" [class.has-bg-image]="slide.bgImage" [style.--bg-image]="slide.bgImage ? 'url(' + slide.bgImage + ')' : 'none'">
               <div class="pres-title pres-animate">{{ slide.title }}</div>
               <div class="pres-subtitle pres-animate" style="animation-delay: 150ms">{{ slide.subtitle }}</div>
               <div class="pres-hero-authors pres-animate" style="animation-delay: 300ms">{{ slide.authors }}</div>
@@ -23,7 +23,7 @@
             </div>
           }
           @case ('section') {
-            <div class="pres-slide pres-slide--section" [class.fade-out]="fadeOut()" [class.bg-warm]="slide.bgVariant === 'warm'" [class.bg-purple]="slide.bgVariant === 'purple'" [class.bg-red]="slide.bgVariant === 'red'" [class.bg-cool]="slide.bgVariant === 'cool'" [class.bg-green]="slide.bgVariant === 'green'">
+            <div class="pres-slide pres-slide--section" [class.fade-out]="fadeOut()" [class.bg-warm]="slide.bgVariant === 'warm'" [class.bg-purple]="slide.bgVariant === 'purple'" [class.bg-red]="slide.bgVariant === 'red'" [class.bg-cool]="slide.bgVariant === 'cool'" [class.bg-green]="slide.bgVariant === 'green'" [class.has-bg-image]="slide.bgImage" [style.--bg-image]="slide.bgImage ? 'url(' + slide.bgImage + ')' : 'none'">
               @if (slide.icon) {
                 <div class="pres-section-icon pres-animate">{{ slide.icon }}</div>
               }
