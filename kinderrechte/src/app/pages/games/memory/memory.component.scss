@@ -82,8 +82,11 @@
   line-height: 1.2;
 }
 
-.memory-card.matched { opacity: 0.6; pointer-events: none; }
-.memory-card.matched .memory-card-back { background: #E8F5E9; }
+.memory-card.matched { opacity: 0.8; pointer-events: none; }
+.memory-card.matched .memory-card-back {
+  background: #E8F5E9;
+  border: 2px solid var(--color-development);
+}
 
 .memory-win {
   text-align: center;

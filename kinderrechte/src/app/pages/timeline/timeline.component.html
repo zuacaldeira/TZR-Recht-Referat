@@ -1,13 +1,17 @@
 <main class="page-content">
+  <section class="timeline-hero">
+    <div class="timeline-hero-overlay"></div>
+    <div class="container timeline-hero-content">
+      <h1 class="timeline-hero-title" appScrollReveal>Geschichte der Kinderrechte</h1>
+      <p class="timeline-hero-subtitle" appScrollReveal>
+        Von der Genfer Erklärung 1924 bis zu den Herausforderungen der Gegenwart —
+        über 100 Jahre Kampf für die Rechte der Kinder.
+      </p>
+    </div>
+  </section>
+
   <section class="section">
     <div class="container">
-      <div class="timeline-intro" appScrollReveal>
-        <h1 class="section-title">Geschichte der Kinderrechte</h1>
-        <p class="section-subtitle">
-          Von der Genfer Erklärung 1924 bis zu den Herausforderungen der Gegenwart —
-          über 100 Jahre Kampf für die Rechte der Kinder.
-        </p>
-      </div>
 
       <div class="timeline" [style.--progress]="progress() + '%'">
         @for (event of events(); track event.year; let i = $index) {

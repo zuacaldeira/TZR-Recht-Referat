@@ -1,6 +1,7 @@
 .article-flip-card {
   perspective: 1000px;
-  height: 260px;
+  min-height: 260px;
+  height: 280px;
   cursor: pointer;
 }
 

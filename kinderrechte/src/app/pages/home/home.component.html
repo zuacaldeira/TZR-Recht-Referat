@@ -1,7 +1,8 @@
 <main class="page-content">
   <!-- Hero -->
   <section class="hero" aria-labelledby="hero-title">
-    <div class="container">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
       <h1 id="hero-title" class="hero-title slide-up">
         Jedes Kind hat <span>Rechte</span>
       </h1>
@@ -11,7 +12,7 @@
       </p>
       <div class="hero-cta fade-in">
         <a routerLink="/artikel" mat-raised-button color="primary" class="btn btn-primary btn-lg">Artikel entdecken</a>
-        <a routerLink="/spiele" mat-stroked-button class="btn btn-secondary btn-lg">Quiz starten</a>
+        <a routerLink="/spiele" mat-stroked-button class="btn btn-secondary btn-lg hero-btn-secondary">Quiz starten</a>
       </div>
     </div>
   </section>
@@ -45,10 +46,11 @@
       <h2 id="facts-title" class="section-title" appScrollReveal>Wusstest du?</h2>
       <div class="grid grid-2" appScrollReveal [stagger]="true">
         @for (fact of facts; track fact.source) {
-          <mat-card class="fact-card">
+          <div class="fact-card">
+            <span class="fact-number">{{ fact.number }}</span>
             <p class="fact-text">{{ fact.text }}</p>
-            <span class="fact-source">Quelle: {{ fact.source }}</span>
-          </mat-card>
+            <span class="fact-source">{{ fact.source }}</span>
+          </div>
         }
       </div>
     </div>
@@ -74,7 +76,7 @@
   <section class="nav-cards section" aria-labelledby="explore-title">
     <div class="container">
       <h2 id="explore-title" class="section-title" appScrollReveal>Themen entdecken</h2>
-      <div class="grid grid-2" appScrollReveal [stagger]="true">
+      <div class="nav-cards-grid" appScrollReveal [stagger]="true">
         @for (card of navCards; track card.path) {
           <a [routerLink]="card.path" class="nav-card" [attr.data-variant]="card.variant">
             <h3>{{ card.title }}</h3>

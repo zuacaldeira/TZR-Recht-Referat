@@ -22,11 +22,11 @@ html {
   --color-participation: #03A9F4;
 
   // Base colors
-  --color-bg: #FFF8E1;
+  --color-bg: #FAFAFA;
   --color-text: #212121;
   --color-accent: #FFEB3B;
   --color-white: #FFFFFF;
-  --color-gray-light: #F5F5F5;
+  --color-gray-light: #F0F0F0;
   --color-gray: #9E9E9E;
   --color-gray-dark: #616161;
 
@@ -92,12 +92,24 @@ html {
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
-  scrollbar-width: none;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
   overflow-x: hidden;
 }
 
 html::-webkit-scrollbar {
-  display: none;
+  width: 6px;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+
+  &:hover { background: rgba(0, 0, 0, 0.25); }
 }
 
 body {
@@ -193,7 +205,8 @@ button {
 }
 
 .section-title {
-  font-size: var(--fs-xl);
+  font-size: var(--fs-2xl);
+  font-weight: 800;
   margin-bottom: var(--space-lg);
   text-align: center;
   word-wrap: break-word;
@@ -384,7 +397,7 @@ button {
   .grid-2 { grid-template-columns: repeat(2, 1fr); }
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
-  .section-title { font-size: var(--fs-2xl); }
+  .section-title { font-size: var(--fs-3xl); }
 }
 
 @media (min-width: 1024px) {
