@@ -1,0 +1,146 @@
+import { Injectable, signal, computed } from '@angular/core';
+import { PresentationSlide } from '../models/presentation';
+import { ARTICLES_DATA } from '../data/articles';
+import { TIMELINE_DATA } from '../data/timeline';
+import { CATEGORIES } from '../data/categories';
+
+@Injectable({ providedIn: 'root' })
+export class PresentationService {
+  readonly isActive = signal(false);
+  readonly currentSlide = signal(0);
+  readonly showNotes = signal(false);
+  readonly showGrid = signal(false);
+  readonly slides = signal<PresentationSlide[]>([]);
+
+  readonly totalSlides = computed(() => this.slides().length);
+  readonly progress = computed(() => {
+    const total = this.totalSlides();
+    return total > 0 ? ((this.currentSlide() + 1) / total) * 100 : 0;
+  });
+  readonly currentSlideData = computed(() => this.slides()[this.currentSlide()]);
+
+  start(): void {
+    this.slides.set(this.buildSlides());
+    this.currentSlide.set(0);
+    this.showNotes.set(false);
+    this.showGrid.set(false);
+    this.isActive.set(true);
+  }
+
+  stop(): void {
+    this.isActive.set(false);
+  }
+
+  next(): void {
+    if (this.currentSlide() < this.totalSlides() - 1) {
+      this.currentSlide.update(s => s + 1);
+    }
+  }
+
+  prev(): void {
+    if (this.currentSlide() > 0) {
+      this.currentSlide.update(s => s - 1);
+    }
+  }
+
+  goTo(index: number): void {
+    if (index >= 0 && index < this.totalSlides()) {
+      this.currentSlide.set(index);
+      this.showGrid.set(false);
+    }
+  }
+
+  toggleNotes(): void {
+    this.showNotes.update(v => !v);
+  }
+
+  toggleGrid(): void {
+    this.showGrid.update(v => !v);
+  }
+
+  private buildSlides(): PresentationSlide[] {
+    const slides: PresentationSlide[] = [];
+
+    // 1 — Hero
+    slides.push({
+      type: 'hero',
+      title: 'Kinderrechte',
+      subtitle: 'Die UN-Kinderrechtskonvention — Geschichte, Artikel & Vermittlung',
+      authors: 'Lydia Howe & Alexandre Zua Caldeira',
+      meta: 'Fach: Recht · Lehrer: Uwe Otto · 06. März 2026',
+      notes: 'Begrüßung. Thema vorstellen: UN-KRK, 54 Artikel, seit 1989.'
+    });
+
+    // 2 — Overview
+    slides.push({
+      type: 'overview',
+      title: 'Die vier Grundprinzipien',
+      text: 'Alle Kinderrechte lassen sich in vier zentrale Kategorien einordnen.',
+      items: [
+        { label: 'Überleben', desc: 'Leben, Gesundheit, Ernährung', color: '#FF9800' },
+        { label: 'Entwicklung', desc: 'Bildung, Spiel, Freizeit', color: '#4CAF50' },
+        { label: 'Schutz', desc: 'Vor Gewalt, Missbrauch, Ausbeutung', color: '#E91E63' },
+        { label: 'Beteiligung', desc: 'Meinungsäußerung, Mitbestimmung', color: '#03A9F4' }
+      ],
+      notes: 'Vier Grundprinzipien erklären. Jede Kategorie kurz ansprechen.'
+    });
+
+    // 3–6 — Categories
+    slides.push({ type: 'category', key: 'survival', title: 'Überleben', text: 'Recht auf Leben, Gesundheit, Ernährung und angemessenen Lebensstandard', icon: '❤️', color: '#FF9800', notes: 'Art. 6 (Leben), Art. 24 (Gesundheit), Art. 27 (Lebensstandard).' });
+    slides.push({ type: 'category', key: 'development', title: 'Entwicklung', text: 'Recht auf Bildung, Spiel, Freizeit, kulturelle Aktivitäten und Information', icon: '🎓', color: '#4CAF50', notes: 'Art. 28/29 (Bildung), Art. 31 (Spiel/Freizeit), Art. 17 (Information).' });
+    slides.push({ type: 'category', key: 'protection', title: 'Schutz', text: 'Schutz vor Gewalt, Missbrauch, Ausbeutung und Diskriminierung', icon: '🛡️', color: '#E91E63', notes: 'Art. 19 (Gewalt), Art. 32 (Kinderarbeit), Art. 2 (Diskriminierung).' });
+    slides.push({ type: 'category', key: 'participation', title: 'Beteiligung', text: 'Recht auf Meinungsäußerung, Mitbestimmung und freie Entfaltung', icon: '👥', color: '#03A9F4', notes: 'Art. 12 (Meinung), Art. 13 (freie Meinungsäußerung), Art. 15 (Vereinigung).' });
+
+    // 7 — Timeline title
+    slides.push({ type: 'title', title: 'Geschichte der Kinderrechte', subtitle: 'Von 1924 bis heute — über 100 Jahre Kampf für die Rechte der Kinder', notes: 'Überleitung: Wie haben sich Kinderrechte historisch entwickelt?' });
+
+    // 8–18 — Timeline events
+    const timelineTotal = TIMELINE_DATA.length;
+    TIMELINE_DATA.forEach((ev, i) => {
+      slides.push({
+        type: 'timeline',
+        year: ev.year,
+        title: ev.title,
+        summary: ev.summary,
+        details: ev.details,
+        color: ev.color,
+        timelineIndex: i,
+        timelineTotal
+      });
+    });
+
+    // 19 — Articles overview
+    slides.push({ type: 'title', title: 'Die 54 Artikel', subtitle: 'Die UN-Kinderrechtskonvention enthält 54 Artikel. Wir schauen uns die 10 wichtigsten Schlüsselartikel an.', notes: 'Überleitung zu den Schlüsselartikeln.' });
+
+    // 20–29 — Key articles
+    const keyArticles = ARTICLES_DATA.filter(a => a.key);
+    keyArticles.forEach(art => {
+      const cat = CATEGORIES[art.category];
+      slides.push({
+        type: 'article',
+        articleId: art.id,
+        title: art.title,
+        summary: art.summary,
+        full: art.full,
+        category: art.category,
+        categoryName: cat.name,
+        categoryColor: cat.color,
+        notes: `Artikel ${art.id}: ${art.title} — Kategorie ${cat.name}.`
+      });
+    });
+
+    // 30–33 — Info slides
+    slides.push({ type: 'info', title: 'Vermittlung an Kinder', accent: '#4CAF50', infoItems: ['Kindergarten (3–6): Bilderbücher, Rollenspiele, Regeln über Fairness', 'Grundschule (6–10): Projekttage, Kinderrechteposter, Klassenräte', 'Sekundarstufe (10–18): Planspiele, Debatten, Fallstudien', 'UNICEF-Kinderrechte-Schulen: Kinderrechte als gelebte Praxis', 'Digitale Medien: Interaktive Websites, Apps und Videos'], notes: 'Altersgerechte Vermittlung betonen. UNICEF-Schulen als Best Practice.' });
+    slides.push({ type: 'info', title: 'Vermittlung an Eltern', accent: '#FF9800', infoItems: ['Elternabende: Workshops zu gewaltfreier Erziehung', 'Broschüren & Ratgeber: Mehrsprachige Materialien', 'Beratungsstellen: Erziehungsberatung, Familienberatung, Frühe Hilfen', 'Seit 2000: Recht auf gewaltfreie Erziehung (§ 1631 Abs. 2 BGB)', 'Eltern als wichtigste Vermittler im Alltag'], notes: 'Gewaltfreie Erziehung seit 2000 gesetzlich verankert.' });
+    slides.push({ type: 'info', title: 'Schutz in Deutschland', accent: '#E91E63', infoItems: ['Jugendamt: Schutzauftrag bei Kindeswohlgefährdung (§ 8a SGB VIII)', 'Grundgesetz: Art. 6 (Schutz der Familie), Art. 2 (freie Entfaltung)', 'BGB § 1631 Abs. 2: Recht auf gewaltfreie Erziehung', 'Nummer gegen Kummer: 116 111 (Kinder) / 0800 111 0550 (Eltern)', 'Kinderschutzbund, Jugendbeauftragte, Online-Beratung'], notes: 'Jugendamt und Grundgesetz als Schutzpfeiler. Beratungsnummern erwähnen.' });
+    slides.push({ type: 'info', title: 'Zukunft der Kinderrechte', accent: '#03A9F4', infoItems: ['Digitale Rechte: Datenschutz, Online-Sicherheit, Recht auf Vergessen', 'Grundgesetz-Debatte: Kinderrechte explizit verankern?', 'Klimawandel: Bedrohung für Gesundheit, Wasser, Nahrung, Zukunft', 'Kinder als Akteure: Fridays for Future, Jugendparlamente', 'EU-Strategie „Digital Rights for Children"'], notes: 'Zukunftsthemen: Digitalisierung, Klima, GG-Verankerung.' });
+
+    // 34 — Questions
+    slides.push({ type: 'question', title: 'Diskussionsfragen', questions: ['Sollten Kinderrechte explizit im Grundgesetz stehen?', 'Wie können Kinder in der Schule stärker mitbestimmen?', 'Brauchen wir neue Kinderrechte für die digitale Welt?', 'Was kann jeder Einzelne für Kinderrechte tun?', 'Welche Kinderrechte werden weltweit am häufigsten verletzt?'], notes: 'Klasse einbeziehen. Jede Frage kurz anmoderieren.' });
+
+    // 35 — End
+    slides.push({ type: 'end', title: 'Vielen Dank!', subtitle: 'Fragen & Diskussion', authors: 'Lydia Howe & Alexandre Zua Caldeira', meta: 'Fach: Recht · Lehrer: Uwe Otto · 06. März 2026', notes: 'Danke sagen. QR-Code zeigen. Für Fragen offen bleiben.' });
+
+    return slides;
+  }
+}
