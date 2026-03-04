@@ -1,0 +1,73 @@
+<main class="page-content">
+  <!-- Hero -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="container">
+      <h1 id="hero-title" class="hero-title slide-up">
+        Jedes Kind hat <span>Rechte</span>
+      </h1>
+      <p class="hero-subtitle fade-in">
+        Die UN-Kinderrechtskonvention schützt die Rechte aller Kinder weltweit.
+        Entdecke die 54 Artikel, ihre Geschichte und warum sie so wichtig sind.
+      </p>
+      <div class="hero-cta fade-in">
+        <a routerLink="/artikel" mat-raised-button color="primary" class="btn btn-primary btn-lg">Artikel entdecken</a>
+        <a routerLink="/spiele" mat-stroked-button class="btn btn-secondary btn-lg">Quiz starten</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 Kategorien -->
+  <section class="categories section" aria-labelledby="cat-title">
+    <div class="container">
+      <h2 id="cat-title" class="section-title" appScrollReveal>Die vier Grundprinzipien</h2>
+      <p class="section-subtitle" appScrollReveal>
+        Alle Kinderrechte lassen sich in vier zentrale Kategorien einordnen.
+      </p>
+      <div class="grid grid-4" appScrollReveal [stagger]="true">
+        @for (cat of categories; track cat.key) {
+          <mat-card class="category-card">
+            <div class="category-icon" [style.background]="cat.bgColor">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path [attr.d]="cat.svgPath" [attr.fill]="cat.iconColor"/>
+              </svg>
+            </div>
+            <h3>{{ cat.name }}</h3>
+            <p>{{ cat.desc }}</p>
+          </mat-card>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Referenten-Info -->
+  <section class="referenten section" aria-labelledby="ref-title">
+    <div class="container">
+      <h2 id="ref-title" class="section-title" appScrollReveal>Über das Referat</h2>
+      <mat-card class="referenten-card" appScrollReveal>
+        <h3>Lydia Howe &amp; Alexandre Zua Caldeira</h3>
+        <p class="meta">Fach: Recht &middot; Lehrer: Uwe Otto</p>
+        <p class="date">06. März 2026</p>
+        <div class="qr-section">
+          <p class="qr-label">Website auf dem Handy öffnen:</p>
+          <img src="assets/images/qr-code.png" alt="QR-Code zur Website kinderrechte.zuacaldeira.com" class="qr-image">
+        </div>
+      </mat-card>
+    </div>
+  </section>
+
+  <!-- Navigation Cards -->
+  <section class="nav-cards section" aria-labelledby="explore-title">
+    <div class="container">
+      <h2 id="explore-title" class="section-title" appScrollReveal>Themen entdecken</h2>
+      <div class="grid grid-2" appScrollReveal [stagger]="true">
+        @for (card of navCards; track card.path) {
+          <a [routerLink]="card.path" class="nav-card" [attr.data-variant]="card.variant">
+            <h3>{{ card.title }}</h3>
+            <p>{{ card.desc }}</p>
+            <div class="arrow">{{ card.arrow }} &rarr;</div>
+          </a>
+        }
+      </div>
+    </div>
+  </section>
+</main>
