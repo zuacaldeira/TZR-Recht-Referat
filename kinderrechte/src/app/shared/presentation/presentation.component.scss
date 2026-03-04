@@ -1351,6 +1351,19 @@
   line-height: 1.5;
 }
 
+/* ===== SVG ICON SIZING ===== */
+
+.pres-svg-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  svg { width: 48px; height: 48px; }
+
+  &--sm svg { width: 28px; height: 28px; }
+  &--xs svg { width: 20px; height: 20px; }
+}
+
 /* ===== SPEAKER BADGE ===== */
 
 .pres-speaker {

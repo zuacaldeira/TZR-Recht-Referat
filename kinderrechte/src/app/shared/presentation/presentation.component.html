@@ -25,7 +25,7 @@
           @case ('section') {
             <div class="pres-slide pres-slide--section" [class.fade-out]="fadeOut()" [class.bg-warm]="slide.bgVariant === 'warm'" [class.bg-purple]="slide.bgVariant === 'purple'" [class.bg-red]="slide.bgVariant === 'red'" [class.bg-cool]="slide.bgVariant === 'cool'" [class.bg-green]="slide.bgVariant === 'green'" [class.has-bg-image]="slide.bgImage" [style.--bg-image]="slide.bgImage ? 'url(' + slide.bgImage + ')' : 'none'">
               @if (slide.icon) {
-                <div class="pres-section-icon pres-animate">{{ slide.icon }}</div>
+                <div class="pres-section-icon pres-animate">@if (getSvgIcon(slide.icon); as svg) {<span class="pres-svg-icon" [innerHTML]="svg"></span>} @else {{{ slide.icon }}}</div>
               }
               <div class="pres-title pres-animate" style="animation-delay: 100ms">{{ slide.title }}</div>
               @if (slide.text) {
@@ -175,7 +175,7 @@
               <div class="pres-agenda-list pres-animate" style="animation-delay: 200ms">
                 @for (item of slide.agendaItems; track item.label; let i = $index) {
                   <div class="pres-agenda-item" [style.animation-delay]="(200 + i * 80) + 'ms'">
-                    <span class="pres-agenda-icon">{{ item.icon }}</span>
+                    <span class="pres-agenda-icon">@if (getSvgIcon(item.icon); as svg) {<span class="pres-svg-icon pres-svg-icon--xs" [innerHTML]="svg"></span>} @else {{{ item.icon }}}</span>
                     <span class="pres-agenda-label">{{ item.label }}</span>
                     <span class="pres-agenda-speaker">{{ item.speaker }}</span>
                   </div>
@@ -212,7 +212,7 @@
             <div class="pres-slide pres-slide--article-group" [class.fade-out]="fadeOut()" [style.--group-color]="slide.categoryColor">
               <div class="pres-ag-header pres-animate">
                 @if (slide.icon) {
-                  <span class="pres-ag-icon" [style.background]="slide.categoryColor">{{ slide.icon }}</span>
+                  <span class="pres-ag-icon" [style.background]="slide.categoryColor">@if (getSvgIcon(slide.icon); as svg) {<span class="pres-svg-icon pres-svg-icon--sm" [innerHTML]="svg"></span>} @else {{{ slide.icon }}}</span>
                 }
                 <div class="pres-title" [style.color]="slide.categoryColor">{{ slide.title }}</div>
               </div>
@@ -303,7 +303,7 @@
         @for (slide of pres.slides(); track $index) {
           <div class="pres-grid-thumb" [class.pres-grid-thumb--active]="$index === pres.currentSlide()" (click)="goToSlide($index)">
             <span class="pres-grid-thumb-num">Folie {{ $index + 1 }}</span>
-            <span class="pres-grid-thumb-icon">{{ TYPE_ICONS[slide.type] || '📌' }}</span>
+            <span class="pres-grid-thumb-icon">@if (TYPE_SVGS[slide.type]; as svg) {<span class="pres-svg-icon pres-svg-icon--xs" [innerHTML]="svg"></span>} @else {{{ TYPE_ICONS[slide.type] || '📌' }}}</span>
             <span class="pres-grid-thumb-title">{{ slide.title || slide.year || 'Slide' }}</span>
             @if (slide.speaker) {
               <span class="pres-grid-thumb-speaker" [class.pres-grid-thumb-speaker--lydia]="slide.speaker === 'lydia'" [class.pres-grid-thumb-speaker--zua]="slide.speaker === 'zua'">{{ slide.speaker === 'both' ? 'L+Z' : slide.speaker === 'lydia' ? 'L' : 'Z' }}</span>

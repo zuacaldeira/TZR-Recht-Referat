@@ -1,4 +1,5 @@
 import { Component, inject, HostListener, signal, computed } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -8,6 +9,7 @@ import { CATEGORIES } from '../../data/categories';
 import { ARTICLES_DATA } from '../../data/articles';
 import { Article } from '../../models/article';
 import { CategoryKey } from '../../models/category';
+import { SLIDE_TYPE_SVGS, EMOJI_TO_SVG } from './slide-icons';
 
 @Component({
   selector: 'app-presentation',
@@ -18,6 +20,7 @@ import { CategoryKey } from '../../models/category';
 })
 export class PresentationComponent {
   readonly pres = inject(PresentationService);
+  private readonly sanitizer = inject(DomSanitizer);
   readonly fadeOut = signal(false);
   private touchStartX = 0;
   private touchStartY = 0;
@@ -29,12 +32,29 @@ export class PresentationComponent {
     agenda: '📋', summary: '✅', interaction: '🙋', 'article-group': '📑', 'timeline-group': '📅', section: '🔷', 'article-browser': '🔍'
   };
 
+  // Sanitized SVG icons
+  readonly TYPE_SVGS: Record<string, SafeHtml> = {};
+  readonly EMOJI_SVGS: Record<string, SafeHtml> = {};
+
   readonly CATEGORY_BG: Record<string, string> = {
     survival: 'rgba(255, 152, 0, 0.15)',
     development: 'rgba(76, 175, 80, 0.15)',
     protection: 'rgba(233, 30, 99, 0.15)',
     participation: 'rgba(3, 169, 244, 0.15)'
   };
+
+  constructor() {
+    for (const [k, v] of Object.entries(SLIDE_TYPE_SVGS)) {
+      this.TYPE_SVGS[k] = this.sanitizer.bypassSecurityTrustHtml(v);
+    }
+    for (const [k, v] of Object.entries(EMOJI_TO_SVG)) {
+      this.EMOJI_SVGS[k] = this.sanitizer.bypassSecurityTrustHtml(v);
+    }
+  }
+
+  getSvgIcon(emoji: string): SafeHtml | null {
+    return this.EMOJI_SVGS[emoji] || null;
+  }
 
   // Article Browser state
   readonly allArticles: Article[] = ARTICLES_DATA;
