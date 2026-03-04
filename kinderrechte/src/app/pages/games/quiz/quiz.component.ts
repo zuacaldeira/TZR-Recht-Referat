@@ -1,13 +1,14 @@
 import { Component, inject } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { QuizService } from '../../../services/quiz.service';
 
 @Component({
   selector: 'app-quiz',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule, MatProgressBarModule],
+  imports: [MatCardModule, MatButtonModule, MatButtonToggleModule, MatProgressBarModule],
   templateUrl: './quiz.component.html',
   styleUrl: './quiz.component.scss'
 })
@@ -17,6 +18,11 @@ export class QuizComponent {
 
   get currentQ() {
     return this.quiz.questions()[this.quiz.currentQuestion()];
+  }
+
+  setDifficulty(diff: 'easy' | 'medium' | 'hard'): void {
+    this.feedbackState = '';
+    this.quiz.setDifficulty(diff);
   }
 
   selectOption(index: number): void {

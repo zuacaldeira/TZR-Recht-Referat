@@ -1,3 +1,12 @@
+<div class="quiz-controls">
+  <span>Schwierigkeit:</span>
+  <mat-button-toggle-group [value]="quiz.difficulty()" (change)="setDifficulty($event.value)">
+    <mat-button-toggle value="easy">Leicht</mat-button-toggle>
+    <mat-button-toggle value="medium">Mittel</mat-button-toggle>
+    <mat-button-toggle value="hard">Schwer</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+
 @if (!quiz.quizFinished()) {
   <div class="quiz-header">
     <span class="quiz-progress-text">Frage {{ quiz.currentQuestion() + 1 }} / {{ quiz.totalQuestions() }}</span>
