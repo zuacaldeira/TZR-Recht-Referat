@@ -141,6 +141,12 @@
   animation: pres-fadeUp 500ms ease forwards;
 }
 
+.pres-stagger {
+  opacity: 0;
+  animation: pres-fadeUp 400ms ease forwards;
+  animation-delay: calc(var(--i, 0) * 100ms);
+}
+
 @keyframes pres-gradientShift {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -252,7 +258,7 @@
 
 /* Overview Slide */
 .pres-slide--overview {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  background: radial-gradient(circle at 20% 80%, rgba(3, 169, 244, 0.08) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(76, 175, 80, 0.06) 0%, transparent 50%), #1a1a2e;
 
   .pres-title {
     font-size: 2.5rem;
@@ -278,8 +284,10 @@
   }
 
   .pres-grid-item {
-    background: rgba(255, 255, 255, 0.06);
-    border-radius: 0.75rem;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 1rem;
     padding: 1rem;
     text-align: left;
     border-left: 4px solid;
@@ -302,7 +310,7 @@
 
 /* Info Slide */
 .pres-slide--info {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  background: radial-gradient(circle at 20% 80%, rgba(76, 175, 80, 0.08) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(3, 169, 244, 0.06) 0%, transparent 50%), #1a1a2e;
 
   .pres-title {
     font-size: 2.25rem;
@@ -434,7 +442,7 @@
 
 /* Stat Slide — Big number + context */
 .pres-slide--stat {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  background: radial-gradient(circle at 20% 80%, rgba(233, 30, 99, 0.08) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(3, 169, 244, 0.06) 0%, transparent 50%), #1a1a2e;
   position: relative;
   overflow: hidden;
 
@@ -578,7 +586,7 @@
 
 /* Compare Slide — Two columns */
 .pres-slide--compare {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  background: radial-gradient(circle at 20% 80%, rgba(156, 39, 176, 0.08) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(3, 169, 244, 0.06) 0%, transparent 50%), #1a1a2e;
 
   .pres-title {
     font-size: 2.25rem;
@@ -595,8 +603,10 @@
   }
 
   .pres-compare-col {
-    background: rgba(255, 255, 255, 0.06);
-    border-radius: 0.75rem;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 1rem;
     padding: 1.5rem;
     text-align: left;
     border-top: 4px solid;
@@ -942,9 +952,10 @@
 }
 
 .pres-interaction-opt {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1rem;
   padding: 1rem;
   display: flex;
   align-items: center;
@@ -980,7 +991,7 @@
 /* ===== ARTICLE GROUP SLIDE ===== */
 
 .pres-slide--article-group {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  background: radial-gradient(circle at 20% 80%, rgba(255, 152, 0, 0.08) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(3, 169, 244, 0.06) 0%, transparent 50%), #1a1a2e;
 
   .pres-title {
     font-size: 2.25rem;
@@ -998,8 +1009,10 @@
 }
 
 .pres-article-card {
-  background: rgba(255, 255, 255, 0.06);
-  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1rem;
   padding: 1.25rem;
   text-align: left;
   border-left: 4px solid;
@@ -1225,25 +1238,40 @@
 /* Applied per-slide via [class.bg-warm], [class.bg-purple], etc. */
 
 .pres-slide.bg-warm {
-  background: linear-gradient(135deg, #2d1b00 0%, #1a1a2e 60%, #16213e 100%) !important;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(255, 152, 0, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 87, 34, 0.1) 0%, transparent 50%),
+    #1a1a2e !important;
   .pres-quote-text::before { color: rgba(255, 152, 0, 0.5) !important; }
 }
 
 .pres-slide.bg-purple {
-  background: linear-gradient(135deg, #1a0a2e 0%, #1a1a2e 60%, #0f1a3e 100%) !important;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(156, 39, 176, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(103, 58, 183, 0.1) 0%, transparent 50%),
+    #1a1a2e !important;
   .pres-quote-text::before { color: rgba(156, 39, 176, 0.5) !important; }
 }
 
 .pres-slide.bg-red {
-  background: linear-gradient(135deg, #2e0a0a 0%, #1a1a2e 60%, #16213e 100%) !important;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(233, 30, 99, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(198, 40, 40, 0.1) 0%, transparent 50%),
+    #1a1a2e !important;
 }
 
 .pres-slide.bg-cool {
-  background: linear-gradient(135deg, #0a1e2e 0%, #1a1a2e 60%, #0f3460 100%) !important;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(3, 169, 244, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(15, 52, 96, 0.15) 0%, transparent 50%),
+    #1a1a2e !important;
 }
 
 .pres-slide.bg-green {
-  background: linear-gradient(135deg, #0a2e1a 0%, #1a1a2e 60%, #16213e 100%) !important;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(76, 175, 80, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(56, 142, 60, 0.1) 0%, transparent 50%),
+    #1a1a2e !important;
 }
 
 /* ===== SECTION TRANSITION SLIDE ===== */

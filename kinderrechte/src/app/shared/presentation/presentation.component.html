@@ -79,9 +79,9 @@
           @case ('info') {
             <div class="pres-slide pres-slide--info" [class.fade-out]="fadeOut()" [class.bg-warm]="slide.bgVariant === 'warm'" [class.bg-purple]="slide.bgVariant === 'purple'" [class.bg-red]="slide.bgVariant === 'red'">
               <div class="pres-title pres-animate">{{ slide.title }}</div>
-              <ul class="pres-list pres-animate" style="animation-delay: 150ms" [style.--accent]="slide.accent || '#03A9F4'">
+              <ul class="pres-list" [style.--accent]="slide.accent || '#03A9F4'">
                 @for (item of slide.infoItems; track $index) {
-                  <li>{{ item }}</li>
+                  <li class="pres-stagger" [style.--i]="$index + 1">{{ item }}</li>
                 }
               </ul>
             </div>
@@ -186,9 +186,9 @@
           @case ('summary') {
             <div class="pres-slide pres-slide--summary" [class.fade-out]="fadeOut()">
               <div class="pres-title pres-animate">{{ slide.title }}</div>
-              <ul class="pres-summary-list pres-animate" style="animation-delay: 200ms">
+              <ul class="pres-summary-list">
                 @for (item of slide.summaryItems; track $index) {
-                  <li>{{ item }}</li>
+                  <li class="pres-stagger" [style.--i]="$index + 2">{{ item }}</li>
                 }
               </ul>
             </div>
