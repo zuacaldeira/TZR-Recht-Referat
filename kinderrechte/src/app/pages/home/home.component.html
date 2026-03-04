@@ -39,6 +39,21 @@
     </div>
   </section>
 
+  <!-- Wusstest du? -->
+  <section class="facts section" aria-labelledby="facts-title">
+    <div class="container">
+      <h2 id="facts-title" class="section-title" appScrollReveal>Wusstest du?</h2>
+      <div class="grid grid-2" appScrollReveal [stagger]="true">
+        @for (fact of facts; track fact.source) {
+          <mat-card class="fact-card">
+            <p class="fact-text">{{ fact.text }}</p>
+            <span class="fact-source">Quelle: {{ fact.source }}</span>
+          </mat-card>
+        }
+      </div>
+    </div>
+  </section>
+
   <!-- Referenten-Info -->
   <section class="referenten section" aria-labelledby="ref-title">
     <div class="container">

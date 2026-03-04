@@ -78,6 +78,37 @@
   line-height: 1.7;
 }
 
+// === FACTS ===
+.facts {
+  background: var(--color-white);
+  padding: var(--space-3xl) 0;
+}
+
+:host ::ng-deep .fact-card.mat-mdc-card {
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  border-left: 4px solid var(--color-participation);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+.fact-text {
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+.fact-source {
+  font-size: var(--fs-xs);
+  color: var(--color-gray);
+  font-style: italic;
+}
+
 // === REFERENTEN ===
 .referenten {
   background: var(--color-white);

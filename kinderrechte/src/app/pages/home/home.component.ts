@@ -19,6 +19,13 @@ export class HomeComponent {
     { key: 'participation', name: 'Beteiligung', desc: 'Recht auf Meinungsäußerung, Mitbestimmung und freie Entfaltung', iconColor: '#03A9F4', bgColor: '#E1F5FE', svgPath: 'M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z' },
   ];
 
+  readonly facts = [
+    { text: '196 Staaten haben die UN-Kinderrechtskonvention ratifiziert — sie ist der meistratifizierte Menschenrechtsvertrag der Welt.', source: 'UN-KRK, ohchr.org' },
+    { text: '2026 wurde von der Bundesregierung zum Jahr der Kinderrechte erklärt.', source: 'Bundesregierung' },
+    { text: 'Der Kinderrechte-Index 2025 zeigt: Die Umsetzung von Kinderrechten variiert stark zwischen den Bundesländern.', source: 'Deutsches Kinderhilfswerk' },
+    { text: 'Seit 2012 müssen Kitas ein Beschwerdemanagement für Kinder vorweisen — geregelt in § 45 SGB VIII.', source: '§ 45 Abs. 2 Nr. 3 SGB VIII' },
+  ];
+
   readonly navCards = [
     { path: '/geschichte', title: 'Geschichte', desc: 'Von 1924 bis heute — die Meilensteine der Kinderrechte', arrow: 'Zur Timeline', variant: 'timeline' },
     { path: '/artikel', title: '54 Artikel', desc: 'Alle Artikel der UN-Kinderrechtskonvention im Überblick', arrow: 'Artikel lesen', variant: 'articles' },
