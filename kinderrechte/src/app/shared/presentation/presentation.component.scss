@@ -227,35 +227,6 @@
   }
 }
 
-/* Category Slide */
-.pres-slide--category {
-  .pres-icon {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-    font-size: 2.5rem;
-    transition: box-shadow 300ms ease;
-  }
-
-  .pres-title {
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin-bottom: 0.75rem;
-  }
-
-  .pres-text {
-    font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.8);
-    font-family: var(--font-body);
-    max-width: 600px;
-    line-height: 1.7;
-  }
-}
-
 /* Overview Slide */
 .pres-slide--overview {
   background: radial-gradient(circle at 20% 80%, rgba(3, 169, 244, 0.08) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(76, 175, 80, 0.06) 0%, transparent 50%), #1a1a2e;
@@ -534,53 +505,6 @@
     font-style: normal;
     margin-top: 1.5rem;
     position: relative;
-  }
-}
-
-/* Image Slide — Full-bleed background */
-.pres-slide--image {
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  padding: 0 !important;
-
-  .pres-image-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.3) 100%);
-  }
-
-  .pres-image-content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 3rem 4rem;
-
-    .pres-title {
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 0.5rem;
-      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
-    }
-
-    .pres-text {
-      font-size: 1.15rem;
-      color: rgba(255, 255, 255, 0.85);
-      font-family: var(--font-body);
-      max-width: 650px;
-      line-height: 1.7;
-      text-shadow: 0 1px 10px rgba(0, 0, 0, 0.4);
-    }
-  }
-
-  .pres-image-credit {
-    position: absolute;
-    bottom: 0.75rem;
-    right: 1rem;
-    font-size: 0.7rem;
-    color: rgba(255, 255, 255, 0.35);
-    font-family: var(--font-body);
   }
 }
 

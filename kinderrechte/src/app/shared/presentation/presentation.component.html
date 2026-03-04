@@ -47,35 +47,6 @@
               </div>
             </div>
           }
-          @case ('category') {
-            <div class="pres-slide pres-slide--category" [style.background]="'linear-gradient(135deg, ' + slide.color + '22 0%, #1a1a2e 60%, #16213e 100%)'" [class.fade-out]="fadeOut()">
-              <div class="pres-icon pres-animate" [style.background]="slide.color" [style.box-shadow]="'0 0 80px ' + slide.color + '40'">{{ slide.icon }}</div>
-              <div class="pres-title pres-animate" style="animation-delay: 150ms" [style.color]="slide.color">{{ slide.title }}</div>
-              <div class="pres-text pres-animate" style="animation-delay: 300ms">{{ slide.text }}</div>
-            </div>
-          }
-          @case ('timeline') {
-            <div class="pres-slide pres-slide--timeline" [class.fade-out]="fadeOut()">
-              <div class="pres-year pres-animate" [style.color]="slide.color">{{ slide.year }}</div>
-              <div class="pres-title pres-animate" style="animation-delay: 150ms">{{ slide.title }}</div>
-              <div class="pres-summary pres-animate" style="animation-delay: 300ms">{{ slide.summary }}</div>
-              <div class="pres-details pres-animate" style="animation-delay: 450ms">{{ slide.details }}</div>
-              <div class="pres-timeline-progress pres-animate" style="animation-delay: 600ms">
-                @for (dot of getTimelineDots(slide); track $index) {
-                  <span class="pres-timeline-dot" [class]="'pres-timeline-dot--' + dot.class"></span>
-                }
-                <span class="pres-timeline-label">{{ (slide.timelineIndex || 0) + 1 }} / {{ slide.timelineTotal }}</span>
-              </div>
-            </div>
-          }
-          @case ('article') {
-            <div class="pres-slide pres-slide--article" [class.fade-out]="fadeOut()">
-              <div class="pres-article-num pres-animate" [style.background]="getCatBg(slide.category)" [style.color]="slide.categoryColor">Artikel {{ slide.articleId }}</div>
-              <div class="pres-title pres-animate" style="animation-delay: 150ms">{{ slide.title }}</div>
-              <div class="pres-badge pres-animate" style="animation-delay: 300ms" [style.background]="getCatBg(slide.category)" [style.color]="slide.categoryColor">{{ slide.categoryName }}</div>
-              <div class="pres-text pres-animate" style="animation-delay: 450ms">{{ slide.full }}</div>
-            </div>
-          }
           @case ('info') {
             <div class="pres-slide pres-slide--info" [class.fade-out]="fadeOut()" [class.bg-warm]="slide.bgVariant === 'warm'" [class.bg-purple]="slide.bgVariant === 'purple'" [class.bg-red]="slide.bgVariant === 'red'">
               <div class="pres-title pres-animate">{{ slide.title }}</div>
@@ -103,22 +74,6 @@
               <blockquote class="pres-quote-text pres-animate">{{ slide.quoteText }}</blockquote>
               @if (slide.quoteAuthor) {
                 <cite class="pres-quote-author pres-animate" style="animation-delay: 200ms">— {{ slide.quoteAuthor }}</cite>
-              }
-            </div>
-          }
-          @case ('image') {
-            <div class="pres-slide pres-slide--image" [class.fade-out]="fadeOut()" [style.background-image]="'url(' + slide.image + ')'">
-              <div class="pres-image-overlay"></div>
-              <div class="pres-image-content">
-                @if (slide.title) {
-                  <div class="pres-title pres-animate">{{ slide.title }}</div>
-                }
-                @if (slide.text) {
-                  <div class="pres-text pres-animate" style="animation-delay: 150ms">{{ slide.text }}</div>
-                }
-              </div>
-              @if (slide.imageCredit) {
-                <div class="pres-image-credit">{{ slide.imageCredit }}</div>
               }
             </div>
           }

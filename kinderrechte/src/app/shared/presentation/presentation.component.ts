@@ -4,7 +4,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { PresentationService } from '../../services/presentation.service';
-import { PresentationSlide } from '../../models/presentation';
 import { CATEGORIES } from '../../data/categories';
 import { ARTICLES_DATA } from '../../data/articles';
 import { Article } from '../../models/article';
@@ -36,12 +35,6 @@ export class PresentationComponent {
   readonly TYPE_SVGS: Record<string, SafeHtml> = {};
   readonly EMOJI_SVGS: Record<string, SafeHtml> = {};
 
-  readonly CATEGORY_BG: Record<string, string> = {
-    survival: 'rgba(255, 152, 0, 0.15)',
-    development: 'rgba(76, 175, 80, 0.15)',
-    protection: 'rgba(233, 30, 99, 0.15)',
-    participation: 'rgba(3, 169, 244, 0.15)'
-  };
 
   constructor() {
     for (const [k, v] of Object.entries(SLIDE_TYPE_SVGS)) {
@@ -207,17 +200,4 @@ export class PresentationComponent {
     overlay.requestFullscreen?.().catch(() => {});
   }
 
-  getCatBg(category?: string): string {
-    return this.CATEGORY_BG[category || ''] || 'rgba(3, 169, 244, 0.15)';
-  }
-
-  getTimelineDots(slide: PresentationSlide): { class: string }[] {
-    const dots: { class: string }[] = [];
-    for (let i = 0; i < (slide.timelineTotal || 0); i++) {
-      if (i < (slide.timelineIndex || 0)) dots.push({ class: 'done' });
-      else if (i === slide.timelineIndex) dots.push({ class: 'active' });
-      else dots.push({ class: 'inactive' });
-    }
-    return dots;
-  }
 }

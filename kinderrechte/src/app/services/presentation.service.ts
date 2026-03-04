@@ -292,18 +292,19 @@ export class PresentationService {
       compareLeft: { title: 'Fortschritte', items: ['Kindersterblichkeit: 33% → 4%', 'Mangelernährung: 40% → 22%', '196 Staaten ratifiziert'], color: '#4CAF50' },
       compareRight: { title: 'Rückschläge', items: ['417 Mio. Kinder in Armut', '650 Mio. Frauen als Kind verheiratet', '52 Mio. ohne Schulzugang'], color: '#C0392B' },
       notes: '[~1 min] Noch 113 Jahre bis zur vollen Umsetzung.',
-      speaker: 'zua'
+      speaker: 'zua',
+      bgVariant: 'red'
     });
 
     // Positive note to close violations section
     slides.push({
       type: 'stat',
-      statValue: '33% → 4%',
-      statLabel: 'Kindersterblichkeit seit 1924',
-      text: 'Einer der größten Fortschritte der Menschheit — durch Impfungen, Ernährung und medizinische Versorgung.',
+      statValue: '196',
+      statLabel: 'Staaten haben die UN-KRK ratifiziert',
+      text: 'Das meistratifizierte Menschenrechtsabkommen der Welt — nur die USA fehlen.',
       color: '#4CAF50',
-      statSource: 'WHO/UNICEF 2024',
-      notes: '[~30 sec] Hoffnungsnote: Trotz Rückschlägen gibt es Fortschritt.',
+      statSource: 'UN Treaty Collection 2024',
+      notes: '[~30 sec] Hoffnungsnote: Trotz Rückschlägen gibt es breiten Konsens.',
       speaker: 'zua'
     });
 
@@ -364,7 +365,8 @@ export class PresentationService {
       compareLeft: { title: 'Herausforderungen', items: ['Digitale Rechte & Online-Sicherheit', 'Klimawandel bedroht Gesundheit', 'Grundgesetz-Debatte'], color: '#03A9F4' },
       compareRight: { title: 'Positive Entwicklungen', items: ['2026: Jahr der Kinderrechte', 'Kinderrechte-Index 2025', 'Kinder als politische Akteure'], color: '#4CAF50' },
       notes: '[~1 min] Überleitung zu Lydia.',
-      speaker: 'zua'
+      speaker: 'zua',
+      bgVariant: 'green'
     });
 
     // ===== 7. KRITISCHE PERSPEKTIVEN (Lydia) — ~7 min =====
@@ -474,7 +476,7 @@ export class PresentationService {
         'Sollten Kinderrechte explizit im Grundgesetz stehen?',
         'Wie können Kinder in der Schule stärker mitbestimmen?',
         'Brauchen wir neue Kinderrechte für die digitale Welt?',
-        'Sind Kinderrechte universell — oder kulturell bedingt?',
+        'Welche Kinderrechte werden in Deutschland am häufigsten übersehen?',
         'Was kann jeder Einzelne für Kinderrechte tun?'
       ],
       notes: '[Q&A bis zu 30 min] Klasse einbeziehen.',
