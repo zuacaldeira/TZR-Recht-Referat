@@ -400,3 +400,90 @@ button {
     --container-padding: var(--space-2xl);
   }
 }
+
+// === Print Stylesheet ===
+@media print {
+  // Hide non-essential UI
+  app-nav,
+  app-footer,
+  app-presentation,
+  .hero-cta,
+  .quiz-controls,
+  .memory-controls,
+  .quiz-next,
+  .btn,
+  .nav-card .arrow,
+  mat-button-toggle-group,
+  mat-progress-bar {
+    display: none !important;
+  }
+
+  // Reset colors
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  h1 { font-size: 18pt !important; }
+  h2 { font-size: 15pt !important; }
+  h3 { font-size: 13pt !important; }
+
+  .page-content {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  // Remove visual effects
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .reveal,
+  .reveal-stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  // Cards and sections
+  .mat-mdc-card,
+  mat-card {
+    border: 1px solid #ccc !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  // Single column grid for print
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr !important;
+  }
+
+  // Show link URLs inline
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #666;
+    word-break: break-all;
+  }
+
+  // Section backgrounds
+  .hero,
+  .vermittlung-section,
+  .referenten,
+  .categories,
+  .nav-cards {
+    background: white !important;
+  }
+}
