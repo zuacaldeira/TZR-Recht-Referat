@@ -1,4 +1,4 @@
-export type SlideType = 'hero' | 'title' | 'overview' | 'category' | 'timeline' | 'article' | 'info' | 'stat' | 'quote' | 'image' | 'compare' | 'question' | 'end' | 'agenda' | 'summary' | 'interaction' | 'article-group' | 'timeline-group' | 'section';
+export type SlideType = 'hero' | 'title' | 'overview' | 'category' | 'timeline' | 'article' | 'info' | 'stat' | 'quote' | 'image' | 'compare' | 'question' | 'end' | 'agenda' | 'summary' | 'interaction' | 'article-group' | 'timeline-group' | 'section' | 'article-browser';
 
 export interface PresentationSlide {
   type: SlideType;

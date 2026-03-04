@@ -241,6 +241,14 @@ export class PresentationService {
       }
     }
 
+    // Article Browser — interactive search for Q&A
+    slides.push({
+      type: 'article-browser',
+      title: 'Alle 54 Artikel der UN-KRK',
+      notes: '[Q&A Hilfsmittel] Artikel suchen und filtern. Nützlich wenn Publikum nach bestimmten Artikeln fragt.',
+      speaker: 'both'
+    });
+
     // ===== 5. VERLETZUNGEN (Zua) — ~4 min =====
 
     slides.push({

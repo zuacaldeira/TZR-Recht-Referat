@@ -245,6 +245,30 @@
               </div>
             </div>
           }
+          @case ('article-browser') {
+            <div class="pres-slide pres-slide--article-browser" [class.fade-out]="fadeOut()">
+              <div class="pres-title pres-animate">{{ slide.title }}</div>
+              <div class="pres-ab-controls pres-animate" style="animation-delay: 100ms">
+                <input class="pres-ab-search" type="text" placeholder="Artikel suchen..." [value]="abSearch()" (input)="onAbSearchInput($event)" (click)="$event.stopPropagation()" (focus)="abSearchFocused.set(true)" (blur)="abSearchFocused.set(false)">
+                <div class="pres-ab-pills">
+                  @for (cat of CATEGORY_FILTERS; track cat.key) {
+                    <button class="pres-ab-pill" [class.pres-ab-pill--active]="abCategory() === cat.key" [style.--pill-color]="cat.color" (click)="setAbCategory(cat.key); $event.stopPropagation()">{{ cat.label }}</button>
+                  }
+                  <button class="pres-ab-pill pres-ab-pill--key" [class.pres-ab-pill--active]="abKeyOnly()" (click)="toggleAbKeyOnly(); $event.stopPropagation()">Schlüssel</button>
+                </div>
+                <div class="pres-ab-count">{{ filteredArticles().length }} von {{ allArticles.length }} Artikeln</div>
+              </div>
+              <div class="pres-ab-grid pres-animate" style="animation-delay: 200ms">
+                @for (art of filteredArticles(); track art.id) {
+                  <div class="pres-ab-card" [style.border-color]="getCatColor(art.category)">
+                    <span class="pres-ab-card-id" [style.color]="getCatColor(art.category)">Art. {{ art.id }}</span>
+                    <h4>{{ art.title }}</h4>
+                    <p>{{ art.summary }}</p>
+                  </div>
+                }
+              </div>
+            </div>
+          }
         }
       }
     </div>

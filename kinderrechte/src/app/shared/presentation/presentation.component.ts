@@ -1,10 +1,13 @@
-import { Component, inject, HostListener, signal, effect } from '@angular/core';
+import { Component, inject, HostListener, signal, computed } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { PresentationService } from '../../services/presentation.service';
 import { PresentationSlide } from '../../models/presentation';
 import { CATEGORIES } from '../../data/categories';
+import { ARTICLES_DATA } from '../../data/articles';
+import { Article } from '../../models/article';
+import { CategoryKey } from '../../models/category';
 
 @Component({
   selector: 'app-presentation',
@@ -23,7 +26,7 @@ export class PresentationComponent {
     hero: '🎬', title: '📌', overview: '📊', category: '🏷️',
     timeline: '🕰️', article: '📄', info: '📋', stat: '📈',
     quote: '💬', image: '🖼️', compare: '⚖️', question: '❓', end: '🎉',
-    agenda: '📋', summary: '✅', interaction: '🙋', 'article-group': '📑', 'timeline-group': '📅', section: '🔷'
+    agenda: '📋', summary: '✅', interaction: '🙋', 'article-group': '📑', 'timeline-group': '📅', section: '🔷', 'article-browser': '🔍'
   };
 
   readonly CATEGORY_BG: Record<string, string> = {
@@ -33,9 +36,67 @@ export class PresentationComponent {
     participation: 'rgba(3, 169, 244, 0.15)'
   };
 
+  // Article Browser state
+  readonly allArticles: Article[] = ARTICLES_DATA;
+  readonly abSearch = signal('');
+  readonly abCategory = signal<CategoryKey | 'all'>('all');
+  readonly abKeyOnly = signal(false);
+  readonly abSearchFocused = signal(false);
+
+  readonly CATEGORY_FILTERS: { key: CategoryKey | 'all'; label: string; color: string }[] = [
+    { key: 'all', label: 'Alle', color: '#fff' },
+    { key: 'survival', label: 'Überleben', color: CATEGORIES.survival.color },
+    { key: 'development', label: 'Entwicklung', color: CATEGORIES.development.color },
+    { key: 'protection', label: 'Schutz', color: CATEGORIES.protection.color },
+    { key: 'participation', label: 'Beteiligung', color: CATEGORIES.participation.color },
+  ];
+
+  readonly filteredArticles = computed(() => {
+    let result = this.allArticles;
+    const cat = this.abCategory();
+    if (cat !== 'all') result = result.filter(a => a.category === cat);
+    if (this.abKeyOnly()) result = result.filter(a => a.key);
+    const q = this.abSearch().toLowerCase().trim();
+    if (q) {
+      result = result.filter(a =>
+        a.title.toLowerCase().includes(q) ||
+        a.summary.toLowerCase().includes(q) ||
+        a.full.toLowerCase().includes(q) ||
+        String(a.id).includes(q)
+      );
+    }
+    return result;
+  });
+
+  getCatColor(cat: string): string {
+    return CATEGORIES[cat as CategoryKey]?.color || '#03A9F4';
+  }
+
+  onAbSearchInput(e: Event): void {
+    this.abSearch.set((e.target as HTMLInputElement).value);
+  }
+
+  setAbCategory(cat: CategoryKey | 'all'): void {
+    this.abCategory.set(cat);
+  }
+
+  toggleAbKeyOnly(): void {
+    this.abKeyOnly.update(v => !v);
+  }
+
   @HostListener('document:keydown', ['$event'])
   handleKeydown(e: KeyboardEvent): void {
     if (!this.pres.isActive()) return;
+
+    // Skip navigation keys when article browser search is focused
+    if (this.abSearchFocused()) {
+      if (e.key === 'Escape') {
+        (e.target as HTMLElement)?.blur();
+        this.abSearchFocused.set(false);
+        e.preventDefault();
+      }
+      return;
+    }
 
     switch (e.key) {
       case 'Escape':
