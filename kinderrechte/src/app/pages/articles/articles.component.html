@@ -1,0 +1,40 @@
+<main class="page-content">
+  <section class="section">
+    <div class="container">
+      <h1 class="section-title" appScrollReveal>Die 54 Artikel</h1>
+      <p class="section-subtitle" appScrollReveal>
+        Alle Artikel der UN-Kinderrechtskonvention. Klicke auf eine Karte, um den vollständigen Text zu lesen.
+      </p>
+
+      <!-- Controls -->
+      <div class="articles-controls" appScrollReveal>
+        <mat-form-field appearance="outline" class="articles-search">
+          <mat-label>Artikel suchen...</mat-label>
+          <input matInput (input)="onSearchInput($event)" placeholder="Artikel suchen...">
+        </mat-form-field>
+
+        <div class="filter-group">
+          @for (key of categoryKeys; track key) {
+            <button class="filter-btn" [class.active]="articlesService.activeCategory() === key" [style.--hover-color]="getCategoryColor(key)" (click)="setCategory(key)">
+              {{ getCategoryLabel(key) }}
+            </button>
+          }
+        </div>
+
+        <mat-slide-toggle [checked]="articlesService.showKeyOnly()" (change)="toggleKeyOnly()">
+          Nur Schlüsselartikel
+        </mat-slide-toggle>
+      </div>
+
+      <p class="articles-count" appScrollReveal>{{ articlesService.filteredArticles().length }} Artikel gefunden</p>
+
+      <div class="articles-grid">
+        @for (article of articlesService.filteredArticles(); track article.id) {
+          <app-article-card [article]="article" />
+        } @empty {
+          <p class="articles-empty">Keine Artikel gefunden.</p>
+        }
+      </div>
+    </div>
+  </section>
+</main>
