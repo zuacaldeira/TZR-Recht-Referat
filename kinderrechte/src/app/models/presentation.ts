@@ -1,4 +1,4 @@
-export type SlideType = 'hero' | 'title' | 'overview' | 'category' | 'timeline' | 'article' | 'info' | 'stat' | 'quote' | 'image' | 'compare' | 'question' | 'end';
+export type SlideType = 'hero' | 'title' | 'overview' | 'category' | 'timeline' | 'article' | 'info' | 'stat' | 'quote' | 'image' | 'compare' | 'question' | 'end' | 'agenda' | 'summary' | 'interaction' | 'article-group' | 'timeline-group';
 
 export interface PresentationSlide {
   type: SlideType;
@@ -47,6 +47,19 @@ export interface PresentationSlide {
   questions?: string[];
   // Speaker
   speaker?: 'lydia' | 'zua' | 'both';
+  // Agenda
+  agendaItems?: AgendaItem[];
+  // Summary
+  summaryItems?: string[];
+  // Interaction
+  interactionQuestion?: string;
+  interactionOptions?: string[];
+  // Article Group (2-3 articles per slide)
+  articles?: ArticleBrief[];
+  // Timeline Group (2-4 events per slide)
+  events?: TimelineBrief[];
+  // Section background variant
+  bgVariant?: 'warm' | 'cool' | 'red' | 'green' | 'purple';
 }
 
 export interface OverviewItem {
@@ -58,5 +71,26 @@ export interface OverviewItem {
 export interface CompareColumn {
   title: string;
   items: string[];
+  color: string;
+}
+
+export interface AgendaItem {
+  label: string;
+  speaker: string;
+  icon: string;
+}
+
+export interface ArticleBrief {
+  id: number;
+  title: string;
+  summary: string;
+  category: string;
+  categoryColor: string;
+}
+
+export interface TimelineBrief {
+  year: number;
+  title: string;
+  summary: string;
   color: string;
 }

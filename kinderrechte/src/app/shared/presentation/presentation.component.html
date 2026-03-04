@@ -164,6 +164,74 @@
               <div class="pres-qr-label pres-animate" style="animation-delay: 750ms">kinderrechte.zuacaldeira.com</div>
             </div>
           }
+          @case ('agenda') {
+            <div class="pres-slide pres-slide--agenda" [class.fade-out]="fadeOut()">
+              <div class="pres-title pres-animate">{{ slide.title }}</div>
+              <div class="pres-agenda-list pres-animate" style="animation-delay: 200ms">
+                @for (item of slide.agendaItems; track item.label; let i = $index) {
+                  <div class="pres-agenda-item" [style.animation-delay]="(200 + i * 80) + 'ms'">
+                    <span class="pres-agenda-icon">{{ item.icon }}</span>
+                    <span class="pres-agenda-label">{{ item.label }}</span>
+                    <span class="pres-agenda-speaker">{{ item.speaker }}</span>
+                  </div>
+                }
+              </div>
+            </div>
+          }
+          @case ('summary') {
+            <div class="pres-slide pres-slide--summary" [class.fade-out]="fadeOut()">
+              <div class="pres-title pres-animate">{{ slide.title }}</div>
+              <ul class="pres-summary-list pres-animate" style="animation-delay: 200ms">
+                @for (item of slide.summaryItems; track $index) {
+                  <li>{{ item }}</li>
+                }
+              </ul>
+            </div>
+          }
+          @case ('interaction') {
+            <div class="pres-slide pres-slide--interaction" [class.fade-out]="fadeOut()">
+              <div class="pres-title pres-animate">{{ slide.title }}</div>
+              <div class="pres-interaction-q pres-animate" style="animation-delay: 200ms">{{ slide.interactionQuestion }}</div>
+              <div class="pres-interaction-options pres-animate" style="animation-delay: 400ms">
+                @for (opt of slide.interactionOptions; track $index) {
+                  <div class="pres-interaction-opt">
+                    <span class="pres-interaction-letter">{{ ['A', 'B', 'C', 'D'][$index] }}</span>
+                    {{ opt }}
+                  </div>
+                }
+              </div>
+              <div class="pres-interaction-hint pres-animate" style="animation-delay: 600ms">Handzeichen!</div>
+            </div>
+          }
+          @case ('article-group') {
+            <div class="pres-slide pres-slide--article-group" [class.fade-out]="fadeOut()" [style.--group-color]="slide.categoryColor">
+              <div class="pres-title pres-animate" [style.color]="slide.categoryColor">{{ slide.title }}</div>
+              <div class="pres-article-cards pres-animate" style="animation-delay: 200ms">
+                @for (art of slide.articles; track art.id) {
+                  <div class="pres-article-card" [style.border-color]="art.categoryColor">
+                    <span class="pres-article-card-id" [style.color]="art.categoryColor">Art. {{ art.id }}</span>
+                    <h4>{{ art.title }}</h4>
+                    <p>{{ art.summary }}</p>
+                  </div>
+                }
+              </div>
+            </div>
+          }
+          @case ('timeline-group') {
+            <div class="pres-slide pres-slide--timeline-group" [class.fade-out]="fadeOut()">
+              <div class="pres-title pres-animate">{{ slide.title }}</div>
+              <div class="pres-tg-track pres-animate" style="animation-delay: 200ms">
+                @for (ev of slide.events; track ev.year) {
+                  <div class="pres-tg-event">
+                    <span class="pres-tg-dot" [style.background]="ev.color"></span>
+                    <span class="pres-tg-year" [style.color]="ev.color">{{ ev.year }}</span>
+                    <h4>{{ ev.title }}</h4>
+                    <p>{{ ev.summary }}</p>
+                  </div>
+                }
+              </div>
+            </div>
+          }
         }
       }
     </div>
