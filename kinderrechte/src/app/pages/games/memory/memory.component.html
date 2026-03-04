@@ -1,0 +1,35 @@
+<div class="memory-controls">
+  <span>Schwierigkeit:</span>
+  <mat-button-toggle-group [value]="difficulty()" (change)="setDifficulty($event.value)">
+    <mat-button-toggle value="easy">Leicht (6)</mat-button-toggle>
+    <mat-button-toggle value="medium">Mittel (8)</mat-button-toggle>
+    <mat-button-toggle value="hard">Schwer (12)</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+
+<div class="memory-stats">
+  <span>Züge: <strong>{{ moves() }}</strong></span>
+  <span>Paare: <strong>{{ matchedPairs() }} / {{ totalPairs() }}</strong></span>
+</div>
+
+@if (!won()) {
+  <div class="memory-grid" [class]="getGridClass()">
+    @for (card of cards(); track card.uniqueId) {
+      <div class="memory-card" [class.flipped]="card.flipped" [class.matched]="card.matched" (click)="flipCard(card)" (keydown)="onCardKeydown($event, card)" tabindex="0" role="button" aria-label="Memory-Karte">
+        <div class="memory-card-inner">
+          <div class="memory-card-face memory-card-front">?</div>
+          <div class="memory-card-face memory-card-back">
+            <span class="memory-icon">{{ card.icon }}</span>
+            <span class="memory-name">{{ card.name }}</span>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+} @else {
+  <div class="memory-win">
+    <h3>Gewonnen!</h3>
+    <p>Du hast alle Paare in <strong>{{ moves() }}</strong> Zügen gefunden.</p>
+    <button class="btn btn-primary" (click)="startGame(difficulty())">Nochmal spielen</button>
+  </div>
+}

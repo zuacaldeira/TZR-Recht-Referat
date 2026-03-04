@@ -1,0 +1,41 @@
+@if (!quiz.quizFinished()) {
+  <div class="quiz-header">
+    <span class="quiz-progress-text">Frage {{ quiz.currentQuestion() + 1 }} / {{ quiz.totalQuestions() }}</span>
+    <span class="quiz-score">Punkte: {{ quiz.score() }}</span>
+  </div>
+
+  <mat-progress-bar mode="determinate" [value]="quiz.progress()"></mat-progress-bar>
+
+  <mat-card class="quiz-question-card" [class.shake]="feedbackState === 'wrong'" [class.pop]="feedbackState === 'correct'">
+    <p class="quiz-question">{{ currentQ.question }}</p>
+    <div class="quiz-options">
+      @for (option of currentQ.options; track $index) {
+        <button mat-stroked-button class="quiz-option" [class]="getOptionClass($index)" [disabled]="quiz.answered()" (click)="selectOption($index)">
+          {{ option }}
+        </button>
+      }
+    </div>
+
+    @if (quiz.answered()) {
+      <div class="quiz-feedback" [class.correct]="feedbackState === 'correct'" [class.wrong]="feedbackState === 'wrong'">
+        @if (feedbackState === 'correct') {
+          Richtig!
+        } @else {
+          Falsch! Die richtige Antwort ist: {{ currentQ.options[currentQ.correct] }}
+        }
+      </div>
+      <div class="quiz-next">
+        <button mat-raised-button color="primary" (click)="next()">
+          {{ quiz.currentQuestion() < quiz.totalQuestions() - 1 ? 'Nächste Frage' : 'Ergebnis anzeigen' }}
+        </button>
+      </div>
+    }
+  </mat-card>
+} @else {
+  <div class="quiz-result">
+    <div class="quiz-result-score">{{ quiz.score() }} / {{ quiz.totalQuestions() }}</div>
+    <p class="quiz-result-text">{{ getResultMessage() }}</p>
+    <mat-progress-bar mode="determinate" [value]="(quiz.score() / quiz.totalQuestions()) * 100" class="quiz-result-bar"></mat-progress-bar>
+    <button mat-raised-button color="primary" (click)="restart()">Nochmal spielen</button>
+  </div>
+}

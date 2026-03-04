@@ -1,0 +1,102 @@
+.memory-controls {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.memory-stats {
+  display: flex;
+  gap: var(--space-lg);
+  justify-content: center;
+  margin-bottom: var(--space-lg);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: var(--fs-sm);
+}
+
+.memory-grid {
+  display: grid;
+  gap: var(--space-sm);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.memory-grid--easy { grid-template-columns: repeat(3, 1fr); }
+.memory-grid--medium { grid-template-columns: repeat(4, 1fr); }
+.memory-grid--hard { grid-template-columns: repeat(4, 1fr); }
+
+.memory-card {
+  aspect-ratio: 1;
+  perspective: 800px;
+  cursor: pointer;
+}
+
+.memory-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease;
+  transform-style: preserve-3d;
+}
+
+.memory-card.flipped .memory-card-inner,
+.memory-card.matched .memory-card-inner {
+  transform: rotateY(180deg);
+}
+
+.memory-card-face {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  backface-visibility: hidden;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.memory-card-front {
+  background: linear-gradient(135deg, var(--color-participation), #0288D1);
+  color: var(--color-white);
+  font-size: 2rem;
+}
+
+.memory-card-back {
+  transform: rotateY(180deg);
+  background: var(--color-white);
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: var(--space-sm);
+  text-align: center;
+}
+
+.memory-icon { font-size: 1.5rem; }
+.memory-name {
+  font-family: var(--font-heading);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.memory-card.matched { opacity: 0.6; pointer-events: none; }
+.memory-card.matched .memory-card-back { background: #E8F5E9; }
+
+.memory-win {
+  text-align: center;
+  padding: var(--space-2xl);
+
+  h3 {
+    font-size: var(--fs-2xl);
+    color: var(--color-development);
+    margin-bottom: var(--space-md);
+  }
+}
+
+@media (min-width: 640px) {
+  .memory-icon { font-size: 2rem; }
+  .memory-name { font-size: var(--fs-sm); }
+}
