@@ -90,12 +90,31 @@
   margin-bottom: var(--space-md);
 }
 
+.timeline-type-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: white;
+  margin-bottom: var(--space-sm);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
 .details p {
   font-size: var(--fs-sm);
   line-height: 1.8;
   color: var(--color-text);
   padding-top: var(--space-sm);
   border-top: 1px solid var(--color-gray-light);
+}
+
+.timeline-source {
+  display: block;
+  font-size: var(--fs-xs);
+  color: var(--color-gray);
+  margin-top: var(--space-sm);
 }
 
 @media (min-width: 640px) {

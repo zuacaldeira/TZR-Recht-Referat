@@ -21,9 +21,13 @@
                     <h3>{{ event.title }}</h3>
                   </mat-panel-title>
                 </mat-expansion-panel-header>
+                <span class="timeline-type-badge" [style.background]="typeColors[event.type]">{{ typeLabels[event.type] }}</span>
                 <p class="summary">{{ event.summary }}</p>
                 <div class="details">
                   <p>{{ event.details }}</p>
+                  @if (event.source) {
+                    <span class="timeline-source">Quelle: {{ event.source }}</span>
+                  }
                 </div>
               </mat-expansion-panel>
             </mat-accordion>
