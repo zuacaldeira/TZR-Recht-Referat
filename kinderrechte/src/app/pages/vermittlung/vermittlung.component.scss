@@ -57,9 +57,62 @@
 }
 
 .vermittlung-accent--kinder { background: var(--color-development); }
+.vermittlung-accent--erzieher { background: #7B1FA2; }
+.vermittlung-accent--programme { background: #00897B; }
 .vermittlung-accent--eltern { background: var(--color-survival); }
 .vermittlung-accent--schutz { background: var(--color-protection); }
 .vermittlung-accent--zukunft { background: var(--color-participation); }
+.vermittlung-accent--links { background: var(--color-gray); }
+
+// Links section
+.links-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-sm);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.external-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  text-decoration: none;
+  color: var(--color-text);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+.link-icon {
+  font-size: var(--fs-lg);
+  flex-shrink: 0;
+}
+
+.link-text {
+  flex: 1;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+.link-arrow {
+  font-size: var(--fs-lg);
+  color: var(--color-participation);
+  flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+  .links-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
 // Discussion
 .discussion-section { padding: var(--space-3xl) 0; }

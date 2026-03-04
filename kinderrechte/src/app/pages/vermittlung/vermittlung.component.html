@@ -32,6 +32,40 @@
     </div>
   </section>
 
+  <!-- Für Erzieher*innen -->
+  <section class="vermittlung-section section" aria-labelledby="erzieher-title">
+    <div class="container">
+      <h2 id="erzieher-title" class="section-title sub-title" appScrollReveal>Für Erzieher*innen: Kinderrechte in der Kita</h2>
+      <div class="vermittlung-accent vermittlung-accent--erzieher" appScrollReveal></div>
+
+      <div class="grid grid-2" appScrollReveal [stagger]="true">
+        @for (item of erzieherItems; track item.title) {
+          <mat-card class="vermittlung-card">
+            <h3><span class="icon">📋</span> {{ item.title }}</h3>
+            <p>{{ item.text }}</p>
+          </mat-card>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Programme und Initiativen -->
+  <section class="vermittlung-section section" aria-labelledby="programme-title">
+    <div class="container">
+      <h2 id="programme-title" class="section-title sub-title" appScrollReveal>Programme und Initiativen</h2>
+      <div class="vermittlung-accent vermittlung-accent--programme" appScrollReveal></div>
+
+      <div class="grid grid-2" appScrollReveal [stagger]="true">
+        @for (item of programmeItems; track item.title) {
+          <mat-card class="vermittlung-card">
+            <h3><span class="icon">🚀</span> {{ item.title }}</h3>
+            <p>{{ item.text }}</p>
+          </mat-card>
+        }
+      </div>
+    </div>
+  </section>
+
   <!-- Vermittlung an Eltern -->
   <section class="vermittlung-section section" aria-labelledby="eltern-title">
     <div class="container">
@@ -107,6 +141,24 @@
           <h3><span class="icon">🌍</span> Klimawandel</h3>
           <p>Der Klimawandel bedroht Kinderrechte weltweit: Recht auf Gesundheit, sauberes Wasser, Nahrung und eine sichere Zukunft. Kinder und Jugendliche werden zunehmend zu Akteuren der Klimabewegung.</p>
         </mat-card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Weiterführende Links -->
+  <section class="vermittlung-section links-section section" aria-labelledby="links-title">
+    <div class="container">
+      <h2 id="links-title" class="section-title sub-title" appScrollReveal>Weiterführende Links</h2>
+      <div class="vermittlung-accent vermittlung-accent--links" appScrollReveal></div>
+
+      <div class="links-grid" appScrollReveal [stagger]="true">
+        @for (link of externalLinks; track link.url) {
+          <a [href]="link.url" target="_blank" rel="noopener noreferrer" class="external-link">
+            <span class="link-icon">🔗</span>
+            <span class="link-text">{{ link.title }}</span>
+            <span class="link-arrow">↗</span>
+          </a>
+        }
       </div>
     </div>
   </section>

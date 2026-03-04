@@ -18,4 +18,30 @@ export class VermittlungComponent {
     { question: 'Was kann jeder Einzelne für Kinderrechte tun?', answer: 'Kinderrechte beginnen im Alltag: Kinder ernst nehmen, zuhören und mitentscheiden lassen. Sich informieren und andere aufklären. Hinschauen, wenn Kindern Unrecht geschieht. Organisationen wie UNICEF, Kinderschutzbund oder lokale Initiativen unterstützen.' },
     { question: 'Welche Kinderrechte werden weltweit am häufigsten verletzt?', answer: 'Kinderarbeit (160 Millionen Kinder weltweit), fehlender Zugang zu Bildung, Kindersoldaten, Kinderehen, Mangelernährung, fehlende Gesundheitsversorgung. Auch in Deutschland gibt es Herausforderungen: Kinderarmut, Bildungsungleichheit und Gewalt gegen Kinder.' },
   ];
+
+  readonly erzieherItems = [
+    { title: '§ 45 SGB VIII — Betriebserlaubnis', text: 'Seit der Reform 2021 müssen Einrichtungen der Kinder- und Jugendhilfe ein Gewaltschutzkonzept vorweisen. Die Betriebserlaubnis nach § 45 SGB VIII setzt Beteiligungs- und Beschwerdeverfahren voraus.' },
+    { title: 'Beschwerdemanagement in Kitas', text: 'Seit 2012 (§ 45 Abs. 2 Nr. 3 SGB VIII) sind institutionelle Beschwerdeverfahren für Kinder in Einrichtungen der Kinder- und Jugendhilfe gesetzlich vorgeschrieben.' },
+    { title: 'Bildungs- und Erziehungspläne', text: 'Alle 16 Bundesländer haben eigene Bildungspläne für den frühkindlichen Bereich. Sie legen Grundsätze für Bildung, Erziehung und Betreuung fest — Kinderrechte sind dabei ein Querschnittsthema.' },
+    { title: 'KiTa-Qualitätsgesetz', text: 'Das KiTa-Qualitätsgesetz stellt rund 4 Mrd. EUR (2023–2024) und weitere Mittel bis 2026 bereit, um die Qualität der frühkindlichen Bildung bundesweit zu verbessern.' },
+    { title: 'Klassenrat als Partizipationstool', text: 'Der Klassenrat ist ein praktisches Werkzeug zur Umsetzung von Artikel 12 UN-KRK. Kinder lernen demokratische Prozesse, Konfliktlösung und erfahren Selbstwirksamkeit.' },
+  ];
+
+  readonly programmeItems = [
+    { title: 'Kinderrechte-Landschaften 2025–2026', text: 'Das Programm der Deutschen Kinder- und Jugendstiftung (DKJS) vernetzt 10 Kitas und 16 Schulen, um Kinderrechte strukturell in den Einrichtungsalltag zu integrieren.' },
+    { title: 'UNICEF Kinderrechteschulen', text: 'Ein 7-stufiges Ausbildungsprogramm, das Schulen dabei unterstützt, Kinderrechte ganzheitlich zu leben. Aktiv in NRW, Niedersachsen, Sachsen und Schleswig-Holstein.' },
+    { title: 'Kinderrechte-Index 2025', text: 'Der Kinderrechte-Index des Deutschen Kinderhilfswerks zeigt, wie unterschiedlich Kinderrechte in den einzelnen Bundesländern umgesetzt werden — von Bildung über Beteiligung bis Schutz.' },
+    { title: '2026 als Jahr der Kinderrechte', text: 'Die Bundesregierung hat 2026 zum Jahr der Kinderrechte erklärt. Zahlreiche Aktionen, Projekte und Kampagnen sollen Kinderrechte stärker ins öffentliche Bewusstsein rücken.' },
+  ];
+
+  readonly externalLinks = [
+    { title: 'UNICEF Kinderrechteschulen', url: 'https://www.unicef.de/informieren/einsatz-fuer-kinderrechte/kinderrechteschulen' },
+    { title: 'Kinderrechte-Landschaften (DKJS)', url: 'https://www.kinderrechte.de/projekte/programm-kinderrechte-landschaften/' },
+    { title: 'Kinderrechte-Index 2025', url: 'https://jugendhilfeportal.de/artikel/kinder-und-jugendrechte-kinderrechte-index-2025' },
+    { title: 'KiTa-Qualitätsgesetz (BMFSFJ)', url: 'https://www.bmfsfj.bund.de/bmfsfj/themen/familie/kinderbetreuung/kita-qualitaetsgesetz' },
+    { title: 'UNICEF Unterrichtsmaterial', url: 'https://www.unicef.de/informieren/schulen/unterrichtsmaterial/kinderrechte' },
+    { title: 'Nummer gegen Kummer', url: 'https://www.nummergegenkummer.de' },
+    { title: 'UN-Kinderrechtskonvention (DeGeDe)', url: 'https://degede.de/abc/un-kinderrechtskonvention/' },
+    { title: 'Modellschul-Netzwerk Kinderrechte Hessen (Makista)', url: 'https://www.makista.de/projekte/modellschul-netzwerk-fuer-kinderrechte-hessen/' },
+  ];
 }
