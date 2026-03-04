@@ -75,6 +75,75 @@
               </ul>
             </div>
           }
+          @case ('stat') {
+            <div class="pres-slide pres-slide--stat" [class.fade-out]="fadeOut()" [style.--stat-color]="slide.color || '#03A9F4'">
+              @if (slide.image) {
+                <div class="pres-stat-bg" [style.background-image]="'url(' + slide.image + ')'"></div>
+              }
+              <div class="pres-stat-value pres-animate">{{ slide.statValue }}</div>
+              <div class="pres-stat-label pres-animate" style="animation-delay: 150ms">{{ slide.statLabel }}</div>
+              @if (slide.text) {
+                <div class="pres-stat-context pres-animate" style="animation-delay: 300ms">{{ slide.text }}</div>
+              }
+              @if (slide.statSource) {
+                <div class="pres-stat-source pres-animate" style="animation-delay: 450ms">{{ slide.statSource }}</div>
+              }
+            </div>
+          }
+          @case ('quote') {
+            <div class="pres-slide pres-slide--quote" [class.fade-out]="fadeOut()">
+              @if (slide.image) {
+                <div class="pres-quote-bg" [style.background-image]="'url(' + slide.image + ')'"></div>
+              }
+              <blockquote class="pres-quote-text pres-animate">{{ slide.quoteText }}</blockquote>
+              @if (slide.quoteAuthor) {
+                <cite class="pres-quote-author pres-animate" style="animation-delay: 200ms">— {{ slide.quoteAuthor }}</cite>
+              }
+            </div>
+          }
+          @case ('image') {
+            <div class="pres-slide pres-slide--image" [class.fade-out]="fadeOut()" [style.background-image]="'url(' + slide.image + ')'">
+              <div class="pres-image-overlay"></div>
+              <div class="pres-image-content">
+                @if (slide.title) {
+                  <div class="pres-title pres-animate">{{ slide.title }}</div>
+                }
+                @if (slide.text) {
+                  <div class="pres-text pres-animate" style="animation-delay: 150ms">{{ slide.text }}</div>
+                }
+              </div>
+              @if (slide.imageCredit) {
+                <div class="pres-image-credit">{{ slide.imageCredit }}</div>
+              }
+            </div>
+          }
+          @case ('compare') {
+            <div class="pres-slide pres-slide--compare" [class.fade-out]="fadeOut()">
+              <div class="pres-title pres-animate">{{ slide.title }}</div>
+              <div class="pres-compare-grid pres-animate" style="animation-delay: 200ms">
+                @if (slide.compareLeft) {
+                  <div class="pres-compare-col" [style.border-color]="slide.compareLeft.color">
+                    <h4 [style.color]="slide.compareLeft.color">{{ slide.compareLeft.title }}</h4>
+                    <ul>
+                      @for (item of slide.compareLeft.items; track $index) {
+                        <li>{{ item }}</li>
+                      }
+                    </ul>
+                  </div>
+                }
+                @if (slide.compareRight) {
+                  <div class="pres-compare-col" [style.border-color]="slide.compareRight.color">
+                    <h4 [style.color]="slide.compareRight.color">{{ slide.compareRight.title }}</h4>
+                    <ul>
+                      @for (item of slide.compareRight.items; track $index) {
+                        <li>{{ item }}</li>
+                      }
+                    </ul>
+                  </div>
+                }
+              </div>
+            </div>
+          }
           @case ('question') {
             <div class="pres-slide pres-slide--question" [class.fade-out]="fadeOut()">
               <div class="pres-title pres-animate">{{ slide.title }}</div>

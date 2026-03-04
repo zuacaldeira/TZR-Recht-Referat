@@ -1,4 +1,4 @@
-export type SlideType = 'hero' | 'title' | 'overview' | 'category' | 'timeline' | 'article' | 'info' | 'question' | 'end';
+export type SlideType = 'hero' | 'title' | 'overview' | 'category' | 'timeline' | 'article' | 'info' | 'stat' | 'quote' | 'image' | 'compare' | 'question' | 'end';
 
 export interface PresentationSlide {
   type: SlideType;
@@ -30,6 +30,19 @@ export interface PresentationSlide {
   // Info
   accent?: string;
   infoItems?: string[];
+  // Stat
+  statValue?: string;
+  statLabel?: string;
+  statSource?: string;
+  // Quote
+  quoteText?: string;
+  quoteAuthor?: string;
+  // Image
+  image?: string;
+  imageCredit?: string;
+  // Compare
+  compareLeft?: CompareColumn;
+  compareRight?: CompareColumn;
   // Question
   questions?: string[];
 }
@@ -37,5 +50,11 @@ export interface PresentationSlide {
 export interface OverviewItem {
   label: string;
   desc: string;
+  color: string;
+}
+
+export interface CompareColumn {
+  title: string;
+  items: string[];
   color: string;
 }

@@ -21,7 +21,8 @@ export class PresentationComponent {
 
   readonly TYPE_ICONS: Record<string, string> = {
     hero: '🎬', title: '📌', overview: '📊', category: '🏷️',
-    timeline: '🕰️', article: '📄', info: '📋', question: '❓', end: '🎉'
+    timeline: '🕰️', article: '📄', info: '📋', stat: '📈',
+    quote: '💬', image: '🖼️', compare: '⚖️', question: '❓', end: '🎉'
   };
 
   readonly CATEGORY_BG: Record<string, string> = {
