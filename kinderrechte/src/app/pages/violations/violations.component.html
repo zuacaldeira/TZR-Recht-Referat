@@ -1,0 +1,73 @@
+<main class="page-content">
+  <section class="violations-hero section" aria-labelledby="violations-title">
+    <div class="container">
+      <h1 id="violations-title" class="section-title" appScrollReveal>Verletzungen der Kinderrechte</h1>
+      <p class="section-subtitle" appScrollReveal>
+        Globale Statistiken zu den größten Herausforderungen für Kinder weltweit.
+        Alle Daten mit Quellenangaben (2024/2025).
+      </p>
+    </div>
+  </section>
+
+  <!-- Global Overview -->
+  <section class="overview-section section" aria-labelledby="overview-title">
+    <div class="container">
+      <h2 id="overview-title" class="section-title sub-title" appScrollReveal>Globaler Überblick</h2>
+      <div class="overview-grid" appScrollReveal [stagger]="true">
+        @for (item of overview; track item.label) {
+          <div class="overview-card" [style.border-left-color]="item.color">
+            <span class="overview-value" [style.color]="item.color">{{ item.value }}</span>
+            <span class="overview-label">{{ item.label }}</span>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Nav -->
+  <section class="stats-section section" aria-labelledby="stats-title">
+    <div class="container">
+      <h2 id="stats-title" class="section-title sub-title" appScrollReveal>Detaillierte Statistiken</h2>
+
+      <div class="category-nav" appScrollReveal>
+        <mat-button-toggle-group [value]="activeCategory()" (change)="setCategory($event.value)">
+          @for (cat of categories; track cat.id) {
+            <mat-button-toggle [value]="cat.id">
+              <span class="cat-icon">{{ cat.icon }}</span> {{ cat.label }}
+            </mat-button-toggle>
+          }
+        </mat-button-toggle-group>
+      </div>
+
+      <div class="category-header" appScrollReveal>
+        <span class="category-icon">{{ currentCategory().icon }}</span>
+        <div>
+          <h3 [style.color]="currentCategory().color">{{ currentCategory().label }}</h3>
+          <span class="stat-count">{{ currentCategory().stats.length }} Schlüsselstatistiken</span>
+        </div>
+      </div>
+
+      <div class="stats-grid" appScrollReveal [stagger]="true">
+        @for (stat of currentCategory().stats; track stat.label) {
+          <mat-card class="stat-card" [style.border-left-color]="currentCategory().color">
+            <span class="stat-value" [style.color]="currentCategory().color">{{ stat.value }}</span>
+            <span class="stat-label">{{ stat.label }}</span>
+            <span class="stat-sub">{{ stat.sub }}</span>
+            <a [href]="stat.sourceUrl" target="_blank" rel="noopener noreferrer" class="stat-source" [style.color]="currentCategory().color">
+              ↗ {{ stat.source }}
+            </a>
+          </mat-card>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Sources -->
+  <section class="sources-section section">
+    <div class="container">
+      <p class="sources-text" appScrollReveal>
+        Quellen: UNICEF State of the World's Children 2024/25 · ILO Child Labour Report 2024 · KidsRights Index 2024 · ChildFund World Index 2024 · UN Security Council · World Bank
+      </p>
+    </div>
+  </section>
+</main>

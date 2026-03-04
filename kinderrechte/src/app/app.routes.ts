@@ -6,5 +6,6 @@ export const routes: Routes = [
   { path: 'artikel', loadComponent: () => import('./pages/articles/articles.component').then(m => m.ArticlesComponent) },
   { path: 'spiele', loadComponent: () => import('./pages/games/games.component').then(m => m.GamesComponent) },
   { path: 'vermittlung', loadComponent: () => import('./pages/vermittlung/vermittlung.component').then(m => m.VermittlungComponent) },
+  { path: 'verletzungen', loadComponent: () => import('./pages/violations/violations.component').then(m => m.ViolationsComponent) },
   { path: '**', redirectTo: '' }
 ];

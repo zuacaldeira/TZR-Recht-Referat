@@ -23,6 +23,7 @@ export class NavComponent {
     { path: '/artikel', label: 'Artikel', exact: false },
     { path: '/spiele', label: 'Spiele', exact: false },
     { path: '/vermittlung', label: 'Vermittlung', exact: false },
+    { path: '/verletzungen', label: 'Verletzungen', exact: false },
   ];
 
   toggleMenu(): void {

@@ -31,5 +31,6 @@ export class HomeComponent {
     { path: '/artikel', title: '54 Artikel', desc: 'Alle Artikel der UN-Kinderrechtskonvention im Überblick', arrow: 'Artikel lesen', variant: 'articles' },
     { path: '/spiele', title: 'Quiz & Memory', desc: 'Teste dein Wissen über Kinderrechte spielerisch', arrow: 'Spielen', variant: 'games' },
     { path: '/vermittlung', title: 'Vermittlung & Schutz', desc: 'Wie Kinderrechte vermittelt und geschützt werden', arrow: 'Mehr erfahren', variant: 'vermittlung' },
+    { path: '/verletzungen', title: 'Verletzungen', desc: 'Globale Statistiken zu Kinderrechtsverletzungen mit Quellen', arrow: 'Statistiken ansehen', variant: 'violations' },
   ];
 }

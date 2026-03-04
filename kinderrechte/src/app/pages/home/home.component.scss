@@ -180,6 +180,7 @@
   &[data-variant="articles"] { border-left-color: var(--color-development); }
   &[data-variant="games"] { border-left-color: var(--color-protection); }
   &[data-variant="vermittlung"] { border-left-color: var(--color-participation); }
+  &[data-variant="violations"] { border-left-color: #C0392B; }
 
   h3 {
     font-size: var(--fs-lg);
