@@ -1,0 +1,747 @@
+/* Overlay */
+.pres-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #1a1a2e;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: var(--font-heading);
+}
+
+/* Slide Container */
+.pres-slide-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.pres-slide {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 4rem;
+  text-align: center;
+  color: #fff;
+  opacity: 1;
+  transition: opacity 300ms ease;
+  overflow-y: auto;
+}
+
+.pres-slide.fade-out {
+  opacity: 0;
+}
+
+/* Close Button */
+.pres-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 200ms ease, color 200ms ease;
+  z-index: 10;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+  }
+}
+
+/* Navigation Arrows */
+.pres-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 200ms ease, color 200ms ease;
+  z-index: 10;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+  }
+
+  &--prev {
+    left: 1rem;
+  }
+
+  &--next {
+    right: 1rem;
+  }
+
+  &:disabled {
+    opacity: 0.2;
+    cursor: default;
+  }
+}
+
+/* Counter */
+.pres-counter {
+  position: absolute;
+  bottom: 1rem;
+  right: 1.5rem;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: var(--font-body);
+  z-index: 10;
+}
+
+/* Progress Bar */
+.pres-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: var(--color-participation);
+  transition: width 300ms ease;
+  z-index: 10;
+}
+
+/* Keyframes */
+@keyframes pres-fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pres-animate {
+  opacity: 0;
+  animation: pres-fadeUp 500ms ease forwards;
+}
+
+@keyframes pres-gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== SLIDE TYPES ===== */
+
+/* Title Slide */
+.pres-slide--title {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+
+  .pres-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .pres-subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: var(--font-body);
+    max-width: 600px;
+    line-height: 1.6;
+  }
+}
+
+/* Hero Slide */
+.pres-slide--hero {
+  background: linear-gradient(135deg, #FF9800, #4CAF50, #E91E63, #03A9F4, #FF9800);
+  background-size: 300% 300%;
+  animation: pres-gradientShift 30s ease infinite;
+  position: relative;
+
+  .pres-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+
+    &::after {
+      content: '';
+      display: block;
+      width: 120px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 2px;
+      margin: 0.75rem auto 0;
+    }
+  }
+
+  .pres-subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-family: var(--font-body);
+    max-width: 600px;
+    line-height: 1.6;
+    margin-top: 0.75rem;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .pres-hero-authors {
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 600;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .pres-hero-meta {
+    margin-top: 0.375rem;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.75);
+    font-family: var(--font-body);
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Category Slide */
+.pres-slide--category {
+  .pres-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    transition: box-shadow 300ms ease;
+  }
+
+  .pres-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+  }
+
+  .pres-text {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: var(--font-body);
+    max-width: 600px;
+    line-height: 1.7;
+  }
+}
+
+/* Overview Slide */
+.pres-slide--overview {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+
+  .pres-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .pres-text {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: var(--font-body);
+    max-width: 700px;
+    line-height: 1.7;
+  }
+
+  .pres-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    margin-top: 2rem;
+    max-width: 700px;
+    width: 100%;
+  }
+
+  .pres-grid-item {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    text-align: left;
+    border-left: 4px solid;
+
+    h4 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    p {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.6);
+      font-family: var(--font-body);
+    }
+  }
+}
+
+/* Timeline Slide */
+.pres-slide--timeline {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+
+  .pres-year {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+  }
+
+  .pres-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .pres-summary {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.85);
+    font-family: var(--font-body);
+    max-width: 650px;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+
+  .pres-details {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: var(--font-body);
+    max-width: 650px;
+    line-height: 1.7;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1rem;
+  }
+}
+
+/* Timeline Mini-Progress */
+.pres-timeline-progress {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 1.5rem;
+}
+
+.pres-timeline-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  transition: all 200ms ease;
+
+  &--inactive {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  &--active {
+    background: rgba(255, 255, 255, 0.9);
+    transform: scale(1.3);
+  }
+
+  &--done {
+    background: rgba(255, 255, 255, 0.5);
+  }
+}
+
+.pres-timeline-label {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: var(--font-body);
+  margin-left: 8px;
+}
+
+/* Article Slide */
+.pres-slide--article {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+
+  .pres-article-num {
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.375rem 1rem;
+    border-radius: 2rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+
+  .pres-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+  }
+
+  .pres-badge {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    margin-bottom: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .pres-text {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.85);
+    font-family: var(--font-body);
+    max-width: 650px;
+    line-height: 1.7;
+  }
+}
+
+/* Info Slide */
+.pres-slide--info {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+
+  .pres-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+  }
+
+  .pres-list {
+    text-align: left;
+    max-width: 700px;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+
+    li {
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.85);
+      font-family: var(--font-body);
+      padding: 0.75rem 0 0.75rem 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      line-height: 1.6;
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 1.1rem;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--accent, var(--color-participation));
+      }
+    }
+  }
+}
+
+/* Question Slide */
+.pres-slide--question {
+  background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+
+  .pres-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+  }
+
+  .pres-questions {
+    text-align: left;
+    max-width: 700px;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    counter-reset: question;
+
+    li {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.9);
+      font-family: var(--font-body);
+      padding: 0.75rem 0 0.75rem 2.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      line-height: 1.5;
+      position: relative;
+      counter-increment: question;
+
+      &::before {
+        content: counter(question) '.';
+        position: absolute;
+        left: 0;
+        font-weight: 800;
+        color: var(--color-participation);
+        font-family: var(--font-heading);
+      }
+    }
+  }
+}
+
+/* End Slide */
+.pres-slide--end {
+  background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 50%, #16213e 100%);
+
+  .pres-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+  }
+
+  .pres-subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: var(--font-body);
+    margin-bottom: 2rem;
+  }
+
+  .pres-authors {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0.5rem;
+  }
+
+  .pres-meta {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-family: var(--font-body);
+    margin-bottom: 2rem;
+  }
+
+  .pres-qr {
+    width: 160px;
+    height: 160px;
+    border-radius: 0.75rem;
+    background: #fff;
+    padding: 8px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 0.5rem;
+    }
+  }
+
+  .pres-qr-label {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin-top: 0.5rem;
+    font-family: var(--font-body);
+  }
+}
+
+/* ===== GRID OVERLAY ===== */
+
+.pres-grid-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 20, 0.95);
+  z-index: 20;
+  overflow-y: auto;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  align-content: start;
+}
+
+.pres-grid-thumb {
+  background: rgba(255, 255, 255, 0.06);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  cursor: pointer;
+  transition: border-color 200ms ease, background 200ms ease;
+  text-align: left;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  min-height: 100px;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  &--active {
+    border-color: var(--color-participation);
+    background: rgba(3, 169, 244, 0.1);
+  }
+}
+
+.pres-grid-thumb-num {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pres-grid-thumb-icon {
+  font-size: 1.25rem;
+}
+
+.pres-grid-thumb-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ===== SPEAKER NOTES ===== */
+
+.pres-notes {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 700px;
+  width: calc(100% - 8rem);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  z-index: 15;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 640px) {
+  .pres-slide {
+    padding: 2rem 1.5rem;
+  }
+
+  .pres-slide--title .pres-title,
+  .pres-slide--hero .pres-title {
+    font-size: 2rem;
+  }
+
+  .pres-slide--title .pres-subtitle,
+  .pres-slide--hero .pres-subtitle {
+    font-size: 1rem;
+  }
+
+  .pres-slide--category .pres-title,
+  .pres-slide--overview .pres-title {
+    font-size: 1.75rem;
+  }
+
+  .pres-slide--category .pres-text,
+  .pres-slide--overview .pres-text {
+    font-size: 1rem;
+  }
+
+  .pres-slide--overview .pres-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .pres-slide--timeline .pres-year {
+    font-size: 2.5rem;
+  }
+
+  .pres-slide--timeline .pres-title {
+    font-size: 1.5rem;
+  }
+
+  .pres-slide--timeline .pres-summary {
+    font-size: 1rem;
+  }
+
+  .pres-slide--article .pres-title {
+    font-size: 1.5rem;
+  }
+
+  .pres-slide--info .pres-title,
+  .pres-slide--question .pres-title {
+    font-size: 1.75rem;
+  }
+
+  .pres-slide--end .pres-title {
+    font-size: 2rem;
+  }
+
+  .pres-nav {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .pres-nav--prev {
+    left: 0.5rem;
+  }
+
+  .pres-nav--next {
+    right: 0.5rem;
+  }
+
+  .pres-grid-overlay {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+
+  .pres-notes {
+    width: calc(100% - 3rem);
+    bottom: 1.5rem;
+    font-size: 0.75rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .pres-slide {
+    padding: 2.5rem 3rem;
+  }
+
+  .pres-slide--title .pres-title,
+  .pres-slide--hero .pres-title {
+    font-size: 2.5rem;
+  }
+
+  .pres-slide--timeline .pres-year {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .pres-slide--title .pres-title,
+  .pres-slide--hero .pres-title {
+    font-size: 3.5rem;
+  }
+
+  .pres-slide--timeline .pres-year {
+    font-size: 5rem;
+  }
+
+  .pres-slide--timeline .pres-title {
+    font-size: 2.5rem;
+  }
+
+  .pres-slide--article .pres-title {
+    font-size: 2.75rem;
+  }
+
+  .pres-slide--hero .pres-title {
+    font-size: 4rem;
+  }
+}
