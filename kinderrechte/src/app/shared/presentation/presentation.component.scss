@@ -950,3 +950,65 @@
   .pres-slide--quote .pres-quote-text { font-size: 2.25rem; }
   .pres-slide--image .pres-image-content .pres-title { font-size: 3rem; }
 }
+
+/* ===== SPEAKER BADGE ===== */
+
+.pres-speaker {
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 12px;
+  border-radius: 12px;
+  z-index: 10;
+  backdrop-filter: blur(4px);
+
+  &--lydia {
+    background: rgba(156, 39, 176, 0.25);
+    color: #CE93D8;
+    border: 1px solid rgba(156, 39, 176, 0.3);
+  }
+
+  &--zua {
+    background: rgba(3, 169, 244, 0.25);
+    color: #4FC3F7;
+    border: 1px solid rgba(3, 169, 244, 0.3);
+  }
+
+  &--both {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* Speaker badge in grid thumbnails */
+.pres-grid-thumb-speaker {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  font-size: 0.55rem;
+  font-weight: 800;
+  padding: 1px 5px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.5);
+
+  &--lydia {
+    background: rgba(156, 39, 176, 0.3);
+    color: #CE93D8;
+  }
+
+  &--zua {
+    background: rgba(3, 169, 244, 0.3);
+    color: #4FC3F7;
+  }
+}
+
+.pres-grid-thumb {
+  position: relative;
+}

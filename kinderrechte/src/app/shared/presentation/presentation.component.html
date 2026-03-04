@@ -168,6 +168,17 @@
       }
     </div>
 
+    <!-- Speaker Badge -->
+    @if (pres.currentSlideData()?.speaker; as speaker) {
+      <div class="pres-speaker" [class.pres-speaker--lydia]="speaker === 'lydia'" [class.pres-speaker--zua]="speaker === 'zua'" [class.pres-speaker--both]="speaker === 'both'">
+        @switch (speaker) {
+          @case ('lydia') { Lydia }
+          @case ('zua') { Zua }
+          @case ('both') { Lydia & Zua }
+        }
+      </div>
+    }
+
     <!-- Notes -->
     @if (pres.showNotes() && pres.currentSlideData()?.notes) {
       <div class="pres-notes">{{ pres.currentSlideData()?.notes }}</div>
@@ -185,6 +196,9 @@
             <span class="pres-grid-thumb-num">Folie {{ $index + 1 }}</span>
             <span class="pres-grid-thumb-icon">{{ TYPE_ICONS[slide.type] || '📌' }}</span>
             <span class="pres-grid-thumb-title">{{ slide.title || slide.year || 'Slide' }}</span>
+            @if (slide.speaker) {
+              <span class="pres-grid-thumb-speaker" [class.pres-grid-thumb-speaker--lydia]="slide.speaker === 'lydia'" [class.pres-grid-thumb-speaker--zua]="slide.speaker === 'zua'">{{ slide.speaker === 'both' ? 'L+Z' : slide.speaker === 'lydia' ? 'L' : 'Z' }}</span>
+            }
           </div>
         }
       </div>

@@ -45,6 +45,8 @@ export interface PresentationSlide {
   compareRight?: CompareColumn;
   // Question
   questions?: string[];
+  // Speaker
+  speaker?: 'lydia' | 'zua' | 'both';
 }
 
 export interface OverviewItem {
