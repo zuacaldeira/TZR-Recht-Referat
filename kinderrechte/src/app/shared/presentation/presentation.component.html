@@ -165,6 +165,8 @@
               <div class="pres-subtitle pres-animate" style="animation-delay: 150ms">{{ slide.subtitle }}</div>
               <div class="pres-authors pres-animate" style="animation-delay: 300ms">{{ slide.authors }}</div>
               <div class="pres-meta pres-animate" style="animation-delay: 450ms">{{ slide.meta }}</div>
+              <div class="pres-qr pres-animate" style="animation-delay: 600ms"><img src="assets/images/qr-code.png" alt="QR-Code zur Website"></div>
+              <div class="pres-qr-label pres-animate" style="animation-delay: 750ms">kinderrechte.zuacaldeira.com</div>
             </div>
           }
           @case ('agenda') {
@@ -208,7 +210,15 @@
           }
           @case ('article-group') {
             <div class="pres-slide pres-slide--article-group" [class.fade-out]="fadeOut()" [style.--group-color]="slide.categoryColor">
-              <div class="pres-title pres-animate" [style.color]="slide.categoryColor">{{ slide.title }}</div>
+              <div class="pres-ag-header pres-animate">
+                @if (slide.icon) {
+                  <span class="pres-ag-icon" [style.background]="slide.categoryColor">{{ slide.icon }}</span>
+                }
+                <div class="pres-title" [style.color]="slide.categoryColor">{{ slide.title }}</div>
+              </div>
+              @if (slide.text) {
+                <div class="pres-ag-desc pres-animate" style="animation-delay: 100ms">{{ slide.text }}</div>
+              }
               <div class="pres-article-cards pres-animate" style="animation-delay: 200ms">
                 @for (art of slide.articles; track art.id) {
                   <div class="pres-article-card" [style.border-color]="art.categoryColor">

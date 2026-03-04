@@ -2,6 +2,7 @@ import { Injectable, signal, computed } from '@angular/core';
 import { PresentationSlide } from '../models/presentation';
 import { ARTICLES_DATA } from '../data/articles';
 import { CATEGORIES } from '../data/categories';
+import { CategoryKey } from '../models/category';
 
 @Injectable({ providedIn: 'root' })
 export class PresentationService {
@@ -63,6 +64,7 @@ export class PresentationService {
     // ============================================================
     // NARRATIVE ARC: Origin → Content → Problem → Solution → Critique → Discussion
     // SPEAKER FLOW: Both → Lydia → Zua (3 sections) → Lydia → Both
+    // ~30 slides for 30 min presentation + up to 30 min Q&A
     // ============================================================
 
     // ===== 1. HERO (Both) — ~1 min =====
@@ -88,12 +90,11 @@ export class PresentationService {
         { label: 'Kritische Perspektiven', speaker: 'Lydia', icon: '🔍' },
         { label: 'Diskussion', speaker: 'Alle', icon: '💬' },
       ],
-      notes: '[~1 min] Gliederung vorstellen. Wer präsentiert was. Lydia beginnt mit Geschichte.',
+      notes: '[~1 min] Gliederung vorstellen. Lydia beginnt mit Geschichte.',
       speaker: 'both'
     });
 
     // ===== 3. GESCHICHTE (Lydia) — ~7 min =====
-    // WHY: How did we get here?
 
     slides.push({
       type: 'section',
@@ -136,7 +137,7 @@ export class PresentationService {
         { year: 1966, title: 'UN-Sozialpakt', summary: 'Verbindlicher Kinderschutz', color: '#E91E63' },
         { year: 1979, title: 'Jahr des Kindes', summary: 'Polen schlägt KRK vor', color: '#FF9800' },
       ],
-      notes: '[~1 min] Post-Cold-War: Neue Verfassungen. Goodall 2015: „Liminality" öffnete Raum für Menschenrechtsdiskurs.',
+      notes: '[~1 min] Goodall 2015: „Liminality" öffnete Raum für Menschenrechtsdiskurs.',
       speaker: 'lydia',
       bgVariant: 'warm'
     });
@@ -148,7 +149,7 @@ export class PresentationService {
       text: '54 Artikel · 196 Staaten · Das meistratifizierte Menschenrechtsabkommen der Welt.',
       color: '#03A9F4',
       statSource: 'UN-Generalversammlung, 20. November 1989',
-      notes: '[~1 min] Highlight: 10 Jahre Arbeit. Einstimmig verabschiedet. NGOs hatten großen Einfluss.',
+      notes: '[~1 min] Highlight: 10 Jahre Arbeit. Einstimmig verabschiedet.',
       speaker: 'lydia',
       bgVariant: 'warm'
     });
@@ -176,20 +177,20 @@ export class PresentationService {
         { year: 2024, title: 'Rekord-Verletzungen', summary: '32.990 Verstöße dokumentiert', color: '#C0392B' },
         { year: 2025, title: '138 Mio. Kinderarbeit', summary: 'UN-Ziel 2025 verfehlt', color: '#B7950B' },
       ],
-      notes: '[~1 min] 30 Jahre Jubiläum mit gemischter Bilanz. COVID als Kinderrechtekrise.',
+      notes: '[~1 min] 30 Jahre mit gemischter Bilanz. COVID als Kinderrechtekrise.',
       speaker: 'lydia',
       bgVariant: 'warm'
     });
 
-    // ===== 4. ÜBERBLICK, KATEGORIEN & ARTIKEL (Zua) — ~7 min =====
-    // WHAT: What are the rights?
+    // ===== 4. ÜBERBLICK & ARTIKEL (Zua) — ~5 min =====
+    // Categories merged INTO article-groups: overview + 4 article-groups with category header
 
     slides.push({
       type: 'section',
       icon: '📄',
       title: 'Überblick & Schlüsselartikel',
       text: 'Die vier Grundprinzipien und die wichtigsten Artikel der UN-KRK.',
-      notes: '[Überleitung] Zua übernimmt. Kategorien und Artikel zusammen.',
+      notes: '[Überleitung] Zua übernimmt.',
       speaker: 'zua'
     });
 
@@ -203,68 +204,41 @@ export class PresentationService {
         { label: 'Schutz', desc: 'Vor Gewalt, Missbrauch, Ausbeutung', color: '#E91E63' },
         { label: 'Beteiligung', desc: 'Meinungsäußerung, Mitbestimmung', color: '#03A9F4' }
       ],
-      notes: '[~1 min] Vier Grundprinzipien erklären.',
+      notes: '[~1 min] Vier Grundprinzipien erklären. Details folgen in den Artikeln.',
       speaker: 'zua'
     });
 
-    slides.push({ type: 'category', key: 'survival', title: 'Überleben', text: 'Recht auf Leben, Gesundheit und angemessenen Lebensstandard', icon: '❤️', color: '#FF9800', notes: 'Art. 6, 24, 27.', speaker: 'zua' });
-    slides.push({ type: 'category', key: 'development', title: 'Entwicklung', text: 'Recht auf Bildung, Spiel, Freizeit und Information', icon: '🎓', color: '#4CAF50', notes: 'Art. 28/29, 31, 17.', speaker: 'zua' });
-    slides.push({ type: 'category', key: 'protection', title: 'Schutz', text: 'Schutz vor Gewalt, Missbrauch und Ausbeutung', icon: '🛡️', color: '#E91E63', notes: 'Art. 19, 32, 2.', speaker: 'zua' });
-    slides.push({ type: 'category', key: 'participation', title: 'Beteiligung', text: 'Recht auf Meinungsäußerung und Mitbestimmung', icon: '👥', color: '#03A9F4', notes: 'Art. 12, 13, 15.', speaker: 'zua' });
-
-    // Grouped articles by category
+    // Article-groups with category context built in
     const keyArticles = ARTICLES_DATA.filter(a => a.key);
-    const survivalArts = keyArticles.filter(a => a.category === 'survival');
-    const devArts = keyArticles.filter(a => a.category === 'development');
-    const protArts = keyArticles.filter(a => a.category === 'protection');
-    const partArts = keyArticles.filter(a => a.category === 'participation');
+    const groups: { key: CategoryKey; name: string; color: string; icon: string }[] = [
+      { key: 'survival', name: 'Überleben', color: '#FF9800', icon: '❤️' },
+      { key: 'development', name: 'Entwicklung', color: '#4CAF50', icon: '🎓' },
+      { key: 'protection', name: 'Schutz', color: '#E91E63', icon: '🛡️' },
+      { key: 'participation', name: 'Beteiligung', color: '#03A9F4', icon: '👥' },
+    ];
 
-    if (survivalArts.length > 0) {
-      slides.push({
-        type: 'article-group',
-        title: 'Überleben',
-        categoryColor: '#FF9800',
-        articles: survivalArts.map(a => ({ id: a.id, title: a.title, summary: a.summary, category: a.category, categoryColor: CATEGORIES[a.category].color })),
-        notes: '[~1 min] ' + survivalArts.map(a => `Art. ${a.id}: ${a.title}`).join('. '),
-        speaker: 'zua'
-      });
-    }
-
-    if (devArts.length > 0) {
-      slides.push({
-        type: 'article-group',
-        title: 'Entwicklung',
-        categoryColor: '#4CAF50',
-        articles: devArts.map(a => ({ id: a.id, title: a.title, summary: a.summary, category: a.category, categoryColor: CATEGORIES[a.category].color })),
-        notes: '[~1 min] ' + devArts.map(a => `Art. ${a.id}: ${a.title}`).join('. '),
-        speaker: 'zua'
-      });
-    }
-
-    if (protArts.length > 0) {
-      slides.push({
-        type: 'article-group',
-        title: 'Schutz',
-        categoryColor: '#E91E63',
-        articles: protArts.map(a => ({ id: a.id, title: a.title, summary: a.summary, category: a.category, categoryColor: CATEGORIES[a.category].color })),
-        notes: '[~1 min] ' + protArts.map(a => `Art. ${a.id}: ${a.title}`).join('. '),
-        speaker: 'zua'
-      });
-    }
-
-    if (partArts.length > 0) {
-      slides.push({
-        type: 'article-group',
-        title: 'Beteiligung',
-        categoryColor: '#03A9F4',
-        articles: partArts.map(a => ({ id: a.id, title: a.title, summary: a.summary, category: a.category, categoryColor: CATEGORIES[a.category].color })),
-        notes: '[~1 min] ' + partArts.map(a => `Art. ${a.id}: ${a.title}`).join('. '),
-        speaker: 'zua'
-      });
+    for (const g of groups) {
+      const arts = keyArticles.filter(a => a.category === g.key);
+      if (arts.length > 0) {
+        slides.push({
+          type: 'article-group',
+          title: g.name,
+          icon: g.icon,
+          categoryColor: g.color,
+          articles: arts.map(a => ({
+            id: a.id,
+            title: a.title,
+            summary: a.summary,
+            category: a.category,
+            categoryColor: CATEGORIES[a.category].color
+          })),
+          notes: '[~1 min] ' + arts.map(a => `Art. ${a.id}: ${a.title}`).join('. '),
+          speaker: 'zua'
+        });
+      }
     }
 
     // ===== 5. VERLETZUNGEN (Zua) — ~4 min =====
-    // WHERE: Where do rights fail?
 
     slides.push({
       type: 'section',
@@ -301,17 +275,6 @@ export class PresentationService {
     });
 
     slides.push({
-      type: 'stat',
-      statValue: '~4%',
-      statLabel: 'Kindersterblichkeit heute',
-      text: 'Von ~33% (1924) auf unter 4% — einer der größten Fortschritte der Menschheit.',
-      color: '#4CAF50',
-      statSource: 'WHO/UNICEF 2024',
-      notes: '[~30 sec] Fortschritte durch Impfungen, Ernährung, Medizin.',
-      speaker: 'zua'
-    });
-
-    slides.push({
       type: 'compare',
       title: 'Fortschritte & Rückschläge',
       compareLeft: { title: 'Fortschritte', items: ['Kindersterblichkeit: 33% → 4%', 'Mangelernährung: 40% → 22%', '196 Staaten ratifiziert'], color: '#4CAF50' },
@@ -320,8 +283,19 @@ export class PresentationService {
       speaker: 'zua'
     });
 
+    // Positive note to close violations section
+    slides.push({
+      type: 'stat',
+      statValue: '33% → 4%',
+      statLabel: 'Kindersterblichkeit seit 1924',
+      text: 'Einer der größten Fortschritte der Menschheit — durch Impfungen, Ernährung und medizinische Versorgung.',
+      color: '#4CAF50',
+      statSource: 'WHO/UNICEF 2024',
+      notes: '[~30 sec] Hoffnungsnote: Trotz Rückschlägen gibt es Fortschritt.',
+      speaker: 'zua'
+    });
+
     // ===== 6. VERMITTLUNG & SCHUTZ (Zua) — ~4 min =====
-    // HOW: How do we protect and teach?
 
     slides.push({
       type: 'section',
@@ -376,19 +350,18 @@ export class PresentationService {
       title: 'Zukunft der Kinderrechte',
       compareLeft: { title: 'Herausforderungen', items: ['Digitale Rechte & Online-Sicherheit', 'Klimawandel bedroht Gesundheit', 'Grundgesetz-Debatte'], color: '#03A9F4' },
       compareRight: { title: 'Positive Entwicklungen', items: ['2026: Jahr der Kinderrechte', 'Kinderrechte-Index 2025', 'Kinder als politische Akteure'], color: '#4CAF50' },
-      notes: '[~1 min] 2026 als Jahr der Kinderrechte. Überleitung zu Lydia.',
+      notes: '[~1 min] Überleitung zu Lydia.',
       speaker: 'zua'
     });
 
     // ===== 7. KRITISCHE PERSPEKTIVEN (Lydia) — ~7 min =====
-    // DEEPER: Is the framework itself flawed?
 
     slides.push({
       type: 'section',
       icon: '🔍',
       title: 'Kritische Perspektiven',
       text: 'Ist die UN-KRK an alle soziokulturellen Kontexte angepasst?',
-      notes: '[Überleitung] Lydia übernimmt zum letzten Mal.',
+      notes: '[Überleitung] Lydia übernimmt.',
       speaker: 'lydia',
       bgVariant: 'purple'
     });
@@ -397,7 +370,7 @@ export class PresentationService {
       type: 'quote',
       quoteText: 'Die UN-Kinderrechtskonvention universalisiert westliche Konzepte von Kindheit.',
       quoteAuthor: 'Imoah, 2012',
-      notes: '[~1 min] KRK wurzelt in westlichen Entwicklungen. UNO selbst = Produkt des Global North.',
+      notes: '[~1 min] KRK wurzelt in westlichen Entwicklungen. UNO = Produkt des Global North.',
       speaker: 'lydia',
       bgVariant: 'purple'
     });
@@ -412,11 +385,12 @@ export class PresentationService {
         'AAA kritisierte 1947: „cultural imperialism" (Billaud 2022)',
         'Art. 3 „Kindeswohl" wurde nie definiert'
       ],
-      notes: '[~1.5 min] Quennerstedt, Robinson & L\'Anon 2018. Anthropologen seit 1980er: Rechte als dynamische soziale Praxis.',
+      notes: '[~1.5 min] Anthropologen seit 1980er: Rechte als dynamische soziale Praxis.',
       speaker: 'lydia',
       bgVariant: 'purple'
     });
 
+    // All 6 Goodall factors on one slide (3x2 grid)
     slides.push({
       type: 'overview',
       title: '6 Faktoren der Kindheit (Goodall 2015)',
@@ -426,21 +400,10 @@ export class PresentationService {
         { label: 'Gender', desc: 'Geschlechterrollen', color: '#E91E63' },
         { label: 'Patriarchat', desc: 'Machtstrukturen', color: '#795548' },
         { label: 'Religion', desc: 'Glaubenssysteme', color: '#9C27B0' },
+        { label: 'Aspirationen', desc: 'Globale Ideale vs. lokale Realität', color: '#03A9F4' },
+        { label: 'Ökonomie', desc: 'Arbeitsmärkte & Armut', color: '#FF5722' },
       ],
-      notes: '[~1 min] + 2 weitere Faktoren auf nächster Folie.',
-      speaker: 'lydia',
-      bgVariant: 'purple'
-    });
-
-    slides.push({
-      type: 'info',
-      title: 'Weitere Faktoren',
-      accent: '#795548',
-      infoItems: [
-        'Universale Aspirationen — globale Ideale vs. lokale Realitäten',
-        'Regulierung von Arbeitsmärkten & Armut — ökonomische Kontexte prägen Kindheit',
-      ],
-      notes: 'Goodall\'s 5. und 6. Faktor. Wie Armut und Arbeitsmarktregulierung Kindheit definieren.',
+      notes: '[~1 min] Alle 6 Faktoren. Kulturrelativismus vs. Universalismus.',
       speaker: 'lydia',
       bgVariant: 'purple'
     });
@@ -450,7 +413,7 @@ export class PresentationService {
       title: 'Fallstudien',
       compareLeft: { title: 'Südafrika (Levine 2011)', items: ['Kinderarbeitsgesetze eingeführt', 'Saisonarbeit nicht mehr möglich', 'Armut der Kinder stieg'], color: '#FF9800' },
       compareRight: { title: 'Malawi (Englund / Billaud)', items: ['Menschenrechtsdiskurs kam', '„Freiheit" ignorierte Armut', 'Oberschicht profitierte'], color: '#C0392B' },
-      notes: '[~1.5 min] Levine/Hanson 2014: Gut gemeint ≠ gut gemacht. Englund: „Prisoners of Freedom".',
+      notes: '[~1.5 min] Gut gemeint ≠ gut gemacht. Englund: „Prisoners of Freedom".',
       speaker: 'lydia',
       bgVariant: 'purple'
     });
@@ -459,7 +422,7 @@ export class PresentationService {
       type: 'quote',
       quoteText: 'Kulturrelativismus oder universelle Rechte? Oder liegt die Antwort in der Mitte?',
       quoteAuthor: 'Offene Frage zur Diskussion',
-      notes: '[~30 sec] Frage offen an die Klasse. Überleitung zur Interaktion.',
+      notes: '[~30 sec] Überleitung zur Interaktion.',
       speaker: 'lydia',
       bgVariant: 'purple'
     });
@@ -468,9 +431,9 @@ export class PresentationService {
     slides.push({
       type: 'interaction',
       title: 'Was denkt ihr?',
-      interactionQuestion: 'Welches Kinderrecht ist eurer Meinung nach am wichtigsten?',
-      interactionOptions: ['Recht auf Bildung', 'Recht auf Schutz vor Gewalt', 'Recht auf Mitbestimmung', 'Recht auf Gesundheit'],
-      notes: '[~3 min] Handzeichen. Kurz diskutieren warum.',
+      interactionQuestion: 'Können Kinderrechte universell gelten — oder müssen sie kulturell angepasst werden?',
+      interactionOptions: ['Universell — für alle gleich', 'Kulturell anpassen', 'Kern universal, Details lokal', 'Weiß ich nicht'],
+      notes: '[~3 min] Handzeichen. Direkt an Lydias Frage anknüpfen. Kurz diskutieren.',
       speaker: 'both'
     });
 
@@ -511,7 +474,7 @@ export class PresentationService {
       subtitle: 'Fragen & Diskussion',
       authors: 'Lydia Howe & Alexandre Zua Caldeira',
       meta: 'Fach: Recht · Lehrer: Uwe Otto · 06. März 2026',
-      notes: 'Danke sagen. Für Fragen offen bleiben.',
+      notes: 'Danke sagen. QR-Code zeigen. Für Fragen offen bleiben.',
       speaker: 'both'
     });
 
