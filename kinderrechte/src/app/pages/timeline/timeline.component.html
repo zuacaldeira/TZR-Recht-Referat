@@ -10,33 +10,78 @@
     </div>
   </section>
 
-  <section class="section">
+  <!-- Type Filter -->
+  <section class="filter-section">
     <div class="container">
+      <div class="filter-bar" appScrollReveal>
+        <button class="filter-btn" [class.active]="activeFilter() === 'all'" (click)="setFilter('all')">Alle</button>
+        @for (type of filterTypes; track type.key) {
+          <button class="filter-btn" [class.active]="activeFilter() === type.key" [style.--filter-color]="type.color" (click)="setFilter(type.key)">
+            <span class="filter-dot" [style.background]="type.color"></span>
+            {{ type.label }}
+          </button>
+        }
+      </div>
+    </div>
+  </section>
 
-      <div class="timeline" [style.--progress]="progress() + '%'">
-        @for (event of events(); track event.year; let i = $index) {
-          <div class="timeline-item" appScrollReveal>
-            <div class="timeline-dot" [style.background]="event.color"></div>
-            <div class="timeline-year">{{ event.year }}</div>
-            <mat-accordion>
-              <mat-expansion-panel class="timeline-card" [style.border-left-color]="event.color">
-                <mat-expansion-panel-header>
-                  <mat-panel-title>
-                    <h3>{{ event.title }}</h3>
-                  </mat-panel-title>
-                </mat-expansion-panel-header>
-                <span class="timeline-type-badge" [style.background]="typeColors[event.type]">{{ typeLabels[event.type] }}</span>
-                <p class="summary">{{ event.summary }}</p>
-                <div class="details">
+  <!-- Horizontal Timeline -->
+  <section class="timeline-section">
+    <div class="timeline-scroll" #timelineScroll>
+      <div class="timeline-track">
+        <!-- The horizontal line -->
+        <div class="timeline-line"></div>
+
+        @for (event of filteredEvents(); track event.year; let i = $index) {
+          <div class="timeline-node" [class.timeline-node--above]="i % 2 === 0" [class.timeline-node--below]="i % 2 !== 0" [class.timeline-node--highlight]="event.highlight" [class.timeline-node--expanded]="expandedIndex() === i">
+
+            <!-- Dot on the line -->
+            <button class="timeline-dot" [style.--dot-color]="typeColors[event.type]" [style.border-color]="event.highlight ? '#FFD54F' : typeColors[event.type]" (click)="toggleExpand(i)" [attr.aria-label]="event.year + ': ' + event.title">
+              <span class="timeline-dot-year">{{ event.year }}</span>
+            </button>
+
+            <!-- Card -->
+            <div class="timeline-card" [style.--card-accent]="typeColors[event.type]" (click)="toggleExpand(i)">
+              <span class="timeline-card-type" [style.color]="typeColors[event.type]">{{ typeLabels[event.type] }}</span>
+              <h3 class="timeline-card-title" [class.timeline-card-title--highlight]="event.highlight">{{ event.title }}</h3>
+              <p class="timeline-card-summary">{{ event.summary }}</p>
+
+              @if (expandedIndex() === i) {
+                <div class="timeline-card-details">
                   <p>{{ event.details }}</p>
                   @if (event.source) {
-                    <span class="timeline-source">Quelle: {{ event.source }}</span>
+                    <span class="timeline-card-source">Quelle: {{ event.source }}</span>
                   }
                 </div>
-              </mat-expansion-panel>
-            </mat-accordion>
+              }
+            </div>
           </div>
         }
+      </div>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="scroll-hint" appScrollReveal>
+      <span class="scroll-hint-arrow">&larr;</span>
+      Scrollen für mehr
+      <span class="scroll-hint-arrow">&rarr;</span>
+    </div>
+  </section>
+
+  <!-- Legend -->
+  <section class="legend-section">
+    <div class="container">
+      <div class="legend" appScrollReveal>
+        @for (type of filterTypes; track type.key) {
+          <div class="legend-item">
+            <span class="legend-dot" [style.background]="type.color"></span>
+            <span class="legend-label">{{ type.label }}</span>
+          </div>
+        }
+        <div class="legend-item">
+          <span class="legend-dot legend-dot--highlight"></span>
+          <span class="legend-label">Schlüsselereignis</span>
+        </div>
       </div>
     </div>
   </section>

@@ -1,32 +1,42 @@
-import { Component, inject, signal, HostListener } from '@angular/core';
-import { MatExpansionModule } from '@angular/material/expansion';
+import { Component, signal, computed } from '@angular/core';
 import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal.directive';
-import { TimelineService } from '../../services/timeline.service';
-import { TIMELINE_TYPE_LABELS, TIMELINE_TYPE_COLORS } from '../../data/timeline';
+import { TIMELINE_DATA, TIMELINE_TYPE_LABELS, TIMELINE_TYPE_COLORS } from '../../data/timeline';
+import { TimelineEventType } from '../../models/timeline-event';
 
 @Component({
   selector: 'app-timeline',
   standalone: true,
-  imports: [MatExpansionModule, ScrollRevealDirective],
+  imports: [ScrollRevealDirective],
   templateUrl: './timeline.component.html',
   styleUrl: './timeline.component.scss'
 })
 export class TimelineComponent {
-  private timelineService = inject(TimelineService);
-  readonly events = this.timelineService.events;
-  readonly progress = signal(0);
+  readonly allEvents = TIMELINE_DATA;
   readonly typeLabels = TIMELINE_TYPE_LABELS;
   readonly typeColors = TIMELINE_TYPE_COLORS;
 
-  @HostListener('window:scroll')
-  onScroll(): void {
-    const timeline = document.querySelector('.timeline') as HTMLElement;
-    if (!timeline) return;
-    const rect = timeline.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
-    const totalHeight = timeline.offsetHeight;
-    const scrolled = windowHeight - rect.top;
-    const pct = Math.min(100, Math.max(0, (scrolled / totalHeight) * 100));
-    this.progress.set(pct);
+  readonly activeFilter = signal<string>('all');
+  readonly expandedIndex = signal<number | null>(null);
+
+  readonly filterTypes = [
+    { key: 'law', label: 'Gesetzgebung', color: TIMELINE_TYPE_COLORS['law'] },
+    { key: 'progress', label: 'Fortschritt', color: TIMELINE_TYPE_COLORS['progress'] },
+    { key: 'crisis', label: 'Krise', color: TIMELINE_TYPE_COLORS['crisis'] },
+    { key: 'report', label: 'Bericht', color: TIMELINE_TYPE_COLORS['report'] },
+  ];
+
+  readonly filteredEvents = computed(() => {
+    const filter = this.activeFilter();
+    if (filter === 'all') return this.allEvents;
+    return this.allEvents.filter(e => e.type === filter);
+  });
+
+  setFilter(type: string): void {
+    this.activeFilter.set(type);
+    this.expandedIndex.set(null);
+  }
+
+  toggleExpand(index: number): void {
+    this.expandedIndex.update(current => current === index ? null : index);
   }
 }

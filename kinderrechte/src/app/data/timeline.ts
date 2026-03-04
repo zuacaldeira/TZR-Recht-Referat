@@ -2,6 +2,15 @@ import { TimelineEvent } from '../models/timeline-event';
 
 export const TIMELINE_DATA: TimelineEvent[] = [
   {
+    year: 1870,
+    title: 'Education Act (Großbritannien)',
+    summary: 'Das britische Bildungsgesetz fördert erstmals den Zugang zu Bildung für alle Kinder — unabhängig von sozialer Herkunft.',
+    details: 'Das Gesetz war ein Meilenstein in der Veränderung des Kindheitsverständnisses. Zuvor wurden Kinder der unteren Schichten direkt in die Erwachsenenwelt geschickt. Das Gesetz trug dazu bei, Kindheit als eigene Entwicklungsphase anzuerkennen, die Schutz und Bildung erfordert (Imoah 2012).',
+    color: '#4CAF50',
+    type: 'law',
+    source: 'UK Parliament / Imoah 2012'
+  },
+  {
     year: 1924,
     title: 'Genfer Erklärung',
     summary: 'Der Völkerbund verabschiedet die "Genfer Erklärung über die Rechte des Kindes" — das erste internationale Dokument zu Kinderrechten.',
@@ -9,6 +18,15 @@ export const TIMELINE_DATA: TimelineEvent[] = [
     color: '#FF9800',
     type: 'law',
     source: 'Völkerbund'
+  },
+  {
+    year: 1945,
+    title: 'Gründung der Vereinten Nationen',
+    summary: 'Am 25. Oktober 1945 wird die UN-Charta ratifiziert — die Grundlage für alle späteren internationalen Menschenrechtsabkommen.',
+    details: 'Nach den beiden Weltkriegen wurde die UNO als globale Organisation gegründet, um künftige Konflikte zu verhindern, Menschenrechte zu schützen und internationale Zusammenarbeit zu fördern. Die Kriege hatten die Verletzlichkeit von Kindern besonders deutlich gemacht (Fass 2011).',
+    color: '#03A9F4',
+    type: 'progress',
+    source: 'UN / Fass 2011'
   },
   {
     year: 1948,
@@ -23,7 +41,7 @@ export const TIMELINE_DATA: TimelineEvent[] = [
     year: 1959,
     title: 'Erklärung der Rechte des Kindes',
     summary: 'Die UN-Generalversammlung verabschiedet eine erweiterte Erklärung mit 10 Grundsätzen zu Kinderrechten.',
-    details: 'Die zehn Grundsätze umfassten u.a. das Recht auf einen Namen und eine Staatsangehörigkeit, auf Bildung, auf Spiel und Erholung sowie auf Schutz vor Diskriminierung. Die Erklärung war jedoch rechtlich nicht bindend.',
+    details: 'Die zehn Grundsätze umfassten u.a. das Recht auf einen Namen und eine Staatsangehörigkeit, auf Bildung, auf Spiel und Erholung sowie auf Schutz vor Diskriminierung. Die Erklärung war jedoch rechtlich nicht bindend. Sie ging über den Schutz durch nationale Bürgerrechte hinaus.',
     color: '#4CAF50',
     type: 'law',
     source: 'UN-Generalversammlung'
@@ -53,7 +71,8 @@ export const TIMELINE_DATA: TimelineEvent[] = [
     details: 'Am 20. November 1989 wurde die KRK von der UN-Generalversammlung angenommen. Sie ist das umfassendste Menschenrechtsabkommen für Kinder und definiert Kinder erstmals als eigenständige Rechtsträger. Die 54 Artikel decken Überlebens-, Entwicklungs-, Schutz- und Beteiligungsrechte ab.',
     color: '#03A9F4',
     type: 'law',
-    source: 'UN-Generalversammlung'
+    source: 'UN-Generalversammlung',
+    highlight: true
   },
   {
     year: 1990,
@@ -68,7 +87,7 @@ export const TIMELINE_DATA: TimelineEvent[] = [
     year: 2000,
     title: 'Zwei Zusatzprotokolle',
     summary: 'Protokolle gegen Kinderhandel und den Einsatz von Kindersoldaten werden verabschiedet.',
-    details: 'Das Fakultativprotokoll zum Verkauf von Kindern, Kinderprostitution und Kinderpornographie sowie das Fakultativprotokoll zur Beteiligung von Kindern an bewaffneten Konflikten ergänzen die KRK um spezifische Schutzmaßnahmen.',
+    details: 'Das Fakultativprotokoll zum Verkauf von Kindern, Kinderprostitution und Kinderpornographie sowie das Fakultativprotokoll zur Beteiligung von Kindern an bewaffneten Konflikten ergänzen die KRK um spezifische Schutzmaßnahmen. Im gleichen Jahr wurde in Deutschland das Recht auf gewaltfreie Erziehung gesetzlich verankert (§ 1631 Abs. 2 BGB).',
     color: '#E91E63',
     type: 'law',
     source: 'UN'
@@ -80,6 +99,15 @@ export const TIMELINE_DATA: TimelineEvent[] = [
     details: 'Das dritte Fakultativprotokoll ermöglicht es Kindern (oder ihren Vertretern), Beschwerden direkt beim UN-Ausschuss für die Rechte des Kindes einzureichen, wenn ihre Rechte verletzt wurden und nationale Rechtsmittel ausgeschöpft sind.',
     color: '#03A9F4',
     type: 'law',
+    source: 'UN'
+  },
+  {
+    year: 2015,
+    title: 'Somalia ratifiziert die KRK',
+    summary: 'Als vorletztes Land weltweit ratifiziert Somalia die Kinderrechtskonvention — nur die USA fehlen noch.',
+    details: 'Mit der Ratifizierung durch Somalia haben 196 von 197 UN-Mitgliedstaaten die KRK ratifiziert. Die USA haben die Konvention zwar 1995 unterzeichnet, aber nie ratifiziert — als einziges Land weltweit.',
+    color: '#4CAF50',
+    type: 'progress',
     source: 'UN'
   },
   {
@@ -107,7 +135,8 @@ export const TIMELINE_DATA: TimelineEvent[] = [
     details: '32.990 schwere Verstöße gegen Kinder wurden 2023 dokumentiert — der höchste Wert seit Beginn des UN-Monitorings. 473 Millionen Kinder leben in Konfliktgebieten. In Gaza wurden alle Schulen geschlossen, 625.000 Kinder verloren ihren Zugang zu Bildung. Der Sudan erlebt die größte Kindervertriebenenkrise der Welt.',
     color: '#C0392B',
     type: 'crisis',
-    source: 'UNICEF / UN Security Council'
+    source: 'UNICEF / UN Security Council',
+    highlight: true
   },
   {
     year: 2025,

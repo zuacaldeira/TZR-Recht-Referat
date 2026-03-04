@@ -8,4 +8,5 @@ export interface TimelineEvent {
   color: string;
   type: TimelineEventType;
   source?: string;
+  highlight?: boolean;
 }
