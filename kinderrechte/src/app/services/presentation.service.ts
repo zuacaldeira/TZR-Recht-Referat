@@ -60,6 +60,11 @@ export class PresentationService {
   private buildSlides(): PresentationSlide[] {
     const slides: PresentationSlide[] = [];
 
+    // ============================================================
+    // NARRATIVE ARC: Origin → Content → Problem → Solution → Critique → Discussion
+    // SPEAKER FLOW: Both → Lydia → Zua (3 sections) → Lydia → Both
+    // ============================================================
+
     // ===== 1. HERO (Both) — ~1 min =====
     slides.push({
       type: 'hero',
@@ -76,46 +81,26 @@ export class PresentationService {
       type: 'agenda',
       title: 'Gliederung',
       agendaItems: [
-        { label: 'Überblick & Kategorien', speaker: 'Zua', icon: '📊' },
         { label: 'Geschichte der Kinderrechte', speaker: 'Lydia', icon: '🕰️' },
-        { label: '10 Schlüsselartikel', speaker: 'Zua', icon: '📄' },
-        { label: 'Vermittlung & Schutz', speaker: 'Zua', icon: '🏫' },
+        { label: 'Überblick, Kategorien & Artikel', speaker: 'Zua', icon: '📄' },
         { label: 'Verletzungen weltweit', speaker: 'Zua', icon: '🌍' },
+        { label: 'Vermittlung & Schutz', speaker: 'Zua', icon: '🏫' },
         { label: 'Kritische Perspektiven', speaker: 'Lydia', icon: '🔍' },
         { label: 'Diskussion', speaker: 'Alle', icon: '💬' },
       ],
-      notes: '[~1 min] Gliederung vorstellen. Wer präsentiert was.',
+      notes: '[~1 min] Gliederung vorstellen. Wer präsentiert was. Lydia beginnt mit Geschichte.',
       speaker: 'both'
     });
 
-    // ===== 3. OVERVIEW & CATEGORIES (Zua) — ~3 min =====
-    slides.push({
-      type: 'overview',
-      title: 'Die vier Grundprinzipien',
-      text: 'Alle Kinderrechte lassen sich in vier Kategorien einordnen.',
-      items: [
-        { label: 'Überleben', desc: 'Leben, Gesundheit, Ernährung', color: '#FF9800' },
-        { label: 'Entwicklung', desc: 'Bildung, Spiel, Freizeit', color: '#4CAF50' },
-        { label: 'Schutz', desc: 'Vor Gewalt, Missbrauch, Ausbeutung', color: '#E91E63' },
-        { label: 'Beteiligung', desc: 'Meinungsäußerung, Mitbestimmung', color: '#03A9F4' }
-      ],
-      notes: '[~1 min] Vier Grundprinzipien erklären.',
-      speaker: 'zua'
-    });
-
-    slides.push({ type: 'category', key: 'survival', title: 'Überleben', text: 'Recht auf Leben, Gesundheit und angemessenen Lebensstandard', icon: '❤️', color: '#FF9800', notes: 'Art. 6, 24, 27.', speaker: 'zua' });
-    slides.push({ type: 'category', key: 'development', title: 'Entwicklung', text: 'Recht auf Bildung, Spiel, Freizeit und Information', icon: '🎓', color: '#4CAF50', notes: 'Art. 28/29, 31, 17.', speaker: 'zua' });
-    slides.push({ type: 'category', key: 'protection', title: 'Schutz', text: 'Schutz vor Gewalt, Missbrauch und Ausbeutung', icon: '🛡️', color: '#E91E63', notes: 'Art. 19, 32, 2.', speaker: 'zua' });
-    slides.push({ type: 'category', key: 'participation', title: 'Beteiligung', text: 'Recht auf Meinungsäußerung und Mitbestimmung', icon: '👥', color: '#03A9F4', notes: 'Art. 12, 13, 15.', speaker: 'zua' });
-
-    // ===== 4. GESCHICHTE (Lydia) — ~7 min =====
+    // ===== 3. GESCHICHTE (Lydia) — ~7 min =====
+    // WHY: How did we get here?
 
     slides.push({
       type: 'section',
       icon: '🕰️',
       title: 'Geschichte der Kinderrechte',
       text: 'Von 1870 bis heute — über 150 Jahre Kampf für die Rechte der Kinder',
-      notes: '[Überleitung] Lydia übernimmt.',
+      notes: '[Überleitung] Lydia beginnt.',
       speaker: 'lydia',
       bgVariant: 'warm'
     });
@@ -196,17 +181,38 @@ export class PresentationService {
       bgVariant: 'warm'
     });
 
-    // ===== 5. SCHLÜSSELARTIKEL (Zua) — ~4 min =====
+    // ===== 4. ÜBERBLICK, KATEGORIEN & ARTIKEL (Zua) — ~7 min =====
+    // WHAT: What are the rights?
 
     slides.push({
       type: 'section',
       icon: '📄',
-      title: 'Die Schlüsselartikel',
-      text: 'Die UN-KRK enthält 54 Artikel — hier die wichtigsten.',
-      notes: '[Überleitung] Zua übernimmt.',
+      title: 'Überblick & Schlüsselartikel',
+      text: 'Die vier Grundprinzipien und die wichtigsten Artikel der UN-KRK.',
+      notes: '[Überleitung] Zua übernimmt. Kategorien und Artikel zusammen.',
       speaker: 'zua'
     });
 
+    slides.push({
+      type: 'overview',
+      title: 'Die vier Grundprinzipien',
+      text: 'Alle Kinderrechte lassen sich in vier Kategorien einordnen.',
+      items: [
+        { label: 'Überleben', desc: 'Leben, Gesundheit, Ernährung', color: '#FF9800' },
+        { label: 'Entwicklung', desc: 'Bildung, Spiel, Freizeit', color: '#4CAF50' },
+        { label: 'Schutz', desc: 'Vor Gewalt, Missbrauch, Ausbeutung', color: '#E91E63' },
+        { label: 'Beteiligung', desc: 'Meinungsäußerung, Mitbestimmung', color: '#03A9F4' }
+      ],
+      notes: '[~1 min] Vier Grundprinzipien erklären.',
+      speaker: 'zua'
+    });
+
+    slides.push({ type: 'category', key: 'survival', title: 'Überleben', text: 'Recht auf Leben, Gesundheit und angemessenen Lebensstandard', icon: '❤️', color: '#FF9800', notes: 'Art. 6, 24, 27.', speaker: 'zua' });
+    slides.push({ type: 'category', key: 'development', title: 'Entwicklung', text: 'Recht auf Bildung, Spiel, Freizeit und Information', icon: '🎓', color: '#4CAF50', notes: 'Art. 28/29, 31, 17.', speaker: 'zua' });
+    slides.push({ type: 'category', key: 'protection', title: 'Schutz', text: 'Schutz vor Gewalt, Missbrauch und Ausbeutung', icon: '🛡️', color: '#E91E63', notes: 'Art. 19, 32, 2.', speaker: 'zua' });
+    slides.push({ type: 'category', key: 'participation', title: 'Beteiligung', text: 'Recht auf Meinungsäußerung und Mitbestimmung', icon: '👥', color: '#03A9F4', notes: 'Art. 12, 13, 15.', speaker: 'zua' });
+
+    // Grouped articles by category
     const keyArticles = ARTICLES_DATA.filter(a => a.key);
     const survivalArts = keyArticles.filter(a => a.category === 'survival');
     const devArts = keyArticles.filter(a => a.category === 'development');
@@ -257,66 +263,8 @@ export class PresentationService {
       });
     }
 
-    // ===== 6. VERMITTLUNG (Zua) — ~4 min =====
-
-    slides.push({
-      type: 'section',
-      icon: '🏫',
-      title: 'Vermittlung',
-      text: 'Wie werden Kinderrechte in Kita, Schule und Familie vermittelt?',
-      notes: '[Überleitung] Thema Vermittlung.',
-      speaker: 'zua',
-      bgVariant: 'green'
-    });
-
-    slides.push({
-      type: 'info',
-      title: 'Vermittlung an Kinder',
-      accent: '#4CAF50',
-      infoItems: [
-        'Kindergarten (3–6): Bilderbücher, Rollenspiele, Fairness',
-        'Grundschule (6–10): Projekttage, Klassenräte, Poster',
-        'Sekundarstufe (10–18): Planspiele, Debatten, Fallstudien'
-      ],
-      notes: '[~1 min] Altersgerechte Vermittlung. UNICEF-Schulen als Best Practice.',
-      speaker: 'zua'
-    });
-
-    slides.push({
-      type: 'stat',
-      statValue: '§ 45',
-      statLabel: 'SGB VIII — Betriebserlaubnis',
-      text: 'Seit 2021: Gewaltschutzkonzept Pflicht. Seit 2012: Beschwerdemanagement für Kinder.',
-      color: '#7B1FA2',
-      statSource: '§ 45 Abs. 2 Nr. 3 SGB VIII',
-      notes: '[~1 min] § 45 SGB VIII als Schlüsselnorm.',
-      speaker: 'zua'
-    });
-
-    slides.push({
-      type: 'info',
-      title: 'Schutz in Deutschland',
-      accent: '#E91E63',
-      infoItems: [
-        'Jugendamt: Schutzauftrag (§ 8a SGB VIII)',
-        'Grundgesetz: Art. 6 + Art. 2 — Familie & Entfaltung',
-        'Gewaltfreie Erziehung seit 2000 (§ 1631 Abs. 2 BGB)',
-        'Nummer gegen Kummer: 116 111'
-      ],
-      notes: '[~1 min] § 8a SGB VIII, Nummer gegen Kummer.',
-      speaker: 'zua'
-    });
-
-    slides.push({
-      type: 'compare',
-      title: 'Zukunft der Kinderrechte',
-      compareLeft: { title: 'Herausforderungen', items: ['Digitale Rechte & Online-Sicherheit', 'Klimawandel bedroht Gesundheit', 'Grundgesetz-Debatte'], color: '#03A9F4' },
-      compareRight: { title: 'Positive Entwicklungen', items: ['2026: Jahr der Kinderrechte', 'Kinderrechte-Index 2025', 'Kinder als politische Akteure'], color: '#4CAF50' },
-      notes: '[~1 min] 2026 als Jahr der Kinderrechte.',
-      speaker: 'zua'
-    });
-
-    // ===== 7. VERLETZUNGEN (Zua) — ~4 min =====
+    // ===== 5. VERLETZUNGEN (Zua) — ~4 min =====
+    // WHERE: Where do rights fail?
 
     slides.push({
       type: 'section',
@@ -372,14 +320,75 @@ export class PresentationService {
       speaker: 'zua'
     });
 
-    // ===== 8. KRITISCHE PERSPEKTIVEN (Lydia) — ~7 min =====
+    // ===== 6. VERMITTLUNG & SCHUTZ (Zua) — ~4 min =====
+    // HOW: How do we protect and teach?
+
+    slides.push({
+      type: 'section',
+      icon: '🏫',
+      title: 'Vermittlung & Schutz',
+      text: 'Wie werden Kinderrechte vermittelt — und wie werden Kinder geschützt?',
+      notes: '[Überleitung] Von Problemen zu Lösungen.',
+      speaker: 'zua',
+      bgVariant: 'green'
+    });
+
+    slides.push({
+      type: 'info',
+      title: 'Vermittlung an Kinder',
+      accent: '#4CAF50',
+      infoItems: [
+        'Kindergarten (3–6): Bilderbücher, Rollenspiele, Fairness',
+        'Grundschule (6–10): Projekttage, Klassenräte, Poster',
+        'Sekundarstufe (10–18): Planspiele, Debatten, Fallstudien'
+      ],
+      notes: '[~1 min] Altersgerechte Vermittlung. UNICEF-Schulen als Best Practice.',
+      speaker: 'zua'
+    });
+
+    slides.push({
+      type: 'stat',
+      statValue: '§ 45',
+      statLabel: 'SGB VIII — Betriebserlaubnis',
+      text: 'Seit 2021: Gewaltschutzkonzept Pflicht. Seit 2012: Beschwerdemanagement für Kinder.',
+      color: '#7B1FA2',
+      statSource: '§ 45 Abs. 2 Nr. 3 SGB VIII',
+      notes: '[~1 min] § 45 SGB VIII als Schlüsselnorm.',
+      speaker: 'zua'
+    });
+
+    slides.push({
+      type: 'info',
+      title: 'Schutz in Deutschland',
+      accent: '#E91E63',
+      infoItems: [
+        'Jugendamt: Schutzauftrag (§ 8a SGB VIII)',
+        'Grundgesetz: Art. 6 + Art. 2 — Familie & Entfaltung',
+        'Gewaltfreie Erziehung seit 2000 (§ 1631 Abs. 2 BGB)',
+        'Nummer gegen Kummer: 116 111'
+      ],
+      notes: '[~1 min] § 8a SGB VIII, Nummer gegen Kummer.',
+      speaker: 'zua'
+    });
+
+    slides.push({
+      type: 'compare',
+      title: 'Zukunft der Kinderrechte',
+      compareLeft: { title: 'Herausforderungen', items: ['Digitale Rechte & Online-Sicherheit', 'Klimawandel bedroht Gesundheit', 'Grundgesetz-Debatte'], color: '#03A9F4' },
+      compareRight: { title: 'Positive Entwicklungen', items: ['2026: Jahr der Kinderrechte', 'Kinderrechte-Index 2025', 'Kinder als politische Akteure'], color: '#4CAF50' },
+      notes: '[~1 min] 2026 als Jahr der Kinderrechte. Überleitung zu Lydia.',
+      speaker: 'zua'
+    });
+
+    // ===== 7. KRITISCHE PERSPEKTIVEN (Lydia) — ~7 min =====
+    // DEEPER: Is the framework itself flawed?
 
     slides.push({
       type: 'section',
       icon: '🔍',
       title: 'Kritische Perspektiven',
       text: 'Ist die UN-KRK an alle soziokulturellen Kontexte angepasst?',
-      notes: '[Überleitung] Lydia übernimmt.',
+      notes: '[Überleitung] Lydia übernimmt zum letzten Mal.',
       speaker: 'lydia',
       bgVariant: 'purple'
     });
@@ -408,7 +417,6 @@ export class PresentationService {
       bgVariant: 'purple'
     });
 
-    // All 6 Goodall factors
     slides.push({
       type: 'overview',
       title: '6 Faktoren der Kindheit (Goodall 2015)',
@@ -419,7 +427,7 @@ export class PresentationService {
         { label: 'Patriarchat', desc: 'Machtstrukturen', color: '#795548' },
         { label: 'Religion', desc: 'Glaubenssysteme', color: '#9C27B0' },
       ],
-      notes: '[~1 min] + 2 weitere Faktoren: Universale Aspirationen und Regulierung von Arbeitsmärkten & Armut. Kulturrelativismus vs. Universalismus.',
+      notes: '[~1 min] + 2 weitere Faktoren auf nächster Folie.',
       speaker: 'lydia',
       bgVariant: 'purple'
     });
@@ -451,12 +459,12 @@ export class PresentationService {
       type: 'quote',
       quoteText: 'Kulturrelativismus oder universelle Rechte? Oder liegt die Antwort in der Mitte?',
       quoteAuthor: 'Offene Frage zur Diskussion',
-      notes: '[~30 sec] Frage offen an die Klasse stellen. Überleitung zur Interaktion.',
+      notes: '[~30 sec] Frage offen an die Klasse. Überleitung zur Interaktion.',
       speaker: 'lydia',
       bgVariant: 'purple'
     });
 
-    // ===== 9. INTERACTION (Both) — ~3 min =====
+    // ===== 8. INTERACTION (Both) — ~3 min =====
     slides.push({
       type: 'interaction',
       title: 'Was denkt ihr?',
@@ -466,22 +474,22 @@ export class PresentationService {
       speaker: 'both'
     });
 
-    // ===== 10. ZUSAMMENFASSUNG (Both) — ~1 min =====
+    // ===== 9. ZUSAMMENFASSUNG (Both) — ~1 min =====
     slides.push({
       type: 'summary',
       title: 'Zusammenfassung',
       summaryItems: [
-        '54 Artikel in 4 Kategorien: Überleben, Entwicklung, Schutz, Beteiligung',
         '150+ Jahre Geschichte: Von 1870 bis zur UN-KRK 1989',
-        'Vermittlung durch Kita, Schule, Eltern (§ 45, § 8a SGB VIII)',
+        '54 Artikel in 4 Kategorien: Überleben, Entwicklung, Schutz, Beteiligung',
         'Fortschritte (Sterblichkeit ↓) und Rückschläge (473 Mio. in Konflikten)',
+        'Vermittlung durch Kita, Schule, Eltern (§ 45, § 8a SGB VIII)',
         'Kritik: Westlicher Bias, kulturelle Unterschiede, unbeabsichtigte Effekte',
       ],
-      notes: '[~1 min] Kernpunkte zusammenfassen.',
+      notes: '[~1 min] Kernpunkte — gleiche Reihenfolge wie Präsentation.',
       speaker: 'both'
     });
 
-    // ===== 11. DISKUSSION (Both) — Q&A up to 30 min =====
+    // ===== 10. DISKUSSION (Both) — Q&A up to 30 min =====
     slides.push({
       type: 'question',
       title: 'Diskussionsfragen',
@@ -492,11 +500,11 @@ export class PresentationService {
         'Sind Kinderrechte universell — oder kulturell bedingt?',
         'Was kann jeder Einzelne für Kinderrechte tun?'
       ],
-      notes: '[Q&A bis zu 30 min] Klasse einbeziehen. Jede Frage kurz anmoderieren.',
+      notes: '[Q&A bis zu 30 min] Klasse einbeziehen.',
       speaker: 'both'
     });
 
-    // ===== 12. END =====
+    // ===== 11. END =====
     slides.push({
       type: 'end',
       title: 'Vielen Dank!',
