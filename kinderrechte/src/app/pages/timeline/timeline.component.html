@@ -1,0 +1,35 @@
+<main class="page-content">
+  <section class="section">
+    <div class="container">
+      <div class="timeline-intro" appScrollReveal>
+        <h1 class="section-title">Geschichte der Kinderrechte</h1>
+        <p class="section-subtitle">
+          Von der Genfer Erklärung 1924 bis zu den Herausforderungen der Gegenwart —
+          über 100 Jahre Kampf für die Rechte der Kinder.
+        </p>
+      </div>
+
+      <div class="timeline" [style.--progress]="progress() + '%'">
+        @for (event of events(); track event.year; let i = $index) {
+          <div class="timeline-item" appScrollReveal>
+            <div class="timeline-dot" [style.background]="event.color"></div>
+            <div class="timeline-year">{{ event.year }}</div>
+            <mat-accordion>
+              <mat-expansion-panel class="timeline-card" [style.border-left-color]="event.color">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    <h3>{{ event.title }}</h3>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <p class="summary">{{ event.summary }}</p>
+                <div class="details">
+                  <p>{{ event.details }}</p>
+                </div>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+</main>
