@@ -23,7 +23,7 @@ export class PresentationComponent {
     hero: '🎬', title: '📌', overview: '📊', category: '🏷️',
     timeline: '🕰️', article: '📄', info: '📋', stat: '📈',
     quote: '💬', image: '🖼️', compare: '⚖️', question: '❓', end: '🎉',
-    agenda: '📋', summary: '✅', interaction: '🙋', 'article-group': '📑', 'timeline-group': '📅'
+    agenda: '📋', summary: '✅', interaction: '🙋', 'article-group': '📑', 'timeline-group': '📅', section: '🔷'
   };
 
   readonly CATEGORY_BG: Record<string, string> = {

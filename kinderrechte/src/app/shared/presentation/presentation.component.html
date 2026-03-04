@@ -17,13 +17,24 @@
             </div>
           }
           @case ('title') {
-            <div class="pres-slide pres-slide--title" [class.fade-out]="fadeOut()">
+            <div class="pres-slide pres-slide--title" [class.fade-out]="fadeOut()" [class.bg-warm]="slide.bgVariant === 'warm'" [class.bg-purple]="slide.bgVariant === 'purple'" [class.bg-red]="slide.bgVariant === 'red'" [class.bg-cool]="slide.bgVariant === 'cool'" [class.bg-green]="slide.bgVariant === 'green'">
               <div class="pres-title pres-animate">{{ slide.title }}</div>
               <div class="pres-subtitle pres-animate" style="animation-delay: 150ms">{{ slide.subtitle }}</div>
             </div>
           }
+          @case ('section') {
+            <div class="pres-slide pres-slide--section" [class.fade-out]="fadeOut()" [class.bg-warm]="slide.bgVariant === 'warm'" [class.bg-purple]="slide.bgVariant === 'purple'" [class.bg-red]="slide.bgVariant === 'red'" [class.bg-cool]="slide.bgVariant === 'cool'" [class.bg-green]="slide.bgVariant === 'green'">
+              @if (slide.icon) {
+                <div class="pres-section-icon pres-animate">{{ slide.icon }}</div>
+              }
+              <div class="pres-title pres-animate" style="animation-delay: 100ms">{{ slide.title }}</div>
+              @if (slide.text) {
+                <div class="pres-text pres-animate" style="animation-delay: 250ms">{{ slide.text }}</div>
+              }
+            </div>
+          }
           @case ('overview') {
-            <div class="pres-slide pres-slide--overview" [class.fade-out]="fadeOut()">
+            <div class="pres-slide pres-slide--overview" [class.fade-out]="fadeOut()" [class.bg-warm]="slide.bgVariant === 'warm'" [class.bg-purple]="slide.bgVariant === 'purple'" [class.bg-red]="slide.bgVariant === 'red'">
               <div class="pres-title pres-animate">{{ slide.title }}</div>
               <div class="pres-text pres-animate" style="animation-delay: 150ms">{{ slide.text }}</div>
               <div class="pres-grid pres-animate" style="animation-delay: 300ms">
@@ -66,7 +77,7 @@
             </div>
           }
           @case ('info') {
-            <div class="pres-slide pres-slide--info" [class.fade-out]="fadeOut()">
+            <div class="pres-slide pres-slide--info" [class.fade-out]="fadeOut()" [class.bg-warm]="slide.bgVariant === 'warm'" [class.bg-purple]="slide.bgVariant === 'purple'" [class.bg-red]="slide.bgVariant === 'red'">
               <div class="pres-title pres-animate">{{ slide.title }}</div>
               <ul class="pres-list pres-animate" style="animation-delay: 150ms" [style.--accent]="slide.accent || '#03A9F4'">
                 @for (item of slide.infoItems; track $index) {
@@ -76,10 +87,7 @@
             </div>
           }
           @case ('stat') {
-            <div class="pres-slide pres-slide--stat" [class.fade-out]="fadeOut()" [style.--stat-color]="slide.color || '#03A9F4'">
-              @if (slide.image) {
-                <div class="pres-stat-bg" [style.background-image]="'url(' + slide.image + ')'"></div>
-              }
+            <div class="pres-slide pres-slide--stat" [class.fade-out]="fadeOut()" [style.--stat-color]="slide.color || '#03A9F4'" [class.bg-warm]="slide.bgVariant === 'warm'" [class.bg-purple]="slide.bgVariant === 'purple'" [class.bg-red]="slide.bgVariant === 'red'">
               <div class="pres-stat-value pres-animate">{{ slide.statValue }}</div>
               <div class="pres-stat-label pres-animate" style="animation-delay: 150ms">{{ slide.statLabel }}</div>
               @if (slide.text) {
@@ -91,10 +99,7 @@
             </div>
           }
           @case ('quote') {
-            <div class="pres-slide pres-slide--quote" [class.fade-out]="fadeOut()">
-              @if (slide.image) {
-                <div class="pres-quote-bg" [style.background-image]="'url(' + slide.image + ')'"></div>
-              }
+            <div class="pres-slide pres-slide--quote" [class.fade-out]="fadeOut()" [class.bg-warm]="slide.bgVariant === 'warm'" [class.bg-purple]="slide.bgVariant === 'purple'" [class.bg-red]="slide.bgVariant === 'red'">
               <blockquote class="pres-quote-text pres-animate">{{ slide.quoteText }}</blockquote>
               @if (slide.quoteAuthor) {
                 <cite class="pres-quote-author pres-animate" style="animation-delay: 200ms">— {{ slide.quoteAuthor }}</cite>
@@ -118,7 +123,7 @@
             </div>
           }
           @case ('compare') {
-            <div class="pres-slide pres-slide--compare" [class.fade-out]="fadeOut()">
+            <div class="pres-slide pres-slide--compare" [class.fade-out]="fadeOut()" [class.bg-warm]="slide.bgVariant === 'warm'" [class.bg-purple]="slide.bgVariant === 'purple'" [class.bg-red]="slide.bgVariant === 'red'">
               <div class="pres-title pres-animate">{{ slide.title }}</div>
               <div class="pres-compare-grid pres-animate" style="animation-delay: 200ms">
                 @if (slide.compareLeft) {
@@ -160,8 +165,6 @@
               <div class="pres-subtitle pres-animate" style="animation-delay: 150ms">{{ slide.subtitle }}</div>
               <div class="pres-authors pres-animate" style="animation-delay: 300ms">{{ slide.authors }}</div>
               <div class="pres-meta pres-animate" style="animation-delay: 450ms">{{ slide.meta }}</div>
-              <div class="pres-qr pres-animate" style="animation-delay: 600ms"><img src="assets/images/qr-code.png" alt="QR-Code zur Website"></div>
-              <div class="pres-qr-label pres-animate" style="animation-delay: 750ms">kinderrechte.zuacaldeira.com</div>
             </div>
           }
           @case ('agenda') {
@@ -237,19 +240,23 @@
     </div>
 
     <!-- Speaker Badge -->
-    @if (pres.currentSlideData()?.speaker; as speaker) {
-      <div class="pres-speaker" [class.pres-speaker--lydia]="speaker === 'lydia'" [class.pres-speaker--zua]="speaker === 'zua'" [class.pres-speaker--both]="speaker === 'both'">
-        @switch (speaker) {
-          @case ('lydia') { Lydia }
-          @case ('zua') { Zua }
-          @case ('both') { Lydia & Zua }
-        }
-      </div>
+    @if (pres.currentSlideData(); as slide) {
+      @if (slide.speaker; as speaker) {
+        <div class="pres-speaker" [class.pres-speaker--lydia]="speaker === 'lydia'" [class.pres-speaker--zua]="speaker === 'zua'" [class.pres-speaker--both]="speaker === 'both'">
+          @switch (speaker) {
+            @case ('lydia') { Lydia }
+            @case ('zua') { Zua }
+            @case ('both') { Lydia & Zua }
+          }
+        </div>
+      }
     }
 
     <!-- Notes -->
-    @if (pres.showNotes() && pres.currentSlideData()?.notes) {
-      <div class="pres-notes">{{ pres.currentSlideData()?.notes }}</div>
+    @if (pres.showNotes() && pres.currentSlideData(); as slide) {
+      @if (slide.notes) {
+        <div class="pres-notes">{{ slide.notes }}</div>
+      }
     }
 
     <!-- Counter & Progress -->

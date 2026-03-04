@@ -1228,12 +1228,54 @@
 }
 
 /* ===== BACKGROUND VARIANTS ===== */
-/* Applied via [style] in template or via bgVariant class */
+/* Applied per-slide via [class.bg-warm], [class.bg-purple], etc. */
 
-/* Warm bg for Lydia's history section */
-.pres-slide--timeline-group,
-.pres-slide--agenda {
-  /* default set above */
+.pres-slide.bg-warm {
+  background: linear-gradient(135deg, #2d1b00 0%, #1a1a2e 60%, #16213e 100%) !important;
+  .pres-quote-text::before { color: rgba(255, 152, 0, 0.5) !important; }
+}
+
+.pres-slide.bg-purple {
+  background: linear-gradient(135deg, #1a0a2e 0%, #1a1a2e 60%, #0f1a3e 100%) !important;
+  .pres-quote-text::before { color: rgba(156, 39, 176, 0.5) !important; }
+}
+
+.pres-slide.bg-red {
+  background: linear-gradient(135deg, #2e0a0a 0%, #1a1a2e 60%, #16213e 100%) !important;
+}
+
+.pres-slide.bg-cool {
+  background: linear-gradient(135deg, #0a1e2e 0%, #1a1a2e 60%, #0f3460 100%) !important;
+}
+
+.pres-slide.bg-green {
+  background: linear-gradient(135deg, #0a2e1a 0%, #1a1a2e 60%, #16213e 100%) !important;
+}
+
+/* ===== SECTION TRANSITION SLIDE ===== */
+
+.pres-slide--section {
+  position: relative;
+
+  .pres-section-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+  }
+
+  .pres-title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+  }
+
+  .pres-text {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: var(--font-body);
+    max-width: 600px;
+    line-height: 1.7;
+  }
 }
 
 /* ===== SPEAKER BADGE ===== */
