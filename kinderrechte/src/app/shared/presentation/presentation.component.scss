@@ -1109,6 +1109,21 @@
   background: rgba(255, 255, 255, 0.95);
   transform: rotateY(180deg);
   padding: 1.5rem;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+}
+
+.pres-flip-card--flipped .pres-flip-front {
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+}
+
+.pres-flip-card--flipped .pres-flip-back {
+  visibility: visible;
+  height: auto;
+  overflow: visible;
 
   h4 {
     font-size: 1.6rem;
