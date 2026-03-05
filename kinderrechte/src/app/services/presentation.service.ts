@@ -446,17 +446,17 @@ export class PresentationService {
 
     slides.push({
       type: 'info',
-      title: 'Anthropologische Kritik',
+      title: 'Kritik und interkulturelle Ansätze - Eine Anthropologische Perspektive',
       accent: '#9C27B0',
       infoItems: [
-        '„Liberaler, westlicher Bias" (Quennerstedt 2018)',
-        'Kindheit ist kulturell geprägt, nicht universell (Goodall 2015)',
-        'AAA kritisierte 1947: „cultural imperialism" (Billaud 2022)',
-        'Art. 3 „Kindeswohl" wurde nie definiert'
+        'Ist die Erklärung an aktuellen soziokulturellen und politischen Kontexte angepasst?',
+        'Die Anthropologie der Kindheit versucht, Kindheit als Ausdruck bestimmter Werte und Normen zu verstehen (Goodall 2015). Was als „normale Kindheit" gilt, hängt davon ab, wo man lebt und wo man geboren wurde. Auch unsere Vorstellungen von Rechten und Pflichten ändern sich mit der Zeit (Goodall 2015).',
+        'Laut Goodall müssen bei der Betrachtung der Kinderrechte die folgenden Aspekte berücksichtigt werden: Kultur · Geschlecht · Patriarchale Strukturen · Religion · Universelle Bestrebungen · Regulierung der Arbeitsmärkte und Armut',
       ],
-      notes: '[~1.5 min] Anthropologen seit 1980er: Rechte als dynamische soziale Praxis.',
+      notes: '[~1.5 min] Anthropologische Perspektive. Goodall 2015: 6 Faktoren der Kindheit.',
       speaker: 'lydia',
-      bgVariant: 'purple'
+      bgVariant: 'purple',
+      compact: true
     });
 
     // All 6 Goodall factors on one slide (3x2 grid)
