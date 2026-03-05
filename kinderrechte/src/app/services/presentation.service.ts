@@ -322,16 +322,16 @@ export class PresentationService {
     });
 
     slides.push({
-      type: 'info',
+      type: 'overview',
       title: 'Vermittlung an Kinder',
-      accent: '#4CAF50',
-      infoItems: [
-        'Kindergarten (3–6): Bilderbücher, Rollenspiele, Fairness',
-        'Grundschule (6–10): Projekttage, Klassenräte, Poster',
-        'Sekundarstufe (10–18): Planspiele, Debatten, Fallstudien'
+      items: [
+        { label: 'Kindergarten (3–6)', desc: 'Bilderbücher, Rollenspiele, Fairness', color: '#FF9800' },
+        { label: 'Grundschule (6–10)', desc: 'Projekttage, Klassenräte, Poster', color: '#4CAF50' },
+        { label: 'Sekundarstufe (10–18)', desc: 'Planspiele, Debatten, Fallstudien', color: '#03A9F4' }
       ],
       notes: '[~1 min] Altersgerechte Vermittlung. UNICEF-Schulen als Best Practice.',
-      speaker: 'zua'
+      speaker: 'zua',
+      bgVariant: 'green'
     });
 
     slides.push({
@@ -346,17 +346,17 @@ export class PresentationService {
     });
 
     slides.push({
-      type: 'info',
+      type: 'timeline-group',
       title: 'Schutz in Deutschland',
-      accent: '#E91E63',
-      infoItems: [
-        'Jugendamt: Schutzauftrag (§ 8a SGB VIII)',
-        'Grundgesetz: Art. 6 + Art. 2 — Familie & Entfaltung',
-        'Gewaltfreie Erziehung seit 2000 (§ 1631 Abs. 2 BGB)',
-        'Nummer gegen Kummer: 116 111'
+      events: [
+        { year: 1949, title: 'Grundgesetz Art. 6', summary: 'Familie unter staatlichem Schutz', color: '#03A9F4' },
+        { year: 2000, title: 'Gewaltfreie Erziehung', summary: '§ 1631 Abs. 2 BGB', color: '#4CAF50' },
+        { year: 2012, title: 'Beschwerderecht', summary: '§ 45 SGB VIII Pflicht', color: '#FF9800' },
+        { year: 2021, title: 'Gewaltschutzkonzept', summary: 'Pflicht für alle Einrichtungen', color: '#E91E63' }
       ],
       notes: '[~1 min] § 8a SGB VIII, Nummer gegen Kummer.',
-      speaker: 'zua'
+      speaker: 'zua',
+      bgVariant: 'green'
     });
 
     slides.push({
