@@ -487,15 +487,6 @@ export class PresentationService {
       bgVariant: 'purple'
     });
 
-    slides.push({
-      type: 'compare',
-      title: 'Fallstudien',
-      compareLeft: { title: 'Südafrika (Levine 2011)', items: ['Kinderarbeitsgesetze eingeführt', 'Saisonarbeit nicht mehr möglich', 'Armut der Kinder stieg'], color: '#FF9800' },
-      compareRight: { title: 'Malawi (Englund / Billaud)', items: ['Menschenrechtsdiskurs kam', '„Freiheit" ignorierte Armut', 'Oberschicht profitierte'], color: '#C0392B' },
-      notes: '[~1.5 min] Gut gemeint ≠ gut gemacht. Englund: „Prisoners of Freedom".',
-      speaker: 'lydia',
-      bgVariant: 'purple'
-    });
 
     slides.push({
       type: 'info',
