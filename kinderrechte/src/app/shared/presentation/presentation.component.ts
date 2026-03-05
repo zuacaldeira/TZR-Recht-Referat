@@ -8,6 +8,7 @@ import { CATEGORIES } from '../../data/categories';
 import { ARTICLES_DATA } from '../../data/articles';
 import { Article } from '../../models/article';
 import { CategoryKey } from '../../models/category';
+import { QuizSlideQuestion } from '../../models/presentation';
 import { SLIDE_TYPE_SVGS, EMOJI_TO_SVG } from './slide-icons';
 
 @Component({
@@ -28,8 +29,53 @@ export class PresentationComponent {
     hero: '🎬', title: '📌', overview: '📊', category: '🏷️',
     timeline: '🕰️', article: '📄', info: '📋', stat: '📈',
     quote: '💬', image: '🖼️', compare: '⚖️', question: '❓', end: '🎉',
-    agenda: '📋', summary: '✅', interaction: '🙋', 'article-group': '📑', 'timeline-group': '📅', section: '🔷', 'article-browser': '🔍'
+    agenda: '📋', summary: '✅', interaction: '🙋', 'article-group': '📑', 'timeline-group': '📅', section: '🔷', 'article-browser': '🔍', quiz: '🧠'
   };
+
+  // Quiz state
+  readonly quizIndex = signal(0);
+  readonly quizSelected = signal<number | null>(null);
+  readonly quizRevealed = signal(false);
+  readonly quizScore = signal(0);
+  readonly quizFinished = signal(false);
+
+  readonly currentQuizQuestion = computed<QuizSlideQuestion | null>(() => {
+    const slide = this.pres.currentSlideData();
+    if (!slide?.quizQuestions) return null;
+    const idx = this.quizIndex();
+    return idx < slide.quizQuestions.length ? slide.quizQuestions[idx] : null;
+  });
+
+  selectQuizOption(index: number): void {
+    if (this.quizRevealed()) return;
+    this.quizSelected.set(index);
+    this.quizRevealed.set(true);
+    const q = this.currentQuizQuestion();
+    if (q && index === q.correct) {
+      this.quizScore.update(s => s + 1);
+    }
+  }
+
+  nextQuizQuestion(): void {
+    const slide = this.pres.currentSlideData();
+    if (!slide?.quizQuestions) return;
+    const nextIdx = this.quizIndex() + 1;
+    if (nextIdx >= slide.quizQuestions.length) {
+      this.quizFinished.set(true);
+    } else {
+      this.quizIndex.set(nextIdx);
+      this.quizSelected.set(null);
+      this.quizRevealed.set(false);
+    }
+  }
+
+  resetQuiz(): void {
+    this.quizIndex.set(0);
+    this.quizSelected.set(null);
+    this.quizRevealed.set(false);
+    this.quizScore.set(0);
+    this.quizFinished.set(false);
+  }
 
   // Sanitized SVG icons
   readonly TYPE_SVGS: Record<string, SafeHtml> = {};
@@ -111,6 +157,9 @@ export class PresentationComponent {
       return;
     }
 
+    // Block slide navigation keys on quiz slides (let quiz handle its own flow)
+    const isQuizSlide = this.pres.currentSlideData()?.type === 'quiz';
+
     switch (e.key) {
       case 'Escape':
         e.preventDefault();
@@ -124,12 +173,12 @@ export class PresentationComponent {
       case ' ':
       case 'Enter':
         e.preventDefault();
-        if (!this.pres.showGrid()) this.navigateNext();
+        if (!this.pres.showGrid() && !isQuizSlide) this.navigateNext();
         break;
       case 'ArrowLeft':
       case 'Backspace':
         e.preventDefault();
-        if (!this.pres.showGrid()) this.navigatePrev();
+        if (!this.pres.showGrid() && !isQuizSlide) this.navigatePrev();
         break;
       case 'f':
       case 'F':
@@ -171,6 +220,7 @@ export class PresentationComponent {
     this.fadeOut.set(true);
     setTimeout(() => {
       this.pres.next();
+      this.resetQuiz();
       this.fadeOut.set(false);
     }, 200);
   }
@@ -179,12 +229,14 @@ export class PresentationComponent {
     this.fadeOut.set(true);
     setTimeout(() => {
       this.pres.prev();
+      this.resetQuiz();
       this.fadeOut.set(false);
     }, 200);
   }
 
   goToSlide(index: number): void {
     this.pres.goTo(index);
+    this.resetQuiz();
   }
 
   close(): void {

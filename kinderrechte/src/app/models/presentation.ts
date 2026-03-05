@@ -1,4 +1,4 @@
-export type SlideType = 'hero' | 'title' | 'overview' | 'category' | 'timeline' | 'article' | 'info' | 'stat' | 'quote' | 'image' | 'compare' | 'question' | 'end' | 'agenda' | 'summary' | 'interaction' | 'article-group' | 'timeline-group' | 'section' | 'article-browser';
+export type SlideType = 'hero' | 'title' | 'overview' | 'category' | 'timeline' | 'article' | 'info' | 'stat' | 'quote' | 'image' | 'compare' | 'question' | 'end' | 'agenda' | 'summary' | 'interaction' | 'article-group' | 'timeline-group' | 'section' | 'article-browser' | 'quiz';
 
 export interface PresentationSlide {
   type: SlideType;
@@ -58,6 +58,8 @@ export interface PresentationSlide {
   articles?: ArticleBrief[];
   // Timeline Group (2-4 events per slide)
   events?: TimelineBrief[];
+  // Quiz
+  quizQuestions?: QuizSlideQuestion[];
   // Section background variant
   bgVariant?: 'warm' | 'cool' | 'red' | 'green' | 'purple';
   // Background image
@@ -95,4 +97,10 @@ export interface TimelineBrief {
   title: string;
   summary: string;
   color: string;
+}
+
+export interface QuizSlideQuestion {
+  question: string;
+  options: string[];
+  correct: number;
 }

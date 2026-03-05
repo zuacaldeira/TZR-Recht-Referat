@@ -163,6 +163,46 @@
               <div class="pres-interaction-hint pres-animate" style="animation-delay: 600ms">Handzeichen!</div>
             </div>
           }
+          @case ('quiz') {
+            <div class="pres-slide pres-slide--quiz" [class.fade-out]="fadeOut()" (click)="$event.stopPropagation()">
+              <div class="pres-title pres-animate">{{ slide.title }}</div>
+              @if (!quizFinished()) {
+                @if (currentQuizQuestion(); as q) {
+                  <div class="pres-quiz-progress pres-animate" style="animation-delay: 100ms">
+                    Frage {{ quizIndex() + 1 }} von {{ slide.quizQuestions!.length }}
+                  </div>
+                  <div class="pres-quiz-question pres-animate" style="animation-delay: 200ms">{{ q.question }}</div>
+                  <div class="pres-quiz-options pres-animate" style="animation-delay: 300ms">
+                    @for (opt of q.options; track $index) {
+                      <button class="pres-quiz-opt"
+                        [class.pres-quiz-opt--selected]="quizSelected() === $index"
+                        [class.pres-quiz-opt--correct]="quizRevealed() && $index === q.correct"
+                        [class.pres-quiz-opt--wrong]="quizRevealed() && quizSelected() === $index && $index !== q.correct"
+                        (click)="selectQuizOption($index); $event.stopPropagation()">
+                        <span class="pres-quiz-letter">{{ ['A', 'B', 'C', 'D'][$index] }}</span>
+                        {{ opt }}
+                      </button>
+                    }
+                  </div>
+                  @if (quizRevealed()) {
+                    <button class="pres-quiz-next pres-animate" (click)="nextQuizQuestion(); $event.stopPropagation()">
+                      @if (quizIndex() + 1 < slide.quizQuestions!.length) {
+                        Nächste Frage &rarr;
+                      } @else {
+                        Ergebnis anzeigen
+                      }
+                    </button>
+                  }
+                }
+              } @else {
+                <div class="pres-quiz-result pres-animate">
+                  <div class="pres-quiz-score">{{ quizScore() }} / {{ slide.quizQuestions!.length }}</div>
+                  <div class="pres-quiz-score-label">richtige Antworten</div>
+                  <button class="pres-quiz-next pres-animate" style="animation-delay: 300ms" (click)="resetQuiz(); $event.stopPropagation()">Nochmal spielen</button>
+                </div>
+              }
+            </div>
+          }
           @case ('article-group') {
             <div class="pres-slide pres-slide--article-group" [class.fade-out]="fadeOut()" [style.--group-color]="slide.categoryColor">
               <div class="pres-ag-header pres-animate">

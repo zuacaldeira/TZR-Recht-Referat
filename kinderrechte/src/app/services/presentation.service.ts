@@ -1,8 +1,9 @@
 import { Injectable, signal, computed } from '@angular/core';
-import { PresentationSlide } from '../models/presentation';
+import { PresentationSlide, QuizSlideQuestion } from '../models/presentation';
 import { ARTICLES_DATA } from '../data/articles';
 import { CATEGORIES } from '../data/categories';
 import { CategoryKey } from '../models/category';
+import { QUIZ_DATA } from '../data/quiz';
 
 @Injectable({ providedIn: 'root' })
 export class PresentationService {
@@ -94,13 +95,16 @@ export class PresentationService {
       speaker: 'both'
     });
 
-    // ===== QUIZ (Both) — ~1 min =====
+    // ===== QUIZ (Both) — ~3 min =====
+    const mediumQuestions: QuizSlideQuestion[] = QUIZ_DATA
+      .filter(q => q.difficulty === 'medium')
+      .map(q => ({ question: q.question, options: q.options, correct: q.correct }));
+
     slides.push({
-      type: 'interaction',
-      title: 'Kurzes Quiz zum Einstieg',
-      interactionQuestion: 'Wie viele Staaten haben die UN-Kinderrechtskonvention ratifiziert?',
-      interactionOptions: ['150 Staaten', '174 Staaten', '196 Staaten', 'Alle 197 Staaten'],
-      notes: '[~1 min] Einstiegsquiz. Richtige Antwort: C — 196 Staaten. Nur die USA fehlen.',
+      type: 'quiz',
+      title: 'Interaktives Quiz',
+      quizQuestions: mediumQuestions,
+      notes: '[~3 min] Interaktives Quiz mit der Klasse. Medium-Schwierigkeit. Klicken zum Auflösen.',
       speaker: 'both'
     });
 
