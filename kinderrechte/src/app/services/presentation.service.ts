@@ -478,6 +478,22 @@ export class PresentationService {
     });
 
     slides.push({
+      type: 'info',
+      title: '',
+      accent: '#9C27B0',
+      infoItems: [
+        'Eine der Kritikpunkte an der Konvention ist, dass sie zu einer „liberalen, westlichen Voreingenommenheit" neigt und dass sie von Natur aus „paternalistisch" ist (Quennerstedt, Robinson und L\'Anon 2018).',
+        'Ein weiteres Argument lautet, dass die Konvention die Spannung zwischen den individuellen Rechten und den kollektiven Rechten, die ein Kind als Mitglied der Gemeinschaft hat, nicht berücksichtigt.',
+        'Billaud (2022) spricht über die Bedeutung der Arbeit von Anthropologen, die die alltäglichen Praktiken von Gemeinschaften untersuchen, die Menschenrechte in der „realen Welt" aufrechterhalten.',
+        'Es wird argumentiert, dass die Konvention „Unklarheiten und Mehrdeutigkeiten" aufweist (Quennerstedt, Robinson und L\'Anon 2018).',
+      ],
+      notes: '[~1 min] Kritikpunkte: westlicher Bias, Paternalismus, individuelle vs. kollektive Rechte.',
+      speaker: 'lydia',
+      bgVariant: 'purple',
+      compact: true
+    });
+
+    slides.push({
       type: 'compare',
       title: 'Fallstudien',
       compareLeft: { title: 'Südafrika (Levine 2011)', items: ['Kinderarbeitsgesetze eingeführt', 'Saisonarbeit nicht mehr möglich', 'Armut der Kinder stieg'], color: '#FF9800' },
