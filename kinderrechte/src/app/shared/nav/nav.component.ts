@@ -21,9 +21,9 @@ export class NavComponent {
     { path: '/', label: 'Start', exact: true },
     { path: '/geschichte', label: 'Geschichte', exact: false },
     { path: '/artikel', label: 'Artikel', exact: false },
-    { path: '/spiele', label: 'Spiele', exact: false },
-    { path: '/vermittlung', label: 'Vermittlung', exact: false },
     { path: '/verletzungen', label: 'Verletzungen', exact: false },
+    { path: '/vermittlung', label: 'Vermittlung', exact: false },
+    { path: '/spiele', label: 'Spiele', exact: false },
   ];
 
   toggleMenu(): void {
