@@ -109,7 +109,7 @@ export class PresentationService {
 
     slides.push({
       type: 'info',
-      title: 'Geschichte und Kontext der UN-Konvention über die Rechte des Kindes',
+      title: 'Geschichte und Kontext der UN-KRK',
       accent: '#FF9800',
       infoItems: [
         'Die Konvention der Vereinten Nationen über die Rechte des Kindes markiert einen bedeutenden Wendepunkt in der Art und Weise, wie Kinder als autonome Wesen und als eigenständige soziale Gruppe mit eigenen Rechten wahrgenommen werden.',
