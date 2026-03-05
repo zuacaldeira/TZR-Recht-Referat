@@ -122,15 +122,6 @@ export class PresentationService {
     });
 
     slides.push({
-      type: 'quote',
-      quoteText: 'Die Aufklärung definierte Kindheit erstmals als eigenständige Entwicklungsphase — geprägt von Unschuld und Schutzbedürftigkeit.',
-      quoteAuthor: 'Nach Rousseau · Imoah 2012',
-      notes: '[~1 min] Rousseau: Kindheit als eigene Phase. Zunächst nur Oberschicht.',
-      speaker: 'lydia',
-      bgVariant: 'warm'
-    });
-
-    slides.push({
       type: 'timeline-group',
       title: 'Grundlagen (1870–1948)',
       events: [
