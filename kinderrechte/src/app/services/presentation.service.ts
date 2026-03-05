@@ -461,23 +461,7 @@ export class PresentationService {
       compact: true
     });
 
-    // All 6 Goodall factors on one slide (3x2 grid)
-    slides.push({
-      type: 'overview',
-      title: '6 Faktoren der Kindheit (Goodall 2015)',
-      text: 'Was als „normale Kindheit" gilt, variiert weltweit.',
-      items: [
-        { label: 'Kultur', desc: 'Lokale Werte & Normen', color: '#FF9800' },
-        { label: 'Gender', desc: 'Geschlechterrollen', color: '#E91E63' },
-        { label: 'Patriarchat', desc: 'Machtstrukturen', color: '#795548' },
-        { label: 'Religion', desc: 'Glaubenssysteme', color: '#9C27B0' },
-        { label: 'Aspirationen', desc: 'Globale Ideale vs. lokale Realität', color: '#03A9F4' },
-        { label: 'Ökonomie', desc: 'Arbeitsmärkte & Armut', color: '#FF5722' },
-      ],
-      notes: '[~1 min] Alle 6 Faktoren. Kulturrelativismus vs. Universalismus.',
-      speaker: 'lydia',
-      bgVariant: 'purple'
-    });
+
 
     slides.push({
       type: 'info',
