@@ -519,6 +519,25 @@ export class PresentationService {
       bgVariant: 'purple'
     });
 
+    slides.push({
+      type: 'info',
+      title: 'Moderne Entwicklungen und alternative Ansätze',
+      accent: '#9C27B0',
+      infoItems: [
+        'Die Afrikanische Charta über die Rechte und das Wohlergehen des Kindes (1999)',
+        'Afrikanischer Sachverständigenausschuss für die Rechte und das Wohlergehen des Kindes',
+        'Europäische Sozialcharta',
+        'Übereinkommen zum Schutz von Kindern vor sexueller Ausbeutung und sexuellem Missbrauch (Lanzarote-Konvention) 2007',
+        'Europäisches Übereinkommen zur Verhütung von Folter und unmenschlicher oder erniedrigender Behandlung oder Strafe (1989)',
+        'Charta der Grundrechte der Europäischen Union',
+        'Menschenrechtserklärung der Vereinigung südostasiatischer Staaten (ASEAN) (2012)',
+      ],
+      notes: '[~1 min] Alternative regionale Ansätze zum Schutz der Kinderrechte.',
+      speaker: 'lydia',
+      bgVariant: 'purple',
+      compact: true
+    });
+
     // ===== 8. INTERACTION (Both) — ~3 min =====
     slides.push({
       type: 'interaction',
