@@ -75,7 +75,7 @@ export class PresentationService {
       meta: 'Fach: Recht · Lehrer: Uwe Otto · 06. März 2026',
       notes: '[~1 min] Begrüßung. Thema vorstellen: UN-KRK, 54 Artikel, seit 1989.',
       speaker: 'both',
-      bgImage: 'assets/images/slides/children-diverse.jpg'
+      bgImage: 'assets/images/slides/hero-children.jpg'
     });
 
     // ===== 2. AGENDA (Both) — ~1 min =====
