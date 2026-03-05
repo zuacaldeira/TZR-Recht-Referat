@@ -39,8 +39,8 @@
               <div class="pres-text pres-animate" style="animation-delay: 150ms">{{ slide.text }}</div>
               <div class="pres-grid pres-animate" style="animation-delay: 300ms">
                 @for (item of slide.items; track item.label) {
-                  <div class="pres-grid-item" [style.border-color]="item.color">
-                    <h4 [style.color]="item.color">{{ item.label }}</h4>
+                  <div class="pres-grid-item" [style.background]="item.color">
+                    <h4>{{ item.label }}</h4>
                     <p>{{ item.desc }}</p>
                   </div>
                 }
