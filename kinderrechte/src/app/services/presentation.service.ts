@@ -84,7 +84,7 @@ export class PresentationService {
       type: 'agenda',
       title: 'Gliederung',
       agendaItems: [
-        { label: 'Geschichte und Kontext der UN-Kinderrechtskonvention (KRK)', speaker: 'Lydia', icon: '🕰️' },
+        { label: 'Geschichte und Kontext der UN-Kinderrechtskonvention', speaker: 'Lydia', icon: '🕰️' },
         { label: 'Überblick, Kategorien & Artikel', speaker: 'Zua', icon: '📄' },
         { label: 'Verletzungen weltweit', speaker: 'Zua', icon: '🌍' },
         { label: 'Vermittlung & Schutz', speaker: 'Zua', icon: '🏫' },
