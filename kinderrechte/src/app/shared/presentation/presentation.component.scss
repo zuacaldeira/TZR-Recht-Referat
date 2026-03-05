@@ -525,18 +525,16 @@
   }
 
   .pres-compare-col {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 1rem;
     padding: 1.5rem;
     text-align: left;
-    border-top: 4px solid;
+    color: #fff;
 
     h4 {
       font-size: 3.16rem;
       font-weight: 700;
       margin-bottom: 1rem;
+      color: #fff;
     }
 
     ul {
@@ -546,10 +544,10 @@
 
     li {
       font-size: 2.46rem;
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(255, 255, 255, 0.9);
       font-family: var(--font-body);
       padding: 0.5rem 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
       line-height: 1.5;
 
       &:last-child { border-bottom: none; }

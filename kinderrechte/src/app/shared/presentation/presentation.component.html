@@ -82,8 +82,8 @@
               <div class="pres-title pres-animate">{{ slide.title }}</div>
               <div class="pres-compare-grid pres-animate" style="animation-delay: 200ms">
                 @if (slide.compareLeft) {
-                  <div class="pres-compare-col" [style.border-color]="slide.compareLeft.color">
-                    <h4 [style.color]="slide.compareLeft.color">{{ slide.compareLeft.title }}</h4>
+                  <div class="pres-compare-col" [style.background]="slide.compareLeft.color">
+                    <h4>{{ slide.compareLeft.title }}</h4>
                     <ul>
                       @for (item of slide.compareLeft.items; track $index) {
                         <li>{{ item }}</li>
@@ -92,8 +92,8 @@
                   </div>
                 }
                 @if (slide.compareRight) {
-                  <div class="pres-compare-col" [style.border-color]="slide.compareRight.color">
-                    <h4 [style.color]="slide.compareRight.color">{{ slide.compareRight.title }}</h4>
+                  <div class="pres-compare-col" [style.background]="slide.compareRight.color">
+                    <h4>{{ slide.compareRight.title }}</h4>
                     <ul>
                       @for (item of slide.compareRight.items; track $index) {
                         <li>{{ item }}</li>
