@@ -110,14 +110,14 @@ export class PresentationService {
 
     slides.push({
       type: 'info',
-      title: 'Geschichte und Kontext der UN-KRK',
+      title: 'Geschichte und Kontext der UN-Konvention über die Rechte des Kindes',
       accent: '#FF9800',
       infoItems: [
-        'Die UN-KRK markiert einen bedeutenden Wendepunkt: Kinder als autonome Wesen und eigenständige soziale Gruppe mit eigenen Rechten',
-        'Die UN-Kinderrechtskonvention ist ein Produkt des historischen, kulturellen und politischen Kontextes',
-        'Die Konvention ist ein Musterbeispiel für einen historischen Wandel im Verständnis von Kindheit'
+        'Die Konvention der Vereinten Nationen über die Rechte des Kindes markiert einen bedeutenden Wendepunkt in der Art und Weise, wie Kinder als autonome Wesen und als eigenständige soziale Gruppe mit eigenen Rechten wahrgenommen werden.',
+        'Die UN-Kinderrechtskonvention ist jedoch ein Produkt des historischen, kulturellen und politischen Kontextes, aus dem sie hervorgegangen ist.',
+        'Die Konvention ist ein Musterbeispiel für einen historischen Wandel im Verständnis von Kindheit.'
       ],
-      notes: '[~1 min] Kontext der UN-KRK. Kinder nicht mehr nur Objekte des Schutzes, sondern Subjekte mit eigenen Rechten.',
+      notes: '[~1 min] Kontext der UN-KRK. Lydia1.pdf Inhalt.',
       speaker: 'lydia',
       bgVariant: 'warm'
     });
