@@ -14,18 +14,36 @@
       <h2 id="kinder-title" class="section-title sub-title" appScrollReveal>Vermittlung an Kinder</h2>
       <div class="vermittlung-accent vermittlung-accent--kinder" appScrollReveal></div>
 
-      <div class="grid grid-2" appScrollReveal [stagger]="true">
-        <mat-card class="vermittlung-card">
-          <h3>
-            <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zM21 18.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/></svg>
-            Altersgerechte Methoden
-          </h3>
-          <ul>
-            <li><strong>Kindergarten (3–6 Jahre):</strong> Bilderbücher, Rollenspiele, einfache Regeln über Fairness und Mitbestimmung</li>
-            <li><strong>Grundschule (6–10 Jahre):</strong> Projekttage, Kinderrechteposter, Klassenräte als gelebte Partizipation</li>
-            <li><strong>Sekundarstufe (10–18 Jahre):</strong> Planspiele, Debatten, Fallstudien zu realen Kinderrechtsverletzungen</li>
-          </ul>
-        </mat-card>
+      <div class="kinder-layout" appScrollReveal [stagger]="true">
+        <div class="age-stepper">
+          <div class="age-step">
+            <div class="step-dot step-dot--survival"></div>
+            <div class="step-line"></div>
+            <div class="step-content">
+              <span class="step-label">Kindergarten</span>
+              <span class="step-age">3–6 Jahre</span>
+              <p>Bilderbücher, Rollenspiele, einfache Regeln über Fairness und Mitbestimmung</p>
+            </div>
+          </div>
+          <div class="age-step">
+            <div class="step-dot step-dot--development"></div>
+            <div class="step-line"></div>
+            <div class="step-content">
+              <span class="step-label">Grundschule</span>
+              <span class="step-age">6–10 Jahre</span>
+              <p>Projekttage, Kinderrechteposter, Klassenräte als gelebte Partizipation</p>
+            </div>
+          </div>
+          <div class="age-step">
+            <div class="step-dot step-dot--participation"></div>
+            <div class="step-content">
+              <span class="step-label">Sekundarstufe</span>
+              <span class="step-age">10–18 Jahre</span>
+              <p>Planspiele, Debatten, Fallstudien zu realen Kinderrechtsverletzungen</p>
+            </div>
+          </div>
+        </div>
+
         <mat-card class="vermittlung-card">
           <h3>
             <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
