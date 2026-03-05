@@ -108,6 +108,69 @@
 .vermittlung-accent--zukunft { background: var(--color-participation); }
 .vermittlung-accent--links { background: var(--color-gray); }
 
+// Featured card + compact list (Erzieher*innen)
+.featured-card {
+  padding: var(--space-xl) var(--space-xl) var(--space-xl) calc(var(--space-xl) + 4px);
+  border-left: 4px solid #7B1FA2;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  background: var(--color-white);
+  margin-bottom: var(--space-xl);
+
+  h3 {
+    font-size: var(--fs-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+  }
+
+  p {
+    font-size: var(--fs-sm);
+    color: var(--color-gray-dark);
+    line-height: 1.8;
+    margin: 0;
+  }
+}
+
+.vermittlung-section:nth-child(even) .featured-card {
+  background: var(--color-bg);
+}
+
+.compact-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.compact-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs, 4px);
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--color-gray-light, #e0e0e0);
+  transition: background var(--transition-fast);
+
+  &:last-child { border-bottom: none; }
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.02);
+    padding-left: var(--space-sm);
+    padding-right: var(--space-sm);
+  }
+}
+
+.compact-title {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.compact-text {
+  font-size: var(--fs-sm);
+  color: var(--color-gray-dark);
+  line-height: 1.6;
+}
+
 // Schutz callout (116 111)
 .schutz-callout {
   text-align: center;

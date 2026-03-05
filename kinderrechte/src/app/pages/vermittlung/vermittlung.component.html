@@ -66,15 +66,20 @@
       <h2 id="erzieher-title" class="section-title sub-title" appScrollReveal>Für Erzieher*innen: Kinderrechte in der Kita</h2>
       <div class="vermittlung-accent vermittlung-accent--erzieher" appScrollReveal></div>
 
-      <div class="grid grid-2" appScrollReveal [stagger]="true">
-        @for (item of erzieherItems; track item.title) {
-          <mat-card class="vermittlung-card">
-            <h3>
-              <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zM6 20V4h5v7h7v9H6z"/></svg>
-              {{ item.title }}
-            </h3>
-            <p>{{ item.text }}</p>
-          </mat-card>
+      <div class="featured-card" appScrollReveal>
+        <h3>
+          <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zM6 20V4h5v7h7v9H6z"/></svg>
+          {{ erzieherItems[0].title }}
+        </h3>
+        <p>{{ erzieherItems[0].text }}</p>
+      </div>
+
+      <div class="compact-list" appScrollReveal [stagger]="true">
+        @for (item of erzieherItems.slice(1); track item.title) {
+          <div class="compact-item">
+            <span class="compact-title">{{ item.title }}</span>
+            <span class="compact-text">{{ item.text }}</span>
+          </div>
         }
       </div>
     </div>
