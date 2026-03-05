@@ -177,7 +177,7 @@
 
 /* Hero Slide */
 .pres-slide--hero {
-  background: linear-gradient(135deg, #FF9800, #4CAF50, #E91E63, #03A9F4);
+  background: #1a1a2e;
   position: relative;
 
   .pres-title {
@@ -1254,9 +1254,7 @@
 
 .pres-slide--hero.has-bg-image {
   &::after {
-    background: linear-gradient(135deg, rgba(255, 152, 0, 0.6), rgba(76, 175, 80, 0.6), rgba(233, 30, 99, 0.6), rgba(3, 169, 244, 0.6));
-    background-size: 300% 300%;
-    animation: pres-gradientShift 30s ease infinite;
+    background: rgba(0, 0, 0, 0.45);
   }
 }
 
