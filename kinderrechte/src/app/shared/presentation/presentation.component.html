@@ -48,7 +48,7 @@
             </div>
           }
           @case ('info') {
-            <div class="pres-slide pres-slide--info" [class.fade-out]="fadeOut()" [class.bg-warm]="slide.bgVariant === 'warm'" [class.bg-purple]="slide.bgVariant === 'purple'" [class.bg-red]="slide.bgVariant === 'red'">
+            <div class="pres-slide pres-slide--info" [class.fade-out]="fadeOut()" [class.bg-warm]="slide.bgVariant === 'warm'" [class.bg-purple]="slide.bgVariant === 'purple'" [class.bg-red]="slide.bgVariant === 'red'" [class.pres-slide--compact]="slide.compact">
               <div class="pres-title pres-animate">{{ slide.title }}</div>
               <ul class="pres-list" [style.--accent]="slide.accent || '#03A9F4'">
                 @for (item of slide.infoItems; track $index) {

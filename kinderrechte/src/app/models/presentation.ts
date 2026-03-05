@@ -64,6 +64,8 @@ export interface PresentationSlide {
   bgVariant?: 'warm' | 'cool' | 'red' | 'green' | 'purple';
   // Background image
   bgImage?: string;
+  // Compact text mode (smaller font for dense content)
+  compact?: boolean;
 }
 
 export interface OverviewItem {

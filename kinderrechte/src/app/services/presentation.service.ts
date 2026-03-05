@@ -162,7 +162,8 @@ export class PresentationService {
       ],
       notes: '[~1 min] Weltkriege, Kalter Krieg, Liminalität. Fass 2011, Goodall 2015, Imoah 2012.',
       speaker: 'lydia',
-      bgVariant: 'warm'
+      bgVariant: 'warm',
+      compact: true
     });
 
     slides.push({
