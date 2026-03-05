@@ -494,16 +494,6 @@ export class PresentationService {
     });
 
     slides.push({
-      type: 'compare',
-      title: 'Fallstudien',
-      compareLeft: { title: 'Südafrika (Levine 2011)', items: ['Kinderarbeitsgesetze eingeführt', 'Saisonarbeit nicht mehr möglich', 'Armut der Kinder stieg'], color: '#FF9800' },
-      compareRight: { title: 'Malawi (Englund / Billaud)', items: ['Menschenrechtsdiskurs kam', '„Freiheit" ignorierte Armut', 'Oberschicht profitierte'], color: '#C0392B' },
-      notes: '[~1.5 min] Gut gemeint ≠ gut gemacht. Englund: „Prisoners of Freedom".',
-      speaker: 'lydia',
-      bgVariant: 'purple'
-    });
-
-    slides.push({
       type: 'info',
       title: '',
       accent: '#9C27B0',
@@ -515,6 +505,16 @@ export class PresentationService {
         'Was bedeutet das für eine multikulturelle Gesellschaft und eine multikulturelle Stadt wie Berlin?',
       ],
       notes: '[~1 min] Offene Fragen zum Nachdenken. Überleitung zur Diskussion.',
+      speaker: 'lydia',
+      bgVariant: 'purple'
+    });
+
+    slides.push({
+      type: 'compare',
+      title: 'Fallstudien',
+      compareLeft: { title: 'Südafrika (Levine 2011)', items: ['Kinderarbeitsgesetze eingeführt', 'Saisonarbeit nicht mehr möglich', 'Armut der Kinder stieg'], color: '#FF9800' },
+      compareRight: { title: 'Malawi (Englund / Billaud)', items: ['Menschenrechtsdiskurs kam', '„Freiheit" ignorierte Armut', 'Oberschicht profitierte'], color: '#C0392B' },
+      notes: '[~1.5 min] Gut gemeint ≠ gut gemacht. Englund: „Prisoners of Freedom".',
       speaker: 'lydia',
       bgVariant: 'purple'
     });
