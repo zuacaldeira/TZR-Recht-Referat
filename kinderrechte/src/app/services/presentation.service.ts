@@ -94,6 +94,16 @@ export class PresentationService {
       speaker: 'both'
     });
 
+    // ===== QUIZ (Both) — ~1 min =====
+    slides.push({
+      type: 'interaction',
+      title: 'Kurzes Quiz zum Einstieg',
+      interactionQuestion: 'Wie viele Staaten haben die UN-Kinderrechtskonvention ratifiziert?',
+      interactionOptions: ['150 Staaten', '174 Staaten', '196 Staaten', 'Alle 197 Staaten'],
+      notes: '[~1 min] Einstiegsquiz. Richtige Antwort: C — 196 Staaten. Nur die USA fehlen.',
+      speaker: 'both'
+    });
+
     // ===== 3. GESCHICHTE (Lydia) — ~7 min =====
 
     slides.push({
