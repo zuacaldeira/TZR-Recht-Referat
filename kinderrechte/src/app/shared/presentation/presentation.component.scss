@@ -1287,13 +1287,13 @@
 
 .pres-ab-search {
   flex: 0 0 auto;
-  width: 250px;
-  padding: 0.6rem 1rem;
+  width: 200px;
+  padding: 0.4rem 0.75rem;
   border-radius: 0.5rem;
   border: 1px solid rgba(255, 255, 255, 0.15);
   background: rgba(255, 255, 255, 0.08);
   color: #fff;
-  font-size: 2.34rem;
+  font-size: 1.2rem;
   font-family: var(--font-body);
   outline: none;
   transition: border-color 200ms ease;
@@ -1310,12 +1310,12 @@
 }
 
 .pres-ab-pill {
-  padding: 0.35rem 0.75rem;
+  padding: 0.25rem 0.6rem;
   border-radius: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.15);
   background: rgba(255, 255, 255, 0.06);
   color: rgba(255, 255, 255, 0.7);
-  font-size: 1.99rem;
+  font-size: 1.1rem;
   font-family: var(--font-body);
   cursor: pointer;
   transition: all 200ms ease;
@@ -1335,7 +1335,7 @@
 }
 
 .pres-ab-count {
-  font-size: 1.99rem;
+  font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.4);
   font-family: var(--font-body);
   white-space: nowrap;
