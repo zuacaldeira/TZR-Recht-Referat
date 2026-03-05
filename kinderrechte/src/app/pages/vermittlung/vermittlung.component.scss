@@ -108,6 +108,43 @@
 .vermittlung-accent--zukunft { background: var(--color-participation); }
 .vermittlung-accent--links { background: var(--color-gray); }
 
+// Schutz callout (116 111)
+.schutz-callout {
+  text-align: center;
+  padding: var(--space-xl) var(--space-lg);
+  margin-bottom: var(--space-xl);
+  background: rgba(233, 30, 99, 0.05);
+  border-radius: var(--radius-lg);
+}
+
+.callout-icon {
+  width: 32px;
+  height: 32px;
+  fill: var(--color-protection);
+  margin-bottom: var(--space-sm);
+}
+
+.callout-number {
+  font-size: var(--fs-4xl, 3rem);
+  font-weight: 800;
+  color: var(--color-protection);
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+}
+
+.callout-label {
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  color: var(--color-text);
+  margin-top: var(--space-xs);
+}
+
+.callout-sub {
+  font-size: var(--fs-sm);
+  color: var(--color-gray-dark);
+  margin-top: var(--space-xs);
+}
+
 // Age stepper layout (Vermittlung an Kinder)
 .kinder-layout {
   display: grid;
