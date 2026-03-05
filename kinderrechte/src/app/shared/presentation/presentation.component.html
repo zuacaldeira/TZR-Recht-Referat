@@ -195,22 +195,34 @@
             </div>
           }
           @case ('article-group') {
-            <div class="pres-slide pres-slide--article-group" [class.fade-out]="fadeOut()" [style.--group-color]="slide.categoryColor">
+            <div class="pres-slide pres-slide--article-group" [class.fade-out]="fadeOut()" [style.--group-color]="slide.categoryColor" (click)="$event.stopPropagation()">
               <div class="pres-ag-header pres-animate">
                 @if (slide.icon) {
                   <span class="pres-ag-icon" [style.background]="slide.categoryColor">@if (getSvgIcon(slide.icon); as svg) {<span class="pres-svg-icon pres-svg-icon--sm" [innerHTML]="svg"></span>} @else {{{ slide.icon }}}</span>
                 }
                 <div class="pres-title" [style.color]="slide.categoryColor">{{ slide.title }}</div>
               </div>
-              @if (slide.text) {
-                <div class="pres-ag-desc pres-animate" style="animation-delay: 100ms">{{ slide.text }}</div>
-              }
               <div class="pres-article-cards pres-animate" style="animation-delay: 200ms">
                 @for (art of slide.articles; track art.id) {
-                  <div class="pres-article-card" [style.border-color]="art.categoryColor">
-                    <span class="pres-article-card-id" [style.color]="art.categoryColor">Art. {{ art.id }}</span>
-                    <h4>{{ art.title }}</h4>
-                    <p>{{ art.summary }}</p>
+                  <div class="pres-flip-card" [class.pres-flip-card--flipped]="isFlipped(art.id)" (click)="toggleArticleFlip(art.id); $event.stopPropagation()">
+                    <div class="pres-flip-inner">
+                      <div class="pres-flip-front">
+                        <div class="pres-flip-header" [style.background]="art.categoryColor">
+                          <span class="pres-flip-number">{{ art.id }}</span>
+                          <span class="pres-flip-badge">{{ art.categoryName }}</span>
+                        </div>
+                        <div class="pres-flip-body">
+                          <h4>{{ art.title }}</h4>
+                          <p>{{ art.summary }}</p>
+                          <span class="pres-flip-hint">Klicken zum Umdrehen</span>
+                        </div>
+                      </div>
+                      <div class="pres-flip-back">
+                        <h4>Artikel {{ art.id }}: {{ art.title }}</h4>
+                        <p>{{ art.full }}</p>
+                        <span class="pres-flip-hint">Klicken zum Zurückdrehen</span>
+                      </div>
+                    </div>
                   </div>
                 }
               </div>

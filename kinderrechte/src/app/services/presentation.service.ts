@@ -251,8 +251,10 @@ export class PresentationService {
             id: a.id,
             title: a.title,
             summary: a.summary,
+            full: a.full,
             category: a.category,
-            categoryColor: CATEGORIES[a.category].color
+            categoryColor: CATEGORIES[a.category].color,
+            categoryName: CATEGORIES[a.category].name
           })),
           notes: '[~1 min] ' + arts.map(a => `Art. ${a.id}: ${a.title}`).join('. '),
           speaker: 'zua'

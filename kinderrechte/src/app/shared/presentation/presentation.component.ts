@@ -32,6 +32,29 @@ export class PresentationComponent {
     agenda: '📋', summary: '✅', interaction: '🙋', 'article-group': '📑', 'timeline-group': '📅', section: '🔷', 'article-browser': '🔍', quiz: '🧠'
   };
 
+  // Article flip state
+  readonly flippedCards = signal<Set<number>>(new Set());
+
+  toggleArticleFlip(articleId: number): void {
+    this.flippedCards.update(set => {
+      const next = new Set(set);
+      if (next.has(articleId)) {
+        next.delete(articleId);
+      } else {
+        next.add(articleId);
+      }
+      return next;
+    });
+  }
+
+  isFlipped(articleId: number): boolean {
+    return this.flippedCards().has(articleId);
+  }
+
+  resetFlippedCards(): void {
+    this.flippedCards.set(new Set());
+  }
+
   // Quiz state
   readonly quizIndex = signal(0);
   readonly quizSelected = signal<number | null>(null);
@@ -223,6 +246,7 @@ export class PresentationComponent {
     setTimeout(() => {
       this.pres.next();
       this.resetQuiz();
+      this.resetFlippedCards();
       this.fadeOut.set(false);
     }, 200);
   }
@@ -232,6 +256,7 @@ export class PresentationComponent {
     setTimeout(() => {
       this.pres.prev();
       this.resetQuiz();
+      this.resetFlippedCards();
       this.fadeOut.set(false);
     }, 200);
   }
@@ -239,6 +264,7 @@ export class PresentationComponent {
   goToSlide(index: number): void {
     this.pres.goTo(index);
     this.resetQuiz();
+    this.resetFlippedCards();
   }
 
   close(): void {

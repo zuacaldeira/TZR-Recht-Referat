@@ -88,8 +88,10 @@ export interface ArticleBrief {
   id: number;
   title: string;
   summary: string;
+  full: string;
   category: string;
   categoryColor: string;
+  categoryName: string;
 }
 
 export interface TimelineBrief {
