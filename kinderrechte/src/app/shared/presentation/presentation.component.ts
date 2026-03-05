@@ -54,6 +54,8 @@ export class PresentationComponent {
     if (q && index === q.correct) {
       this.quizScore.update(s => s + 1);
     }
+    // Auto-advance after a short delay
+    setTimeout(() => this.nextQuizQuestion(), 1500);
   }
 
   nextQuizQuestion(): void {

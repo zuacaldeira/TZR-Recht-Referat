@@ -184,15 +184,6 @@
                       </button>
                     }
                   </div>
-                  @if (quizRevealed()) {
-                    <button class="pres-quiz-next pres-animate" (click)="nextQuizQuestion(); $event.stopPropagation()">
-                      @if (quizIndex() + 1 < slide.quizQuestions!.length) {
-                        Nächste Frage &rarr;
-                      } @else {
-                        Ergebnis anzeigen
-                      }
-                    </button>
-                  }
                 }
               } @else {
                 <div class="pres-quiz-result pres-animate">
