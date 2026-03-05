@@ -70,8 +70,7 @@ export class PresentationService {
     // ===== 1. HERO (Both) — ~1 min =====
     slides.push({
       type: 'hero',
-      title: 'Kinderrechte',
-      subtitle: 'Die UN-Kinderrechtskonvention — Geschichte, Artikel & Vermittlung',
+      title: 'Die Kernrechte der UN-Kinderrechtskonvention',
       authors: 'Lydia Howe & Alexandre Zua Caldeira',
       meta: 'Fach: Recht · Lehrer: Uwe Otto · 06. März 2026',
       notes: '[~1 min] Begrüßung. Thema vorstellen: UN-KRK, 54 Artikel, seit 1989.',
