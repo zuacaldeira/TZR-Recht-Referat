@@ -26,7 +26,8 @@
   align-items: center;
   gap: var(--space-sm);
 
-  span { color: var(--color-participation); }
+  .nav-logo-text { color: var(--color-text); }
+  .nav-logo-text span { color: var(--color-participation); }
 }
 
 .nav-play {
