@@ -34,14 +34,13 @@
 }
 
 .overview-card {
-  background: var(--color-bg);
-  border-left: 4px solid;
   border-radius: var(--radius-md);
   padding: var(--space-lg);
   text-align: center;
   display: flex;
   flex-direction: column;
   gap: var(--space-xs);
+  color: #fff;
 }
 
 .overview-value {
@@ -49,11 +48,12 @@
   font-size: var(--fs-xl);
   font-weight: 800;
   letter-spacing: -0.5px;
+  color: #fff;
 }
 
 .overview-label {
   font-size: var(--fs-xs);
-  color: var(--color-gray-dark);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 @media (min-width: 640px) {
@@ -138,11 +138,11 @@
 
 :host ::ng-deep .stat-card.mat-mdc-card {
   padding: var(--space-xl);
-  border-left: 4px solid;
   border-radius: var(--radius-md);
   display: flex;
   flex-direction: column;
   gap: var(--space-xs);
+  color: #fff;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 
   &:hover {
@@ -157,18 +157,19 @@
   font-weight: 800;
   letter-spacing: -1px;
   line-height: 1;
+  color: #fff;
 }
 
 .stat-label {
   font-size: var(--fs-sm);
   font-weight: 600;
-  color: var(--color-text);
+  color: #fff;
   line-height: 1.4;
 }
 
 .stat-sub {
   font-size: var(--fs-xs);
-  color: var(--color-gray-dark);
+  color: rgba(255, 255, 255, 0.85);
   line-height: 1.5;
   flex: 1;
 }
@@ -176,8 +177,9 @@
 .stat-source {
   font-size: var(--fs-xs);
   text-decoration: none;
-  opacity: 0.7;
-  border-top: 1px solid var(--color-gray-light);
+  color: #fff;
+  opacity: 0.8;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
   padding-top: var(--space-sm);
   margin-top: var(--space-sm);
   overflow: hidden;

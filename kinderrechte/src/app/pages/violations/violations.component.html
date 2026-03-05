@@ -15,8 +15,8 @@
       <h2 id="overview-title" class="section-title sub-title" appScrollReveal>Globaler Überblick</h2>
       <div class="overview-grid" appScrollReveal [stagger]="true">
         @for (item of overview; track item.label) {
-          <div class="overview-card" [style.border-left-color]="item.color">
-            <span class="overview-value" [style.color]="item.color">{{ item.value }}</span>
+          <div class="overview-card" [style.background]="item.color">
+            <span class="overview-value">{{ item.value }}</span>
             <span class="overview-label">{{ item.label }}</span>
           </div>
         }
@@ -49,11 +49,11 @@
 
       <div class="stats-grid" appScrollReveal [stagger]="true">
         @for (stat of currentCategory().stats; track stat.label) {
-          <mat-card class="stat-card" [style.border-left-color]="currentCategory().color">
-            <span class="stat-value" [style.color]="currentCategory().color">{{ stat.value }}</span>
+          <mat-card class="stat-card" [style.background]="currentCategory().color">
+            <span class="stat-value">{{ stat.value }}</span>
             <span class="stat-label">{{ stat.label }}</span>
             <span class="stat-sub">{{ stat.sub }}</span>
-            <a [href]="stat.sourceUrl" target="_blank" rel="noopener noreferrer" class="stat-source" [style.color]="currentCategory().color">
+            <a [href]="stat.sourceUrl" target="_blank" rel="noopener noreferrer" class="stat-source">
               ↗ {{ stat.source }}
             </a>
           </mat-card>
