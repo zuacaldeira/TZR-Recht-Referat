@@ -137,7 +137,7 @@ export class PresentationService {
 
     slides.push({
       type: 'info',
-      title: 'Kindheit als Konzept',
+      title: '',
       accent: '#FF9800',
       infoItems: [
         'Das Konzept der Kindheit änderte sich dies während der Aufklärung und durch den Einfluss Rousseaus, der die Kindheit als eigenständige Entwicklungsphase und als eine Zeit definierte, die vor allem durch Unschuld gekennzeichnet ist.',
