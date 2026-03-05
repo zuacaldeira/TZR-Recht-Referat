@@ -109,6 +109,20 @@ export class PresentationService {
     });
 
     slides.push({
+      type: 'info',
+      title: 'Geschichte und Kontext der UN-KRK',
+      accent: '#FF9800',
+      infoItems: [
+        'Die UN-KRK markiert einen bedeutenden Wendepunkt: Kinder als autonome Wesen und eigenständige soziale Gruppe mit eigenen Rechten',
+        'Die UN-Kinderrechtskonvention ist ein Produkt des historischen, kulturellen und politischen Kontextes',
+        'Die Konvention ist ein Musterbeispiel für einen historischen Wandel im Verständnis von Kindheit'
+      ],
+      notes: '[~1 min] Kontext der UN-KRK. Kinder nicht mehr nur Objekte des Schutzes, sondern Subjekte mit eigenen Rechten.',
+      speaker: 'lydia',
+      bgVariant: 'warm'
+    });
+
+    slides.push({
       type: 'quote',
       quoteText: 'Die Aufklärung definierte Kindheit erstmals als eigenständige Entwicklungsphase — geprägt von Unschuld und Schutzbedürftigkeit.',
       quoteAuthor: 'Nach Rousseau · Imoah 2012',
