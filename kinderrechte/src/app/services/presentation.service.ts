@@ -136,6 +136,21 @@ export class PresentationService {
     });
 
     slides.push({
+      type: 'info',
+      title: 'Kindheit als Konzept',
+      accent: '#FF9800',
+      infoItems: [
+        'Das Konzept der Kindheit änderte sich dies während der Aufklärung und durch den Einfluss Rousseaus, der die Kindheit als eigenständige Entwicklungsphase und als eine Zeit definierte, die vor allem durch Unschuld gekennzeichnet ist.',
+        'Anfangs bezog sich diese Konzeptualisierung nur auf die oberen Klassen.',
+        'Das 1870 im Vereinigten Königreich in Kraft getretene Bildungsgesetz brachte jedoch bedeutende Fortschritte bei der Änderung dieser Situation.',
+        'Von diesem Zeitpunkt an wurden weitere Gesetze und Schutzmaßnahmen eingeführt.',
+      ],
+      notes: '[~1 min] Rousseau und Aufklärung. Kindheit als Konzept. (Imoah 2012)',
+      speaker: 'lydia',
+      bgVariant: 'warm'
+    });
+
+    slides.push({
       type: 'timeline-group',
       title: 'Grundlagen (1870–1948)',
       events: [
