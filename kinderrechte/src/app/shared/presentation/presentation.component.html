@@ -37,7 +37,7 @@
             <div class="pres-slide pres-slide--overview" [class.fade-out]="fadeOut()" [class.bg-warm]="slide.bgVariant === 'warm'" [class.bg-purple]="slide.bgVariant === 'purple'" [class.bg-red]="slide.bgVariant === 'red'">
               <div class="pres-title pres-animate">{{ slide.title }}</div>
               <div class="pres-text pres-animate" style="animation-delay: 150ms">{{ slide.text }}</div>
-              <div class="pres-grid pres-animate" style="animation-delay: 300ms">
+              <div class="pres-grid pres-animate" style="animation-delay: 300ms" [style.grid-template-columns]="slide.items!.length === 4 ? 'repeat(2, 1fr)' : 'repeat(3, 1fr)'">
                 @for (item of slide.items; track item.label) {
                   <div class="pres-grid-item" [style.background]="item.color">
                     <h4>{{ item.label }}</h4>
