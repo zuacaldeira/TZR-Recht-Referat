@@ -437,14 +437,6 @@ export class PresentationService {
       bgImage: 'assets/images/slides/section-kritik.jpg'
     });
 
-    slides.push({
-      type: 'quote',
-      quoteText: 'Die UN-Kinderrechtskonvention universalisiert westliche Konzepte von Kindheit.',
-      quoteAuthor: 'Imoah, 2012',
-      notes: '[~1 min] KRK wurzelt in westlichen Entwicklungen. UNO = Produkt des Global North.',
-      speaker: 'lydia',
-      bgVariant: 'purple'
-    });
 
     slides.push({
       type: 'info',
