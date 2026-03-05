@@ -147,7 +147,8 @@ export class PresentationService {
       ],
       notes: '[~1 min] Rousseau und Aufklärung. Kindheit als Konzept. (Imoah 2012)',
       speaker: 'lydia',
-      bgVariant: 'warm'
+      bgVariant: 'warm',
+      compact: true
     });
 
     slides.push({
