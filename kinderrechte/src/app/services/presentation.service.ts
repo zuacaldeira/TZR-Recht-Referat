@@ -151,6 +151,21 @@ export class PresentationService {
     });
 
     slides.push({
+      type: 'info',
+      title: '',
+      accent: '#FF9800',
+      infoItems: [
+        'Nach dem Ersten und Zweiten Weltkrieg wurden die politischen und rechtlichen Perspektiven des 20. Jahrhunderts grundlegend neu gestaltet (Fass 2011).',
+        'Die Zeit nach dem Kalten Krieg führte auch zu einer weiteren Phase der „Liminalität". Institutionen und Weltordnungen, wie man sie bisher kannte, befanden sich erneut im Wandel (Goodall 2015).',
+        'Das Aufkommen neuer Verfassungen und politischer Widerstände auf der ganzen Welt (z. B. in Südafrika) trug dazu bei, unser Verständnis von Menschenrechten im Globalen Norden zu prägen.',
+        'Die Konvention zielt darauf ab, diese in einer Weise zu universalisieren, die in einem internationalen rechtlichen Kontext (Imoah 2012) anwendbar ist, der über Kulturen hinausgeht (Imoah 2012).',
+      ],
+      notes: '[~1 min] Weltkriege, Kalter Krieg, Liminalität. Fass 2011, Goodall 2015, Imoah 2012.',
+      speaker: 'lydia',
+      bgVariant: 'warm'
+    });
+
+    slides.push({
       type: 'timeline-group',
       title: 'Grundlagen (1870–1948)',
       events: [
