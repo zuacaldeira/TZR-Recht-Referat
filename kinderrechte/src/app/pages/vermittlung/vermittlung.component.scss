@@ -286,6 +286,65 @@
   }
 }
 
+// Programme numbered tiles
+.programme-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 640px) {
+  .programme-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.programme-tile {
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  background: var(--color-white);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  h3 {
+    font-size: var(--fs-base);
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+    position: relative;
+  }
+
+  p {
+    font-size: var(--fs-sm);
+    color: var(--color-gray-dark);
+    line-height: 1.7;
+    margin: 0;
+    position: relative;
+  }
+}
+
+.vermittlung-section:nth-child(even) .programme-tile {
+  background: var(--color-bg);
+}
+
+.tile-number {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-md);
+  font-size: var(--fs-3xl, 2.5rem);
+  font-weight: 800;
+  color: #00897B;
+  opacity: 0.12;
+  line-height: 1;
+  pointer-events: none;
+}
+
 // Zukunft comparison layout
 .zukunft-compare {
   display: grid;
