@@ -113,7 +113,7 @@ export class PresentationService {
     slides.push({
       type: 'section',
       icon: '🕰️',
-      title: 'Geschichte der Kinderrechte',
+      title: 'Geschichte und Kontext',
       text: 'Von 1870 bis heute — über 150 Jahre Kampf für die Rechte der Kinder',
       notes: '[Überleitung] Lydia beginnt.',
       speaker: 'lydia',
