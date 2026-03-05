@@ -258,8 +258,8 @@
               </div>
               <div class="pres-ab-grid pres-animate" style="animation-delay: 200ms">
                 @for (art of filteredArticles(); track art.id) {
-                  <div class="pres-ab-card" [style.border-color]="getCatColor(art.category)">
-                    <span class="pres-ab-card-id" [style.color]="getCatColor(art.category)">Art. {{ art.id }}</span>
+                  <div class="pres-ab-card" [style.background]="getCatColor(art.category)">
+                    <span class="pres-ab-card-id">Art. {{ art.id }}</span>
                     <h4>{{ art.title }}</h4>
                     <p>{{ art.summary }}</p>
                   </div>
