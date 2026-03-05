@@ -27,6 +27,25 @@ export class VermittlungComponent {
     { title: 'Klassenrat als Partizipationstool', text: 'Der Klassenrat ist ein praktisches Werkzeug zur Umsetzung von Artikel 12 UN-KRK. Kinder lernen demokratische Prozesse, Konfliktlösung und erfahren Selbstwirksamkeit.' },
   ];
 
+  readonly zukunftCompare = {
+    left: {
+      label: 'Herausforderungen',
+      items: [
+        { title: 'Digitale Rechte', text: 'Datenschutz, Online-Mobbing, altersgerechte Inhalte und das Recht auf Vergessen. Die EU arbeitet an einer „Digital Rights for Children"-Strategie.' },
+        { title: 'Klimawandel', text: 'Bedroht Kinderrechte weltweit: Recht auf Gesundheit, sauberes Wasser, Nahrung und eine sichere Zukunft.' },
+        { title: 'Grundgesetz-Debatte', text: 'Ein Gesetzentwurf von 2021 scheiterte. Die Debatte um explizite Verankerung von Kinderrechten geht weiter.' },
+      ]
+    },
+    right: {
+      label: 'Positive Entwicklungen',
+      items: [
+        { title: '2026 — Jahr der Kinderrechte', text: 'Die Bundesregierung hat 2026 zum Jahr der Kinderrechte erklärt, mit zahlreichen Aktionen und Kampagnen.' },
+        { title: 'Kinderrechte-Index 2025', text: 'Der Index des Deutschen Kinderhilfswerks macht Umsetzungsunterschiede zwischen Bundesländern sichtbar.' },
+        { title: 'Kinder als politische Akteure', text: 'Kinder und Jugendliche werden zunehmend aktiv in Klimabewegung, Schülerparlamenten und politischer Mitgestaltung.' },
+      ]
+    }
+  };
+
   readonly programmeItems = [
     { title: 'Kinderrechte-Landschaften 2025–2026', text: 'Das Programm der Deutschen Kinder- und Jugendstiftung (DKJS) vernetzt 10 Kitas und 16 Schulen, um Kinderrechte strukturell in den Einrichtungsalltag zu integrieren.' },
     { title: 'UNICEF Kinderrechteschulen', text: 'Ein 7-stufiges Ausbildungsprogramm, das Schulen dabei unterstützt, Kinderrechte ganzheitlich zu leben. Aktiv in NRW, Niedersachsen, Sachsen und Schleswig-Holstein.' },

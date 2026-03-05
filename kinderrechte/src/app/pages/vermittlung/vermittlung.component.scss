@@ -286,6 +286,70 @@
   }
 }
 
+// Zukunft comparison layout
+.zukunft-compare {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+}
+
+@media (min-width: 768px) {
+  .zukunft-compare {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.compare-column {
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  background: var(--color-white);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  &--challenges {
+    border-top: 4px solid var(--color-participation);
+  }
+
+  &--positive {
+    border-top: 4px solid var(--color-development);
+  }
+}
+
+.vermittlung-section:nth-child(even) .compare-column {
+  background: var(--color-bg);
+}
+
+.compare-heading {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  margin-bottom: var(--space-lg);
+}
+
+.compare-item {
+  margin-bottom: var(--space-md);
+
+  &:last-child { margin-bottom: 0; }
+
+  strong {
+    display: block;
+    font-size: var(--fs-sm);
+    color: var(--color-text);
+    margin-bottom: var(--space-2xs, 4px);
+  }
+
+  p {
+    font-size: var(--fs-sm);
+    color: var(--color-gray-dark);
+    line-height: 1.7;
+    margin: 0;
+  }
+}
+
 // Links section
 .links-grid {
   display: grid;

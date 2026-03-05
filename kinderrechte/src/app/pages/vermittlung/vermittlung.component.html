@@ -177,28 +177,25 @@
       <h2 id="zukunft-title" class="section-title sub-title" appScrollReveal>Zukunft der Kinderrechte</h2>
       <div class="vermittlung-accent vermittlung-accent--zukunft" appScrollReveal></div>
 
-      <div class="grid grid-3" appScrollReveal [stagger]="true">
-        <mat-card class="vermittlung-card">
-          <h3>
-            <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/></svg>
-            Digitale Rechte
-          </h3>
-          <p>Kinder wachsen in einer digitalen Welt auf. Neue Herausforderungen sind Datenschutz, Online-Mobbing, altersgerechte Inhalte und das Recht auf Vergessen. Die EU arbeitet an einer „Digital Rights for Children"-Strategie.</p>
-        </mat-card>
-        <mat-card class="vermittlung-card">
-          <h3>
-            <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z"/></svg>
-            Grundgesetz-Debatte
-          </h3>
-          <p>Seit Jahren wird diskutiert, Kinderrechte explizit im Grundgesetz zu verankern. Ein Gesetzentwurf von 2021 scheiterte, die Debatte geht weiter. Befürworter sehen darin eine Stärkung der Rechtsposition von Kindern.</p>
-        </mat-card>
-        <mat-card class="vermittlung-card">
-          <h3>
-            <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-            Klimawandel
-          </h3>
-          <p>Der Klimawandel bedroht Kinderrechte weltweit: Recht auf Gesundheit, sauberes Wasser, Nahrung und eine sichere Zukunft. Kinder und Jugendliche werden zunehmend zu Akteuren der Klimabewegung.</p>
-        </mat-card>
+      <div class="zukunft-compare" appScrollReveal [stagger]="true">
+        <div class="compare-column compare-column--challenges">
+          <h3 class="compare-heading">{{ zukunftCompare.left.label }}</h3>
+          @for (item of zukunftCompare.left.items; track item.title) {
+            <div class="compare-item">
+              <strong>{{ item.title }}</strong>
+              <p>{{ item.text }}</p>
+            </div>
+          }
+        </div>
+        <div class="compare-column compare-column--positive">
+          <h3 class="compare-heading">{{ zukunftCompare.right.label }}</h3>
+          @for (item of zukunftCompare.right.items; track item.title) {
+            <div class="compare-item">
+              <strong>{{ item.title }}</strong>
+              <p>{{ item.text }}</p>
+            </div>
+          }
+        </div>
       </div>
     </div>
   </section>
