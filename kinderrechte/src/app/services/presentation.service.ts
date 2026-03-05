@@ -165,6 +165,7 @@ export class PresentationService {
       title: 'Nach der KRK (1990–2015)',
       events: [
         { year: 1990, title: 'KRK tritt in Kraft', summary: 'Schnellste Ratifikation', color: '#4CAF50' },
+        { year: 1992, title: 'KRK tritt in Kraft', summary: 'Ratifizierung in Deutschland', color: '#FF9800' },
         { year: 2000, title: 'Zusatzprotokolle', summary: 'Kinderhandel & Kindersoldaten', color: '#E91E63' },
         { year: 2011, title: 'Beschwerderecht', summary: 'Kinder klagen beim UN-Ausschuss', color: '#03A9F4' },
         { year: 2015, title: 'Somalia ratifiziert', summary: 'Nur noch die USA fehlen', color: '#4CAF50' },
