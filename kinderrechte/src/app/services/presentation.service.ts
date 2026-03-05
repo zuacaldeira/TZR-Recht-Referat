@@ -538,6 +538,20 @@ export class PresentationService {
       compact: true
     });
 
+    slides.push({
+      type: 'info',
+      title: '„Post-paternalistischer Ansatz"',
+      accent: '#9C27B0',
+      infoItems: [
+        'Der Aufstieg des Jugendaktivismus als Reaktion auf den Klimawandel hat die Fähigkeit direkter partizipativer Maßnahmen zur Herbeiführung von Veränderungen deutlich gemacht.',
+        'Dies hat Auswirkungen auf internationale Rechtsrahmen, die von Natur aus von Erwachsenen geprägt sind (Daly 2022).',
+        'Befreiung der Jugend (politische Theorie)',
+      ],
+      notes: '[~1 min] Post-paternalistischer Ansatz. Daly 2022: Jugendaktivismus und Klimawandel.',
+      speaker: 'lydia',
+      bgVariant: 'purple'
+    });
+
     // ===== 8. INTERACTION (Both) — ~3 min =====
     slides.push({
       type: 'interaction',
