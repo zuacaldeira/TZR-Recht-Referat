@@ -227,37 +227,37 @@
 
 .nav-card {
   display: block;
-  background: var(--color-white);
   border-radius: var(--radius-lg);
   padding: var(--space-xl);
   box-shadow: var(--shadow-sm);
   transition: transform var(--transition-base), box-shadow var(--transition-base);
-  border-left: 4px solid transparent;
+  color: #fff;
 
   &:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-lg);
   }
 
-  &[data-variant="timeline"] { border-left-color: var(--color-survival); }
-  &[data-variant="articles"] { border-left-color: var(--color-development); }
-  &[data-variant="games"] { border-left-color: var(--color-protection); }
-  &[data-variant="vermittlung"] { border-left-color: var(--color-participation); }
-  &[data-variant="violations"] { border-left-color: #C0392B; }
+  &[data-variant="timeline"] { background: var(--color-survival); }
+  &[data-variant="articles"] { background: var(--color-development); }
+  &[data-variant="games"] { background: var(--color-protection); }
+  &[data-variant="vermittlung"] { background: var(--color-participation); }
+  &[data-variant="violations"] { background: #C0392B; }
 
   h3 {
     font-size: var(--fs-lg);
     margin-bottom: var(--space-xs);
+    color: #fff;
   }
 
   p {
     font-size: var(--fs-sm);
-    color: var(--color-gray-dark);
+    color: rgba(255, 255, 255, 0.9);
   }
 
   .arrow {
     margin-top: var(--space-sm);
-    color: var(--color-participation);
+    color: #fff;
     font-weight: 700;
     font-size: var(--fs-sm);
   }
