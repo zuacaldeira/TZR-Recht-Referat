@@ -504,10 +504,17 @@ export class PresentationService {
     });
 
     slides.push({
-      type: 'quote',
-      quoteText: 'Kulturrelativismus oder universelle Rechte? Oder liegt die Antwort in der Mitte?',
-      quoteAuthor: 'Offene Frage zur Diskussion',
-      notes: '[~30 sec] Überleitung zur Interaktion.',
+      type: 'info',
+      title: '',
+      accent: '#9C27B0',
+      infoItems: [
+        'Die Frage ist: Hält der kulturelle Relativismus einer genauen Prüfung stand? Oder gibt es moralische Absolutheiten, die wir universell aufrechterhalten müssen? Oder liegt die Antwort irgendwo dazwischen?',
+        'Wo stehen wir nun?',
+        'Ist die Konvention nur ein „westliches Konstrukt"?',
+        'Können wir einen Mittelweg finden?',
+        'Was bedeutet das für eine multikulturelle Gesellschaft und eine multikulturelle Stadt wie Berlin?',
+      ],
+      notes: '[~1 min] Offene Fragen zum Nachdenken. Überleitung zur Diskussion.',
       speaker: 'lydia',
       bgVariant: 'purple'
     });
