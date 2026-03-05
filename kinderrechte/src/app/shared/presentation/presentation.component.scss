@@ -50,7 +50,7 @@
   border: none;
   border-radius: 50%;
   color: rgba(255, 255, 255, 0.7);
-  font-size: 1.5rem;
+  font-size: 3rem;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -75,7 +75,7 @@
   border: none;
   border-radius: 50%;
   color: rgba(255, 255, 255, 0.6);
-  font-size: 1.25rem;
+  font-size: 2.5rem;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -107,7 +107,7 @@
   position: absolute;
   bottom: 1rem;
   right: 1.5rem;
-  font-size: 0.875rem;
+  font-size: 1.75rem;
   color: rgba(255, 255, 255, 0.5);
   font-family: var(--font-body);
   z-index: 10;
@@ -160,14 +160,14 @@
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
 
   .pres-title {
-    font-size: 3rem;
+    font-size: 6rem;
     font-weight: 800;
     margin-bottom: 1rem;
     line-height: 1.2;
   }
 
   .pres-subtitle {
-    font-size: 1.25rem;
+    font-size: 2.5rem;
     color: rgba(255, 255, 255, 0.7);
     font-family: var(--font-body);
     max-width: 600px;
@@ -183,7 +183,7 @@
   position: relative;
 
   .pres-title {
-    font-size: 3.5rem;
+    font-size: 7rem;
     font-weight: 800;
     margin-bottom: 0.5rem;
     line-height: 1.2;
@@ -201,7 +201,7 @@
   }
 
   .pres-subtitle {
-    font-size: 1.25rem;
+    font-size: 2.5rem;
     color: rgba(255, 255, 255, 0.9);
     font-family: var(--font-body);
     max-width: 600px;
@@ -212,7 +212,7 @@
 
   .pres-hero-authors {
     margin-top: 2rem;
-    font-size: 1.1rem;
+    font-size: 2.2rem;
     color: rgba(255, 255, 255, 0.95);
     font-weight: 600;
     text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
@@ -220,7 +220,7 @@
 
   .pres-hero-meta {
     margin-top: 0.375rem;
-    font-size: 0.9rem;
+    font-size: 1.8rem;
     color: rgba(255, 255, 255, 0.75);
     font-family: var(--font-body);
     text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
@@ -232,13 +232,13 @@
   background: radial-gradient(circle at 20% 80%, rgba(3, 169, 244, 0.08) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(76, 175, 80, 0.06) 0%, transparent 50%), #1a1a2e;
 
   .pres-title {
-    font-size: 2.5rem;
+    font-size: 5rem;
     font-weight: 800;
     margin-bottom: 1rem;
   }
 
   .pres-text {
-    font-size: 1.125rem;
+    font-size: 2.25rem;
     color: rgba(255, 255, 255, 0.8);
     font-family: var(--font-body);
     max-width: 700px;
@@ -264,13 +264,13 @@
     border-left: 4px solid;
 
     h4 {
-      font-size: 1.1rem;
+      font-size: 2.2rem;
       font-weight: 700;
       margin-bottom: 0.25rem;
     }
 
     p {
-      font-size: 0.95rem;
+      font-size: 1.9rem;
       color: rgba(255, 255, 255, 0.6);
       font-family: var(--font-body);
     }
@@ -284,7 +284,7 @@
   background: radial-gradient(circle at 20% 80%, rgba(76, 175, 80, 0.08) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(3, 169, 244, 0.06) 0%, transparent 50%), #1a1a2e;
 
   .pres-title {
-    font-size: 2.25rem;
+    font-size: 4.5rem;
     font-weight: 800;
     margin-bottom: 1.5rem;
   }
@@ -297,7 +297,7 @@
     padding: 0;
 
     li {
-      font-size: 1.15rem;
+      font-size: 2.3rem;
       color: rgba(255, 255, 255, 0.85);
       font-family: var(--font-body);
       padding: 0.75rem 0 0.75rem 1.5rem;
@@ -324,7 +324,7 @@
   background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
 
   .pres-title {
-    font-size: 2.25rem;
+    font-size: 4.5rem;
     font-weight: 800;
     margin-bottom: 1.5rem;
   }
@@ -338,7 +338,7 @@
     counter-reset: question;
 
     li {
-      font-size: 1.1rem;
+      font-size: 2.2rem;
       color: rgba(255, 255, 255, 0.9);
       font-family: var(--font-body);
       padding: 0.75rem 0 0.75rem 2.5rem;
@@ -364,26 +364,26 @@
   background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 50%, #16213e 100%);
 
   .pres-title {
-    font-size: 3rem;
+    font-size: 6rem;
     font-weight: 800;
     margin-bottom: 0.5rem;
   }
 
   .pres-subtitle {
-    font-size: 1.25rem;
+    font-size: 2.5rem;
     color: rgba(255, 255, 255, 0.7);
     font-family: var(--font-body);
     margin-bottom: 2rem;
   }
 
   .pres-authors {
-    font-size: 1.125rem;
+    font-size: 2.25rem;
     color: rgba(255, 255, 255, 0.9);
     margin-bottom: 0.5rem;
   }
 
   .pres-meta {
-    font-size: 0.95rem;
+    font-size: 1.9rem;
     color: rgba(255, 255, 255, 0.5);
     font-family: var(--font-body);
     margin-bottom: 2rem;
@@ -404,7 +404,7 @@
   }
 
   .pres-qr-label {
-    font-size: 0.8rem;
+    font-size: 1.6rem;
     color: rgba(255, 255, 255, 0.4);
     margin-top: 0.5rem;
     font-family: var(--font-body);
@@ -426,7 +426,7 @@
   }
 
   .pres-stat-value {
-    font-size: 6rem;
+    font-size: 12rem;
     font-weight: 800;
     color: var(--stat-color, #03A9F4);
     line-height: 1;
@@ -436,7 +436,7 @@
   }
 
   .pres-stat-label {
-    font-size: 1.75rem;
+    font-size: 3.5rem;
     font-weight: 700;
     color: #fff;
     margin-bottom: 1rem;
@@ -446,7 +446,7 @@
   }
 
   .pres-stat-context {
-    font-size: 1.15rem;
+    font-size: 2.3rem;
     color: rgba(255, 255, 255, 0.7);
     font-family: var(--font-body);
     max-width: 600px;
@@ -455,7 +455,7 @@
   }
 
   .pres-stat-source {
-    font-size: 0.9rem;
+    font-size: 1.8rem;
     color: rgba(255, 255, 255, 0.4);
     margin-top: 1.5rem;
     font-family: var(--font-body);
@@ -478,7 +478,7 @@
   }
 
   .pres-quote-text {
-    font-size: 1.75rem;
+    font-size: 3.5rem;
     font-weight: 700;
     color: #fff;
     max-width: 700px;
@@ -490,7 +490,7 @@
     &::before {
       content: '\201C';
       display: block;
-      font-size: 4rem;
+      font-size: 8rem;
       color: rgba(3, 169, 244, 0.6);
       line-height: 1;
       margin-bottom: 0.5rem;
@@ -499,7 +499,7 @@
   }
 
   .pres-quote-author {
-    font-size: 1rem;
+    font-size: 2rem;
     color: rgba(255, 255, 255, 0.6);
     font-family: var(--font-body);
     font-style: normal;
@@ -513,7 +513,7 @@
   background: radial-gradient(circle at 20% 80%, rgba(156, 39, 176, 0.08) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(3, 169, 244, 0.06) 0%, transparent 50%), #1a1a2e;
 
   .pres-title {
-    font-size: 2.25rem;
+    font-size: 4.5rem;
     font-weight: 800;
     margin-bottom: 2rem;
   }
@@ -536,7 +536,7 @@
     border-top: 4px solid;
 
     h4 {
-      font-size: 1.35rem;
+      font-size: 2.7rem;
       font-weight: 700;
       margin-bottom: 1rem;
     }
@@ -547,7 +547,7 @@
     }
 
     li {
-      font-size: 1.05rem;
+      font-size: 2.1rem;
       color: rgba(255, 255, 255, 0.8);
       font-family: var(--font-body);
       padding: 0.5rem 0;
@@ -603,7 +603,7 @@
 }
 
 .pres-grid-thumb-num {
-  font-size: 0.7rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.4);
   font-family: var(--font-body);
@@ -612,11 +612,11 @@
 }
 
 .pres-grid-thumb-icon {
-  font-size: 1.25rem;
+  font-size: 2.5rem;
 }
 
 .pres-grid-thumb-title {
-  font-size: 0.85rem;
+  font-size: 1.7rem;
   font-weight: 600;
   line-height: 1.3;
   color: rgba(255, 255, 255, 0.85);
@@ -635,7 +635,7 @@
   backdrop-filter: blur(8px);
   border-radius: 0.5rem;
   padding: 0.75rem 1rem;
-  font-size: 0.85rem;
+  font-size: 1.7rem;
   color: rgba(255, 255, 255, 0.8);
   font-family: var(--font-body);
   line-height: 1.5;
@@ -651,22 +651,22 @@
 
   .pres-slide--title .pres-title,
   .pres-slide--hero .pres-title {
-    font-size: 2rem;
+    font-size: 4rem;
   }
 
   .pres-slide--title .pres-subtitle,
   .pres-slide--hero .pres-subtitle {
-    font-size: 1rem;
+    font-size: 2rem;
   }
 
   .pres-slide--category .pres-title,
   .pres-slide--overview .pres-title {
-    font-size: 1.75rem;
+    font-size: 3.5rem;
   }
 
   .pres-slide--category .pres-text,
   .pres-slide--overview .pres-text {
-    font-size: 1rem;
+    font-size: 2rem;
   }
 
   .pres-slide--overview .pres-grid {
@@ -677,35 +677,35 @@
   .pres-slide--info .pres-title,
   .pres-slide--question .pres-title,
   .pres-slide--section .pres-title {
-    font-size: 1.75rem;
+    font-size: 3.5rem;
   }
 
   .pres-slide--end .pres-title {
-    font-size: 2rem;
+    font-size: 4rem;
   }
 
-  .pres-slide--stat .pres-stat-value { font-size: 3.5rem; }
-  .pres-slide--stat .pres-stat-label { font-size: 1.25rem; }
-  .pres-slide--quote .pres-quote-text { font-size: 1.25rem; }
+  .pres-slide--stat .pres-stat-value { font-size: 7rem; }
+  .pres-slide--stat .pres-stat-label { font-size: 2.5rem; }
+  .pres-slide--quote .pres-quote-text { font-size: 2.5rem; }
   .pres-slide--compare .pres-compare-grid { grid-template-columns: 1fr; gap: 1rem; }
-  .pres-slide--section .pres-section-icon { font-size: 2rem; }
-  .pres-slide--agenda .pres-title { font-size: 1.75rem; }
-  .pres-slide--summary .pres-title { font-size: 1.75rem; }
-  .pres-slide--interaction .pres-title { font-size: 1.75rem; }
-  .pres-interaction-q { font-size: 1.15rem; }
+  .pres-slide--section .pres-section-icon { font-size: 4rem; }
+  .pres-slide--agenda .pres-title { font-size: 3.5rem; }
+  .pres-slide--summary .pres-title { font-size: 3.5rem; }
+  .pres-slide--interaction .pres-title { font-size: 3.5rem; }
+  .pres-interaction-q { font-size: 2.3rem; }
   .pres-interaction-options { grid-template-columns: 1fr; }
-  .pres-slide--article-group .pres-title { font-size: 1.5rem; }
+  .pres-slide--article-group .pres-title { font-size: 3rem; }
   .pres-article-cards { grid-template-columns: 1fr; }
   .pres-ab-grid { grid-template-columns: 1fr; }
-  .pres-tg-year { font-size: 1rem; }
-  .pres-tg-event h4 { font-size: 0.85rem; }
-  .pres-tg-event p { font-size: 0.75rem; }
-  .pres-ag-icon { width: 36px; height: 36px; font-size: 1.1rem; }
+  .pres-tg-year { font-size: 2rem; }
+  .pres-tg-event h4 { font-size: 1.7rem; }
+  .pres-tg-event p { font-size: 1.5rem; }
+  .pres-ag-icon { width: 36px; height: 36px; font-size: 2.2rem; }
 
   .pres-nav {
     width: 40px;
     height: 40px;
-    font-size: 1rem;
+    font-size: 2rem;
   }
 
   .pres-nav--prev {
@@ -725,7 +725,7 @@
   .pres-notes {
     width: calc(100% - 3rem);
     bottom: 1.5rem;
-    font-size: 0.75rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -736,25 +736,25 @@
 
   .pres-slide--title .pres-title,
   .pres-slide--hero .pres-title {
-    font-size: 2.5rem;
+    font-size: 5rem;
   }
 }
 
 @media (min-width: 1440px) {
   .pres-slide--title .pres-title,
   .pres-slide--hero .pres-title {
-    font-size: 3.5rem;
+    font-size: 7rem;
   }
 
   .pres-slide--hero .pres-title {
-    font-size: 4rem;
+    font-size: 8rem;
   }
 
-  .pres-slide--stat .pres-stat-value { font-size: 8rem; }
-  .pres-slide--stat .pres-stat-label { font-size: 2rem; }
-  .pres-slide--quote .pres-quote-text { font-size: 2.25rem; }
-  .pres-slide--section .pres-title { font-size: 3.25rem; }
-  .pres-tg-year { font-size: 1.75rem; }
+  .pres-slide--stat .pres-stat-value { font-size: 16rem; }
+  .pres-slide--stat .pres-stat-label { font-size: 4rem; }
+  .pres-slide--quote .pres-quote-text { font-size: 4.5rem; }
+  .pres-slide--section .pres-title { font-size: 6.5rem; }
+  .pres-tg-year { font-size: 3.5rem; }
 }
 
 /* ===== AGENDA SLIDE ===== */
@@ -763,7 +763,7 @@
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
 
   .pres-title {
-    font-size: 2.5rem;
+    font-size: 5rem;
     font-weight: 800;
     margin-bottom: 2rem;
   }
@@ -785,7 +785,7 @@
 }
 
 .pres-agenda-icon {
-  font-size: 1.25rem;
+  font-size: 2.5rem;
   width: 2rem;
   text-align: center;
   flex-shrink: 0;
@@ -793,14 +793,14 @@
 
 .pres-agenda-label {
   flex: 1;
-  font-size: 1.15rem;
+  font-size: 2.3rem;
   color: rgba(255, 255, 255, 0.9);
   font-family: var(--font-body);
   text-align: left;
 }
 
 .pres-agenda-speaker {
-  font-size: 0.85rem;
+  font-size: 1.7rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -814,7 +814,7 @@
   background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 50%, #16213e 100%);
 
   .pres-title {
-    font-size: 2.5rem;
+    font-size: 5rem;
     font-weight: 800;
     margin-bottom: 2rem;
   }
@@ -828,7 +828,7 @@
   text-align: left;
 
   li {
-    font-size: 1.1rem;
+    font-size: 2.2rem;
     color: rgba(255, 255, 255, 0.85);
     font-family: var(--font-body);
     padding: 0.6rem 0 0.6rem 1.5rem;
@@ -852,14 +852,14 @@
   background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
 
   .pres-title {
-    font-size: 2.5rem;
+    font-size: 5rem;
     font-weight: 800;
     margin-bottom: 1rem;
   }
 }
 
 .pres-interaction-q {
-  font-size: 1.5rem;
+  font-size: 3rem;
   color: rgba(255, 255, 255, 0.9);
   font-family: var(--font-body);
   max-width: 700px;
@@ -884,7 +884,7 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-size: 1.1rem;
+  font-size: 2.2rem;
   color: rgba(255, 255, 255, 0.85);
   font-family: var(--font-body);
   text-align: left;
@@ -900,13 +900,13 @@
   align-items: center;
   justify-content: center;
   font-weight: 800;
-  font-size: 0.9rem;
+  font-size: 1.8rem;
   flex-shrink: 0;
 }
 
 .pres-interaction-hint {
   margin-top: 2rem;
-  font-size: 1.25rem;
+  font-size: 2.5rem;
   font-weight: 800;
   color: var(--color-participation);
   letter-spacing: 1px;
@@ -918,7 +918,7 @@
   background: radial-gradient(circle at 20% 80%, rgba(255, 152, 0, 0.08) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(3, 169, 244, 0.06) 0%, transparent 50%), #1a1a2e;
 
   .pres-title {
-    font-size: 2.25rem;
+    font-size: 4.5rem;
     font-weight: 800;
     margin-bottom: 1.5rem;
   }
@@ -942,7 +942,7 @@
   border-left: 4px solid;
 
   h4 {
-    font-size: 1.1rem;
+    font-size: 2.2rem;
     font-weight: 700;
     color: #fff;
     margin-bottom: 0.375rem;
@@ -950,7 +950,7 @@
   }
 
   p {
-    font-size: 1rem;
+    font-size: 2rem;
     color: rgba(255, 255, 255, 0.65);
     font-family: var(--font-body);
     line-height: 1.6;
@@ -958,7 +958,7 @@
 }
 
 .pres-article-card-id {
-  font-size: 0.85rem;
+  font-size: 1.7rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -972,7 +972,7 @@
   background: linear-gradient(135deg, #2d1b00 0%, #1a1a2e 60%, #16213e 100%);
 
   .pres-title {
-    font-size: 2.25rem;
+    font-size: 4.5rem;
     font-weight: 800;
     margin-bottom: 2rem;
   }
@@ -1015,14 +1015,14 @@
 
 .pres-tg-year {
   display: block;
-  font-size: 1.5rem;
+  font-size: 3rem;
   font-weight: 800;
   margin-bottom: 0.375rem;
   line-height: 1;
 }
 
 .pres-tg-event h4 {
-  font-size: 1.05rem;
+  font-size: 2.1rem;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 0.25rem;
@@ -1030,7 +1030,7 @@
 }
 
 .pres-tg-event p {
-  font-size: 0.9rem;
+  font-size: 1.8rem;
   color: rgba(255, 255, 255, 0.55);
   font-family: var(--font-body);
   line-height: 1.5;
@@ -1044,7 +1044,7 @@
   justify-content: flex-start !important;
 
   .pres-title {
-    font-size: 2rem;
+    font-size: 4rem;
     font-weight: 800;
     margin-bottom: 1rem;
   }
@@ -1068,7 +1068,7 @@
   border: 1px solid rgba(255, 255, 255, 0.15);
   background: rgba(255, 255, 255, 0.08);
   color: #fff;
-  font-size: 1rem;
+  font-size: 2rem;
   font-family: var(--font-body);
   outline: none;
   transition: border-color 200ms ease;
@@ -1090,7 +1090,7 @@
   border: 1px solid rgba(255, 255, 255, 0.15);
   background: rgba(255, 255, 255, 0.06);
   color: rgba(255, 255, 255, 0.7);
-  font-size: 0.85rem;
+  font-size: 1.7rem;
   font-family: var(--font-body);
   cursor: pointer;
   transition: all 200ms ease;
@@ -1110,7 +1110,7 @@
 }
 
 .pres-ab-count {
-  font-size: 0.85rem;
+  font-size: 1.7rem;
   color: rgba(255, 255, 255, 0.4);
   font-family: var(--font-body);
 }
@@ -1134,7 +1134,7 @@
   border-left: 3px solid;
 
   h4 {
-    font-size: 0.95rem;
+    font-size: 1.9rem;
     font-weight: 700;
     color: #fff;
     margin-bottom: 0.25rem;
@@ -1142,7 +1142,7 @@
   }
 
   p {
-    font-size: 0.8rem;
+    font-size: 1.6rem;
     color: rgba(255, 255, 255, 0.6);
     font-family: var(--font-body);
     line-height: 1.5;
@@ -1150,7 +1150,7 @@
 }
 
 .pres-ab-card-id {
-  font-size: 0.7rem;
+  font-size: 1.4rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -1205,19 +1205,19 @@
   position: relative;
 
   .pres-section-icon {
-    font-size: 3rem;
+    font-size: 6rem;
     margin-bottom: 1rem;
     opacity: 0.8;
   }
 
   .pres-title {
-    font-size: 2.75rem;
+    font-size: 5.5rem;
     font-weight: 800;
     margin-bottom: 0.75rem;
   }
 
   .pres-text {
-    font-size: 1.15rem;
+    font-size: 2.3rem;
     color: rgba(255, 255, 255, 0.7);
     font-family: var(--font-body);
     max-width: 600px;
@@ -1290,12 +1290,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 3rem;
   flex-shrink: 0;
 }
 
 .pres-ag-desc {
-  font-size: 1.05rem;
+  font-size: 2.1rem;
   color: rgba(255, 255, 255, 0.6);
   font-family: var(--font-body);
   margin-bottom: 1.5rem;
@@ -1322,7 +1322,7 @@
   position: absolute;
   top: 1rem;
   left: 1.5rem;
-  font-size: 0.8rem;
+  font-size: 1.6rem;
   font-weight: 700;
   font-family: var(--font-heading);
   text-transform: uppercase;
@@ -1356,7 +1356,7 @@
   position: absolute;
   top: 4px;
   right: 4px;
-  font-size: 0.55rem;
+  font-size: 1.1rem;
   font-weight: 800;
   padding: 1px 5px;
   border-radius: 6px;
