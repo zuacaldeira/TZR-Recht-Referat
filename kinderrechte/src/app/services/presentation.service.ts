@@ -552,6 +552,23 @@ export class PresentationService {
       bgVariant: 'purple'
     });
 
+    slides.push({
+      type: 'info',
+      title: 'Zukünftige Perspektiven und politische Auswirkungen',
+      subtitle: 'Fragen zum Nachdenken und zur Diskussion',
+      accent: '#9C27B0',
+      infoItems: [
+        'Wie sehen Kinderrechte in unserem aktuellen politischen Klima aus?',
+        'Im Lichte der sozialen Medien?',
+        'Im Lichte des zunehmenden Rechtsextremismus?',
+        'Im Lichte der Folgen der Covid-Pandemie?',
+        'Im Lichte des Klimawandels?',
+      ],
+      notes: '[~1 min] Fragen zum Nachdenken. Überleitung zur Interaktion.',
+      speaker: 'lydia',
+      bgVariant: 'purple'
+    });
+
     // ===== 8. INTERACTION (Both) — ~3 min =====
     slides.push({
       type: 'interaction',
