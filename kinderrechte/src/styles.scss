@@ -173,7 +173,7 @@ button {
 }
 
 .page-content {
-  padding-top: calc(var(--nav-height) + var(--space-md));
+  padding-top: var(--nav-height);
   padding-bottom: var(--space-4xl);
   min-height: 100vh;
 }
